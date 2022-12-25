@@ -40,7 +40,3 @@ testem.log
 # System files
 .DS_Store
 Thumbs.db
-# Ignore everything in this directory
-*
-# Except this file
-!.gitignore
