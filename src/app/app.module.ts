@@ -12,6 +12,7 @@ import { PreloaderContentComponent } from './layout/preloader-content/preloader-
 import { AboutComponent } from './pages/about/about.component';
 
 import { HomeComponent } from './pages/home/home.component';
+import { ProfileComponent } from './pages/profile/profile.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { HomeComponent } from './pages/home/home.component';
     SideMenuComponent,
     PreloaderContentComponent,
     AboutComponent,
-    HomeComponent
+    HomeComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,

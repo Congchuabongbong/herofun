@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import * as Aos from 'aos';
-
+import { Router, NavigationStart, NavigationEnd } from '@angular/router';
+import { Location, PopStateEvent } from "@angular/common";
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -8,10 +9,31 @@ import * as Aos from 'aos';
 
 })
 export class AppComponent implements OnInit {
+  private lastPoppedUrl!: string | undefined;
+  private yScrollStack: any[] = [];
+
+  constructor(private router: Router, private location: Location) { }
+
   ngOnInit(): void {
     Aos.init({
       once: true,
     });
+    this.location.subscribe((ev: PopStateEvent) => {
+      this.lastPoppedUrl = ev.url;
+    });
+    this.router.events.subscribe((ev: any) => {
+      if (ev instanceof NavigationStart) {
+        if (ev.url != this.lastPoppedUrl)
+          this.yScrollStack.push(window.scrollY);
+      } else if (ev instanceof NavigationEnd) {
+        if (ev.url == this.lastPoppedUrl) {
+          this.lastPoppedUrl = undefined;
+          window.scrollTo(0, this.yScrollStack.pop());
+        } else
+          window.scrollTo(0, 0);
+      }
+    });
+
   }
 
 }

@@ -6,7 +6,7 @@
         <div class="col-sm-12 col-md-6 col-lg-4 col-xl-4">
           <div class="widget-item">
             <div class="about-widget">
-              <a class="footer-logo" href="index.html">
+              <a class="footer-logo" routerLink="home" routerLinkActive="active" ariaCurrentWhenActive="page">
                 <img src="assets/img/logo.png" alt="Logo">
               </a>
               <p>Lorem Ipsum is simply dummy text of the industry orem Ipsum has been the industry's since the when
@@ -95,7 +95,9 @@
       </div>
     </div>
     <!--== Scroll Top Button ==-->
-    <div class="scroll-to-top"><img src="assets/img/icons/arrow-up-line.png" alt="Icon-Image"></div>
+    <div class="scroll-to-top" (click)="onClickOnToTop()"><img src="assets/img/icons/arrow-up-line.png"
+        alt="Icon-Image">
+    </div>
   </div>
   <div class="footer-bottom">
     <div class="container">

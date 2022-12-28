@@ -234,9 +234,6 @@
    When document is loading, do
    ========================================================================== */
   varWindow.on("load", function () {
-    AOS.init({
-      once: true,
-    });
     stylePreloader();
   });
 })(window.jQuery);
