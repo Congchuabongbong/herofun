@@ -13,6 +13,8 @@ import { AboutComponent } from './pages/about/about.component';
 
 import { HomeComponent } from './pages/home/home.component';
 import { ProfileComponent } from './pages/profile/profile.component';
+import { AuthComponent } from './layout/auth/auth.component';
+import { MainComponent } from './pages/main/main.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +27,9 @@ import { ProfileComponent } from './pages/profile/profile.component';
     PreloaderContentComponent,
     AboutComponent,
     HomeComponent,
-    ProfileComponent
+    ProfileComponent,
+    AuthComponent,
+    MainComponent
   ],
   imports: [
     BrowserModule,
