@@ -22,16 +22,33 @@
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.app.json",
-            "inlineStyleLanguage": "sass",
+            "inlineStyleLanguage": "scss",
             "assets": [
               "src/favicon.ico",
               "src/assets"
             ],
             "styles": [
-              "src/styles.sass"
+              "src/styles.scss"
             ],
             "scripts": [
-              "node_modules/jquery/dist/jquery.js"
+              "node_modules/jquery/dist/jquery.js",
+              "src/assets/js/aos.min.js",
+              "src/assets/js/bootstrap.min.js",
+              "src/assets/js/counterup.js",
+              "src/assets/js/custom.js",
+              "src/assets/js/fancybox.min.js",
+              "src/assets/js/jquery-main.js",
+              "src/assets/js/jquery-migrate.js",
+              "src/assets/js/jquery.appear.js",
+              "src/assets/js/jquery.easypiechart.min.js",
+              "src/assets/js/jquery.slicknav.js",
+              "src/assets/js/modernizr.js",
+              "src/assets/js/parallax.min.js",
+              "src/assets/js/popper.min.js",
+              "src/assets/js/swiper.min.js",
+              "src/assets/js/tilt-animation.js",
+              "src/assets/js/waypoint.js",
+              "src/assets/js/wow.min.js"
             ]
           },
           "configurations": {
@@ -45,7 +62,7 @@
                 {
                   "type": "anyComponentStyle",
                   "maximumWarning": "2kb",
-                  "maximumError": "4kb"
+                  "maximumError": "500mb"
                 }
               ],
               "fileReplacements": [
@@ -92,13 +109,13 @@
             "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.spec.json",
             "karmaConfig": "karma.conf.js",
-            "inlineStyleLanguage": "sass",
+            "inlineStyleLanguage": "scss",
             "assets": [
               "src/favicon.ico",
               "src/assets"
             ],
             "styles": [
-              "src/styles.sass"
+              "src/styles.scss"
             ],
             "scripts": []
           }

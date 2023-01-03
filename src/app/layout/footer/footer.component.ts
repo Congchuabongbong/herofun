@@ -15,7 +15,7 @@ export class FooterComponent implements OnInit {
   }
   onClickOnToTop() {
     $(".scroll-to-top").on("click", function () {
-      $("html, body").animate({ scrollTop: 0 }, 800);
+      $("html, body").animate({ scrollTop: 0 }, 0);
       return false;
     });
   }

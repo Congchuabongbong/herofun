@@ -14,13 +14,19 @@
         <div class="header-align">
           <div class="header-navigation-area">
             <ul class="main-menu nav justify-content-center">
-              <li routerLink="home" routerLinkActive="active" ariaCurrentWhenActive="page"><a>Home</a></li>
+              <li routerLink="/home" routerLinkActive="active" ariaCurrentWhenActive="page"><a>Home</a></li>
               <li routerLink="/about" routerLinkActive="active" ariaCurrentWhenActive="page"><a>About
                   Us</a></li>
-              <li class="has-submenu"><a href="causes.html">Causes</a>
+              <li class="has-submenu" routerLinkActive="active">
+                <a>Causes</a>
                 <ul class="submenu-nav">
-                  <li><a href="causes.html">Causes</a></li>
-                  <li><a href="causes-details.html">Causes Details</a></li>
+                  <li>
+                    <a routerLink="causes" routerLinkActive="text-theme-color" ariaCurrentWhenActive="page">Causes</a>
+                  </li>
+                  <li>
+                    <a routerLink="cause-detail" routerLinkActive="text-theme-color" ariaCurrentWhenActive="page">Causes
+                      Details</a>
+                  </li>
                 </ul>
               </li>
               <li class="has-submenu"><a href="blog.html">Blog</a>
@@ -29,13 +35,15 @@
                   <li><a href="blog-details.html">Blog Single</a></li>
                 </ul>
               </li>
-              <li class="has-submenu"><a href="index.html">Pages</a>
+              <li class="has-submenu" routerLinkActive="active"><a>Pages</a>
                 <ul class="submenu-nav">
-                  <li><a href="event-details.html">Event Details</a></li>
-                  <li><a href="volunteer.html">Volunteer</a></li>
+                  <li><a routerLink="event-detail" routerLinkActive="text-theme-color"
+                      ariaCurrentWhenActive="page">Event Details</a></li>
+                  <li><a routerLink="volunteer" routerLinkActive="text-theme-color"
+                      ariaCurrentWhenActive="page">Volunteer</a></li>
                 </ul>
               </li>
-              <li><a href="contact.html">Contact Us</a></li>
+              <li routerLink="contact-us" routerLinkActive="active" ariaCurrentWhenActive="page"><a>Contact Us</a></li>
             </ul>
           </div>
           <div class="header-action-area">
