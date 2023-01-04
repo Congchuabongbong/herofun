@@ -23,6 +23,7 @@ import { PageTitleAreaComponent } from './shared/components/page-title-area/page
 import { SlideTestimonialComponent } from './shared/components/slide-testimonial/slide-testimonial.component';
 import { EventDetailComponent } from './pages/event-detail/event-detail.component';
 import { VolunteerComponent } from './pages/volunteer/volunteer.component';
+import {HttpClient, HttpClientModule} from "@angular/common/http";
 
 @NgModule({
   declarations: [
@@ -51,9 +52,10 @@ import { VolunteerComponent } from './pages/volunteer/volunteer.component';
     BrowserModule,
     AppRoutingModule,
     SwiperModule,
-    CountUpModule
+    CountUpModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [HttpClient],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,4 +1,4 @@
-import { Component, NgModule } from '@angular/core';
+import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AuthComponent } from './layout/auth/auth.component';
 import { AboutComponent } from './pages/about/about.component';
@@ -13,7 +13,7 @@ import { VolunteerComponent } from './pages/volunteer/volunteer.component';
 const routes: Routes = [
   {
     path: '',
-    title: 'Herofun',
+    title: 'Herofund',
     component: MainComponent,
     children: [
       { path: '', redirectTo: '/home', pathMatch: 'full' },
