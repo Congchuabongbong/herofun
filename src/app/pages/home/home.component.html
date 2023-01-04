@@ -207,100 +207,34 @@
           </div>
         </div>
       </div>
-      <div class="row" data-aos="fade-up" data-aos-duration="1000">
-        <div class="col-md-6 col-lg-4">
+      <div class="row" data-aos="fade-up" data-aos-duration="1000" >
+        <div class="col-md-6 col-lg-4" *ngFor="let item of campaigns">
           <div class="causes-item mb-md-30">
             <div class="thumb">
-              <img src="assets/img/causes/01.jpg" alt="Givest-HasTech">
+              <img src="{{item.image}}" alt="Givest-HasTech">
             </div>
             <div class="content">
               <ul class="donate-info">
                 <li class="info-item">
                   <span class="info-title">Goal:</span>
-                  <span class="amount">$ 5,000</span>
+                  <span class="amount">${{item.targetAmount}}</span>
                 </li>
                 <li class="info-item">
                   <span class="info-title">Raised:</span>
-                  <span class="amount">$ 2,000</span>
+                  <span class="amount">${{item.currentAmount}}</span>
                 </li>
                 <li class="info-item">
                   <span class="info-title">To Go:</span>
-                  <span class="amount">$ 1,000</span>
+                  <span class="amount">${{item.targetAmount - item.currentAmount}}</span>
                 </li>
               </ul>
-              <h4 class="title"><a href="causes-details.html">Children Education Needs For Change The World.</a></h4>
-              <p>Lorem Ipsum is simply dummy text of the industry's since the unknown.</p>
+              <h4 class="title"><a href="causes-details.html/{{item.id}}">{{item.title}}</a></h4>
+              <p>{{item.description}}</p>
             </div>
             <div class="causes-footer">
               <div class="admin">
-                <h5><a href="causes.html"><span class="icon-img"><img src="assets/img/icons/admin1.png"
-                        alt="Icon"></span> Kristin Horton</a></h5>
-              </div>
-              <a class="btn-theme btn-border-gradient gray-border btn-size-md" href="index.html#"><span>Donate Now <img
-                    class="icon icon-img" src="assets/img/icons/arrow-line-right-gradient.png" alt="Icon"></span></a>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-6 col-lg-4">
-          <div class="causes-item mb-md-30">
-            <div class="thumb">
-              <img src="assets/img/causes/02.jpg" alt="Givest-HasTech">
-            </div>
-            <div class="content">
-              <ul class="donate-info">
-                <li class="info-item">
-                  <span class="info-title">Goal:</span>
-                  <span class="amount">$ 5,000</span>
-                </li>
-                <li class="info-item">
-                  <span class="info-title">Raised:</span>
-                  <span class="amount">$ 2,000</span>
-                </li>
-                <li class="info-item">
-                  <span class="info-title">To Go:</span>
-                  <span class="amount">$ 1,000</span>
-                </li>
-              </ul>
-              <h4 class="title"><a href="causes-details.html">Children Education Needs For Change The World.</a></h4>
-              <p>Lorem Ipsum is simply dummy text of the industry's since the unknown.</p>
-            </div>
-            <div class="causes-footer">
-              <div class="admin">
-                <h5><a href="causes.html"><span class="icon-img"><img src="assets/img/icons/admin1.png"
-                        alt="Icon"></span> Kristin Horton</a></h5>
-              </div>
-              <a class="btn-theme btn-border-gradient gray-border btn-size-md" href="index.html#"><span>Donate Now <img
-                    class="icon icon-img" src="assets/img/icons/arrow-line-right-gradient.png" alt="Icon"></span></a>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-6 col-lg-4">
-          <div class="causes-item">
-            <div class="thumb">
-              <img src="assets/img/causes/03.jpg" alt="Givest-HasTech">
-            </div>
-            <div class="content">
-              <ul class="donate-info">
-                <li class="info-item">
-                  <span class="info-title">Goal:</span>
-                  <span class="amount">$ 5,000</span>
-                </li>
-                <li class="info-item">
-                  <span class="info-title">Raised:</span>
-                  <span class="amount">$ 2,000</span>
-                </li>
-                <li class="info-item">
-                  <span class="info-title">To Go:</span>
-                  <span class="amount">$ 1,000</span>
-                </li>
-              </ul>
-              <h4 class="title"><a href="causes-details.html">Children Education Needs For Change The World.</a></h4>
-              <p>Lorem Ipsum is simply dummy text of the industry's since the unknown.</p>
-            </div>
-            <div class="causes-footer">
-              <div class="admin">
-                <h5><a href="causes.html"><span class="icon-img"><img src="assets/img/icons/admin1.png"
-                        alt="Icon"></span> Kristin Horton</a></h5>
+                <h5><a href="causes-details.html/{{item.id}}"><span class="icon-img"><img src="assets/img/icons/admin1.png"
+                        alt="Icon"></span>{{item.portal}}</a></h5>
               </div>
               <a class="btn-theme btn-border-gradient gray-border btn-size-md" href="index.html#"><span>Donate Now <img
                     class="icon icon-img" src="assets/img/icons/arrow-line-right-gradient.png" alt="Icon"></span></a>
@@ -605,56 +539,12 @@
         <div class="col-lg-8 col-xl-7 offset-xl-1">
           <div class="brand-logo-content">
             <div class="row row-cols-3 row-cols-sm-5">
-              <div class="col">
+              <div class="col" *ngFor="let s of sponsors">
                 <div class="brand-logo-item">
-                  <img src="assets/img/brand-logo/1.png" alt="Image-Givest">
+                  <img src="{{s.image}}" alt="Image-Givest">
                 </div>
               </div>
-              <div class="col">
-                <div class="brand-logo-item">
-                  <img src="assets/img/brand-logo/2.png" alt="Image-Givest">
-                </div>
-              </div>
-              <div class="col">
-                <div class="brand-logo-item">
-                  <img src="assets/img/brand-logo/3.png" alt="Image-Givest">
-                </div>
-              </div>
-              <div class="col">
-                <div class="brand-logo-item">
-                  <img src="assets/img/brand-logo/4.png" alt="Image-Givest">
-                </div>
-              </div>
-              <div class="col">
-                <div class="brand-logo-item">
-                  <img src="assets/img/brand-logo/5.png" alt="Image-Givest">
-                </div>
-              </div>
-              <div class="col">
-                <div class="brand-logo-item">
-                  <img src="assets/img/brand-logo/6.png" alt="Image-Givest">
-                </div>
-              </div>
-              <div class="col">
-                <div class="brand-logo-item">
-                  <img src="assets/img/brand-logo/7.png" alt="Image-Givest">
-                </div>
-              </div>
-              <div class="col">
-                <div class="brand-logo-item">
-                  <img src="assets/img/brand-logo/8.png" alt="Image-Givest">
-                </div>
-              </div>
-              <div class="col">
-                <div class="brand-logo-item">
-                  <img src="assets/img/brand-logo/9.png" alt="Image-Givest">
-                </div>
-              </div>
-              <div class="col">
-                <div class="brand-logo-item">
-                  <img src="assets/img/brand-logo/10.png" alt="Image-Givest">
-                </div>
-              </div>
+
             </div>
           </div>
         </div>
