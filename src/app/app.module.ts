@@ -4,7 +4,6 @@ import { CountUpModule } from 'ngx-countup';
 import { SwiperModule } from 'swiper/angular';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { AuthComponent } from './layout/auth/auth.component';
 import { BodyComponent } from './layout/body/body.component';
 import { FooterComponent } from './layout/footer/footer.component';
 import { HeaderComponent } from './layout/header/header.component';
@@ -23,7 +22,10 @@ import { PageTitleAreaComponent } from './shared/components/page-title-area/page
 import { SlideTestimonialComponent } from './shared/components/slide-testimonial/slide-testimonial.component';
 import { EventDetailComponent } from './pages/event-detail/event-detail.component';
 import { VolunteerComponent } from './pages/volunteer/volunteer.component';
-import {HttpClient, HttpClientModule} from "@angular/common/http";
+import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { LoginComponent } from './layout/auth/login/login.component';
+import { RegisterComponent } from './layout/auth/register/register.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -37,7 +39,6 @@ import {HttpClient, HttpClientModule} from "@angular/common/http";
     AboutComponent,
     HomeComponent,
     ProfileComponent,
-    AuthComponent,
     MainComponent,
     CausesComponent,
     CauseDetailComponent,
@@ -46,16 +47,19 @@ import {HttpClient, HttpClientModule} from "@angular/common/http";
     SlideTestimonialComponent,
     ContactUsComponent,
     EventDetailComponent,
-    VolunteerComponent
+    VolunteerComponent,
+    LoginComponent,
+    RegisterComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     SwiperModule,
     CountUpModule,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule,
   ],
   providers: [HttpClient],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

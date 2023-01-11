@@ -9,7 +9,5 @@ import { Router } from '@angular/router';
 export class MainComponent implements OnInit {
   constructor(private router: Router) {}
 
-  ngOnInit(): void {
-    this.router.navigate(['/home']);
-  }
+  ngOnInit(): void {}
 }
