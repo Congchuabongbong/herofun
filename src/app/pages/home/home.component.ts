@@ -1,11 +1,11 @@
-import {Component, OnInit, ViewChild} from '@angular/core';
-
+import { AfterViewInit, Component, ElementRef, OnInit, Renderer2, ViewChild } from '@angular/core';
 declare var $: any;
 // import Swiper core and required modules
-import SwiperCore, {EffectFade, Parallax, Swiper, Virtual} from 'swiper';
-import {SwiperComponent} from 'swiper/angular';
-import {ApiService} from "../../shared/services/api.service";
-import {Campaign, Sponsor} from "../../shared/entity/Modal";
+import SwiperCore, { EffectFade, Swiper, Virtual } from 'swiper';
+import { SwiperComponent } from 'swiper/angular';
+import { ApiService } from "../../shared/services/api.service";
+import { Campaign, Sponsor } from "../../shared/entity/Modal";
+import * as Parallax from 'parallax-js';
 // install Swiper modules
 SwiperCore.use([Virtual]);
 
@@ -16,18 +16,29 @@ SwiperCore.use([Virtual]);
   styleUrls: ['./home.component.scss'],
 
 })
-export class HomeComponent implements OnInit {
-  @ViewChild('swiper', {static: false}) swiper!: SwiperComponent;
+export class HomeComponent implements OnInit, AfterViewInit {
+  @ViewChild('swiper', { static: false }) swiper!: SwiperComponent;
 
-  constructor(private apiService: ApiService) {
+  constructor(private apiService: ApiService, private _renderer: Renderer2, private _el: ElementRef) {
+  }
+  ngAfterViewInit(): void {
+
+    const scenes = this._el.nativeElement.querySelectorAll('.scene');
+    scenes.forEach((scene: HTMLElement) => {
+      var parallaxInstance = new Parallax(scene, {
+        relativeInput: true
+      });
+      parallaxInstance.friction(0.1, 0.1);
+    });
   }
 
-  limit: number = 6;
+  limit: number = 3;
   offset: number = 1;
   campaigns: Campaign[] = [];
   sponsors: Sponsor[] = [];
 
   ngOnInit(): void {
+
     this.getCampaign();
     this.getSponsor();
   }
@@ -36,14 +47,14 @@ export class HomeComponent implements OnInit {
     this.apiService.getPageCampaign(this.offset, this.limit).subscribe(
       res => this.campaigns = res.items,
       e => console.log(e)
-    )
+    );
   }
 
   getSponsor() {
     this.apiService.getSponsor().subscribe(
       res => this.sponsors = res,
       e => console.log(e)
-    )
+    );
   }
 
   slideNext() {

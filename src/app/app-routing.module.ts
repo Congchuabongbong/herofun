@@ -10,13 +10,13 @@ import { CauseDetailComponent } from './pages/cause-detail/cause-detail.componen
 import { ContactUsComponent } from './pages/contact-us/contact-us.component';
 import { EventDetailComponent } from './pages/event-detail/event-detail.component';
 import { VolunteerComponent } from './pages/volunteer/volunteer.component';
+import { PaymentSuccessComponent } from './pages/payment-success/payment-success.component';
 const routes: Routes = [
   {
     path: '',
-    title: 'Herofund',
+    title: 'Hero Fund',
     component: MainComponent,
     children: [
-      { path: '', redirectTo: '/home', pathMatch: 'full' },
       {
         path: 'home',
         title: 'Home',
@@ -48,14 +48,19 @@ const routes: Routes = [
         component: VolunteerComponent,
       },
       {
+        path: 'payment-success',
+        title: 'Payment Success',
+        component: PaymentSuccessComponent,
+      },
+      {
+        path: 'causes/:id',
+        title: 'Cause Detail',
+        component: CauseDetailComponent,
+      },
+      {
         path: 'causes',
         title: 'Causes',
         component: CausesComponent,
-        children: [{
-          path: 'detail',
-          title: 'Cause Detail',
-          component: CauseDetailComponent,
-        }]
       },
     ],
   },

@@ -23,7 +23,9 @@ import { PageTitleAreaComponent } from './shared/components/page-title-area/page
 import { SlideTestimonialComponent } from './shared/components/slide-testimonial/slide-testimonial.component';
 import { EventDetailComponent } from './pages/event-detail/event-detail.component';
 import { VolunteerComponent } from './pages/volunteer/volunteer.component';
-import {HttpClient, HttpClientModule} from "@angular/common/http";
+import { HttpClient, HttpClientModule } from "@angular/common/http";
+import { ReactiveFormsModule } from '@angular/forms';
+import { PaymentSuccessComponent } from './pages/payment-success/payment-success.component';
 
 @NgModule({
   declarations: [
@@ -46,14 +48,17 @@ import {HttpClient, HttpClientModule} from "@angular/common/http";
     SlideTestimonialComponent,
     ContactUsComponent,
     EventDetailComponent,
-    VolunteerComponent
+    VolunteerComponent,
+    PaymentSuccessComponent,
+
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     SwiperModule,
     CountUpModule,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule
   ],
   providers: [HttpClient],
   bootstrap: [AppComponent]

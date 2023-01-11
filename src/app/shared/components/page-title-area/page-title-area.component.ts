@@ -10,6 +10,7 @@ export class PageTitleAreaComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+
   }
 
 }
