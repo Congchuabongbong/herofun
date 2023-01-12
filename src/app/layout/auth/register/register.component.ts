@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { first } from 'rxjs';
+import { AlertService } from 'src/app/shared/services/alert.service';
 import { AuthenticationService } from 'src/app/shared/services/authentication.service';
 
 @Component({
@@ -17,7 +18,8 @@ export class RegisterComponent implements OnInit {
   constructor(
     private formBuilder: FormBuilder,
     private router: Router,
-    private authenticationService: AuthenticationService
+    private authenticationService: AuthenticationService,
+    private alertService: AlertService
   ) {
     if (this.authenticationService.currentUserValue)
       this.router.navigate(['/']);
@@ -37,6 +39,7 @@ export class RegisterComponent implements OnInit {
 
   public onSubmit() {
     this.submitted = true;
+    this.alertService.clear();
     if (this.registerForm.invalid) return;
 
     this.loading = true;
@@ -49,6 +52,7 @@ export class RegisterComponent implements OnInit {
         },
         (error) => {
           this.loading = false;
+          this.alertService.error(error);
         }
       );
   }
