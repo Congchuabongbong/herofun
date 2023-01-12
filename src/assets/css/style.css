@@ -5272,6 +5272,10 @@ table p {
   background: linear-gradient(to left, #FEA444 0%, #FC6539 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
 
 @media only screen and (max-width: 1199px) {
@@ -5322,8 +5326,12 @@ table p {
 }
 
 .causes-item .content .title a {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
   color: #001d23;
-  display: block;
+
 }
 
 .causes-item .content .title a:hover {
