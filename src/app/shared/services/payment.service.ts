@@ -7,6 +7,7 @@ import { SystemUtil } from '../utils/SystemUtil';
 const headers: HttpHeaders = new HttpHeaders({
 
   'content-type': 'application/json',
+  // 'returnUrl': 'http://localhost:4200/payment-success',
   'returnUrl': 'https://herofun-client.vercel.app/payment-success',
   'cancelUrl': 'https://dev110521.service-now.com/sp'
 });
@@ -19,7 +20,7 @@ export class PaymentService {
   constructor(private _http: HttpClient) { }
 
 
-  public createTransaction(paymentInfo: ITransaction): Observable<IOrder> {
+  public createDonate(paymentInfo: ITransaction): Observable<IOrder> {
     const url = SystemUtil.BASE_URL + '/api/v1/payments/paypal';
     return this._http.post<any>(url, paymentInfo, {
       headers: headers,

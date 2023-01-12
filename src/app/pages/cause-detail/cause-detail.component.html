@@ -20,117 +20,126 @@
                     <div class="col-md-6">
                       <ul class="donate-info">
                         <li class="info-item">
-                          <span class="info-title">Goal:</span>
+                          <span class="info-title">Target:</span>
                           <span class="amount">$ {{campaign.targetAmount}}</span>
                         </li>
                         <li class="info-item">
-                          <span class="info-title">Raised:</span>
+                          <span class="info-title">Current:</span>
                           <span class="amount">$ {{campaign.currentAmount}}</span>
                         </li>
                         <li class="info-item">
-                          <span class="info-title">To Go:</span>
+                          <span class="info-title">Missing:</span>
                           <span class="amount">$ {{campaign.targetAmount - campaign.currentAmount}}</span>
                         </li>
                       </ul>
                     </div>
-                    <div class="col-md-6">
-                      <!-- Start Progress Item -->
-                      <div class="progress-item">
-                        <div class="progress-line">
-                          <div class="progress-bar-line" data-percent="90%"><span class="percent"></span></div>
-                        </div>
-                      </div>
-                    </div>
+<!--                    <div class="col-md-6">-->
+<!--                      &lt;!&ndash; Start Progress Item &ndash;&gt;-->
+<!--                      <div class="progress-item">-->
+<!--                        <div class="progress-line">-->
+<!--                          <div class="progress-bar-line" data-percent="90%"><span class="percent"></span></div>-->
+<!--                        </div>-->
+<!--                      </div>-->
+<!--                    </div>-->
                   </div>
                 </div>
-                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
-                  industry's standard dummy text ever since the 1500 an when an unknown printer took a galley of type
-                  and scrambled it to make a type specimen book. It has survived not only five centuries, but also the
-                  leap into electronic typesetting, remaining essentially unchanged was popularised in the 1960s with
-                  the release of etraset sheets containing Lorem Ipsum passages.</p>
-                <p class="mb-26">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum
-                  has been the industry's standard dummy text ever since the 1500 an when an unknown printer took a
-                  galley of type and scrambled it to make a type specimen book.</p>
-                <h3>Cause Challenge</h3>
-                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
-                  industry's standard dummy text ever since the 1500 an when an unknown printer took a galley of type
-                  and scrambled it to make a type specimen book. It has survived not only five centuries, but also the
-                  leap into electronic typesetting, remaining essentially unchanged was popularised in the 1960s with
-                  the release of etraset sheets containing Lorem Ipsum passages.</p>
-                <p class="mb-26">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum
-                  has been the industry's standard dummy text ever since the 1500 an when an unknown printer took a
-                  galley of type and scrambled it to make a type specimen book.</p>
-                <h3>Summery And Documents</h3>
-                <div class="row">
-                  <div class="col-sm-6">
-                    <div class="document-item mb-xs-10">
-                      <h4>Documents.pdf</h4>
-                      <img src="assets/img/icons/file.png" alt="Icon">
-                    </div>
-                  </div>
-                  <div class="col-sm-6">
-                    <div class="document-item bgcolor-theme2">
-                      <h4>Documents.pdf</h4>
-                      <img src="assets/img/icons/file.png" alt="Icon">
-                    </div>
-                  </div>
+                <div>
+                  {{campaign.description}}
                 </div>
-                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
-                  industry's standard dummy text ever since the 1500 an when an unknown printer took a galley of type
-                  and scrambled it to make a type specimen book. It has survived not only five centuries, but also the
-                  leap into electronic typesetting, remaining essentially unchanged was popularised in the 1960s with
-                  the release of etraset sheets containing Lorem Ipsum passages.</p>
-                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
-                  industry's standard dummy text ever since the 1500 an when an unknown printer took a galley of type
-                  and scrambled it to make a type specimen book.</p>
-                <p></p>
+                <hr>
+                <div>
+                  {{campaign.detail}}
+<!--                  <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the-->
+<!--                    industry's standard dummy text ever since the 1500 an when an unknown printer took a galley of type-->
+<!--                    and scrambled it to make a type specimen book. It has survived not only five centuries, but also the-->
+<!--                    leap into electronic typesetting, remaining essentially unchanged was popularised in the 1960s with-->
+<!--                    the release of etraset sheets containing Lorem Ipsum passages.</p>-->
+<!--                  <p class="mb-26">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum-->
+<!--                    has been the industry's standard dummy text ever since the 1500 an when an unknown printer took a-->
+<!--                    galley of type and scrambled it to make a type specimen book.</p>-->
+<!--                  <h3>Cause Challenge</h3>-->
+<!--                  <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the-->
+<!--                    industry's standard dummy text ever since the 1500 an when an unknown printer took a galley of type-->
+<!--                    and scrambled it to make a type specimen book. It has survived not only five centuries, but also the-->
+<!--                    leap into electronic typesetting, remaining essentially unchanged was popularised in the 1960s with-->
+<!--                    the release of etraset sheets containing Lorem Ipsum passages.</p>-->
+<!--                  <p class="mb-26">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum-->
+<!--                    has been the industry's standard dummy text ever since the 1500 an when an unknown printer took a-->
+<!--                    galley of type and scrambled it to make a type specimen book.</p>-->
+<!--                  <h3>Summery And Documents</h3>-->
+<!--                  <div class="row">-->
+<!--                    <div class="col-sm-6">-->
+<!--                      <div class="document-item mb-xs-10">-->
+<!--                        <h4>Documents.pdf</h4>-->
+<!--                        <img src="assets/img/icons/file.png" alt="Icon">-->
+<!--                      </div>-->
+<!--                    </div>-->
+<!--                    <div class="col-sm-6">-->
+<!--                      <div class="document-item bgcolor-theme2">-->
+<!--                        <h4>Documents.pdf</h4>-->
+<!--                        <img src="assets/img/icons/file.png" alt="Icon">-->
+<!--                      </div>-->
+<!--                    </div>-->
+<!--                  </div>-->
+<!--                  <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the-->
+<!--                    industry's standard dummy text ever since the 1500 an when an unknown printer took a galley of type-->
+<!--                    and scrambled it to make a type specimen book. It has survived not only five centuries, but also the-->
+<!--                    leap into electronic typesetting, remaining essentially unchanged was popularised in the 1960s with-->
+<!--                    the release of etraset sheets containing Lorem Ipsum passages.</p>-->
+<!--                  <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the-->
+<!--                    industry's standard dummy text ever since the 1500 an when an unknown printer took a galley of type-->
+<!--                    and scrambled it to make a type specimen book.</p>-->
+<!--                  <p></p>-->
+                </div>
               </div>
+              <br>
+              <hr>
               <!-- **Donate ** -->
-              <div class="donners-info">
-                <h3>Great Donners</h3>
-                <div class="donners-item">
-                  <div class="donner-item">
-                    <img src="assets/img/photos/donner1.png" alt="Image-Givest">
-                  </div>
-                  <div class="donner-item">
-                    <img src="assets/img/photos/donner2.png" alt="Image-Givest">
-                  </div>
-                  <div class="donner-item">
-                    <img src="assets/img/photos/donner3.png" alt="Image-Givest">
-                  </div>
-                  <div class="donner-item">
-                    <img src="assets/img/photos/donner4.png" alt="Image-Givest">
-                  </div>
-                  <div class="donner-item">
-                    <img src="assets/img/photos/donner2.png" alt="Image-Givest">
-                  </div>
-                  <div class="donner-item">
-                    <img src="assets/img/photos/donner3.png" alt="Image-Givest">
-                  </div>
-                  <div class="donner-item">
-                    <img src="assets/img/photos/donner5.png" alt="Image-Givest">
-                  </div>
-                  <div class="donner-item">
-                    <img src="assets/img/photos/donner3.png" alt="Image-Givest">
-                  </div>
-                  <div class="donner-item">
-                    <img src="assets/img/photos/donner1.png" alt="Image-Givest">
-                  </div>
-                  <div class="donner-item">
-                    <img src="assets/img/photos/donner2.png" alt="Image-Givest">
-                  </div>
-                  <div class="donner-item">
-                    <img src="assets/img/photos/donner3.png" alt="Image-Givest">
-                  </div>
-                  <div class="donner-item">
-                    <img src="assets/img/photos/donner1.png" alt="Image-Givest">
-                  </div>
-                  <div class="donner-item">
-                    <img src="assets/img/photos/donner2.png" alt="Image-Givest">
-                  </div>
-                  <div class="donner-item donner-number">+286</div>
-                </div>
-              </div>
+<!--              <div class="donners-info">-->
+<!--                <h3>Great Donners</h3>-->
+<!--                <div class="donners-item">-->
+<!--                  <div class="donner-item">-->
+<!--                    <img src="assets/img/photos/donner1.png" alt="Image-Givest">-->
+<!--                  </div>-->
+<!--                  <div class="donner-item">-->
+<!--                    <img src="assets/img/photos/donner2.png" alt="Image-Givest">-->
+<!--                  </div>-->
+<!--                  <div class="donner-item">-->
+<!--                    <img src="assets/img/photos/donner3.png" alt="Image-Givest">-->
+<!--                  </div>-->
+<!--                  <div class="donner-item">-->
+<!--                    <img src="assets/img/photos/donner4.png" alt="Image-Givest">-->
+<!--                  </div>-->
+<!--                  <div class="donner-item">-->
+<!--                    <img src="assets/img/photos/donner2.png" alt="Image-Givest">-->
+<!--                  </div>-->
+<!--                  <div class="donner-item">-->
+<!--                    <img src="assets/img/photos/donner3.png" alt="Image-Givest">-->
+<!--                  </div>-->
+<!--                  <div class="donner-item">-->
+<!--                    <img src="assets/img/photos/donner5.png" alt="Image-Givest">-->
+<!--                  </div>-->
+<!--                  <div class="donner-item">-->
+<!--                    <img src="assets/img/photos/donner3.png" alt="Image-Givest">-->
+<!--                  </div>-->
+<!--                  <div class="donner-item">-->
+<!--                    <img src="assets/img/photos/donner1.png" alt="Image-Givest">-->
+<!--                  </div>-->
+<!--                  <div class="donner-item">-->
+<!--                    <img src="assets/img/photos/donner2.png" alt="Image-Givest">-->
+<!--                  </div>-->
+<!--                  <div class="donner-item">-->
+<!--                    <img src="assets/img/photos/donner3.png" alt="Image-Givest">-->
+<!--                  </div>-->
+<!--                  <div class="donner-item">-->
+<!--                    <img src="assets/img/photos/donner1.png" alt="Image-Givest">-->
+<!--                  </div>-->
+<!--                  <div class="donner-item">-->
+<!--                    <img src="assets/img/photos/donner2.png" alt="Image-Givest">-->
+<!--                  </div>-->
+<!--                  <div class="donner-item donner-number">+286</div>-->
+<!--                </div>-->
+<!--              </div>-->
               <div class="donation-form bgcolor-theme3">
                 <div class="section-title">
                   <h5 class="subtitle line-theme-color mb-14">Make A Donation</h5>
@@ -196,8 +205,8 @@
                     </div>
                   </div>
                   <div class="btn-wrp">
-                    <a href="causes-details.html#/" class="btn-theme btn-gradient btn-slide">Donate Now <img
-                        class="icon icon-img" src="assets/img/icons/arrow-line-right2.png" alt="Icon"></a>
+                    <button type="button" (click)="submitDonate()"  class="btn-theme btn-gradient btn-slide">Donate Now <img
+                        class="icon icon-img" src="assets/img/icons/arrow-line-right2.png" alt="Icon"></button>
                     <a href="causes-details.html#/" class="btn-theme btn-gradient btn-border">Total Donation: $50</a>
                   </div>
                 </form>
@@ -231,11 +240,7 @@
                   <img class="me-1" src="assets/img/shape/line-t2.png" alt="Image-Givest">
                 </div>
                 <div class="widget-category">
-                  <a href="causes-details.html">Clean Water <span>(18)</span></a>
-                  <a href="causes-details.html">Children Education <span>(06)</span></a>
-                  <a href="causes-details.html">Healty Food <span>(19)</span></a>
-                  <a href="causes-details.html">Food And Water <span>(27)</span></a>
-                  <a href="causes-details.html">National Charity <span>(27)</span></a>
+                  <a *ngFor="let c of categories" href="causes">{{c.name}}</a>
                 </div>
               </div>
               <div class="widget">
@@ -245,18 +250,18 @@
                 </div>
                 <div class="widget-causes-item">
                   <div class="thumb">
-                    <img src="assets/img/causes/w1.jpg" alt="Givest-HasTech">
+                    <img src="{{campaignUrgent.image}}" alt="Givest-HasTech">
                   </div>
                   <div class="content">
-                    <h4 class="title"><a href="causes-details.html">Need School For Uganda Poor Children.</a></h4>
+                    <h4 class="title"><a href="causes/{{campaignUrgent.id}}">{{campaignUrgent.title}}.</a></h4>
                     <ul class="donate-info">
                       <li class="info-item">
                         <span class="info-title">Goal:</span>
-                        <span class="amount">$ 5,000</span>
+                        <span class="amount">$ {{campaignUrgent.targetAmount}}</span>
                       </li>
                       <li class="info-item">
                         <span class="info-title">Raised:</span>
-                        <span class="amount">$ 2,000</span>
+                        <span class="amount">$ {{campaignUrgent.currentAmount}}</span>
                       </li>
                     </ul>
                     <!-- Start Progress Item -->
@@ -281,24 +286,24 @@
                   </div>
                 </div>
               </div>
-              <div class="widget mb-0 pb-3">
-                <h3 class="widget-title">Popular Tags</h3>
-                <div class="separator-line">
-                  <img class="me-1" src="assets/img/shape/line-t2.png" alt="Image-Givest">
-                </div>
-                <div class="widget-tags">
-                  <ul>
-                    <li><a href="causes-details.html#/">Clean Water</a></li>
-                    <li><a href="causes-details.html#/">Education</a></li>
-                    <li><a class="style2" href="causes-details.html#/">Health</a></li>
-                    <li><a class="style2" href="causes-details.html#/">Medicine</a></li>
-                    <li><a href="causes-details.html#/">Poor</a></li>
-                    <li><a href="causes-details.html#/">Children</a></li>
-                    <li><a class="style2" href="causes-details.html#/">Charity</a></li>
-                    <li><a class="style2" href="causes-details.html#/">Non Profit</a></li>
-                  </ul>
-                </div>
-              </div>
+<!--              <div class="widget mb-0 pb-3">-->
+<!--                <h3 class="widget-title">Popular Tags</h3>-->
+<!--                <div class="separator-line">-->
+<!--                  <img class="me-1" src="assets/img/shape/line-t2.png" alt="Image-Givest">-->
+<!--                </div>-->
+<!--                <div class="widget-tags">-->
+<!--                  <ul>-->
+<!--                    <li><a href="causes-details.html#/">Clean Water</a></li>-->
+<!--                    <li><a href="causes-details.html#/">Education</a></li>-->
+<!--                    <li><a class="style2" href="causes-details.html#/">Health</a></li>-->
+<!--                    <li><a class="style2" href="causes-details.html#/">Medicine</a></li>-->
+<!--                    <li><a href="causes-details.html#/">Poor</a></li>-->
+<!--                    <li><a href="causes-details.html#/">Children</a></li>-->
+<!--                    <li><a class="style2" href="causes-details.html#/">Charity</a></li>-->
+<!--                    <li><a class="style2" href="causes-details.html#/">Non Profit</a></li>-->
+<!--                  </ul>-->
+<!--                </div>-->
+<!--              </div>-->
             </div>
           </div>
         </div>

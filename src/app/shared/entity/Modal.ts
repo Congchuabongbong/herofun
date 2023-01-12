@@ -58,3 +58,24 @@ export interface IOrder {
     };
   };
 }
+
+export interface Category {
+  createdAt: string,
+  updatedAt: string,
+  status: number,
+  id: number,
+  name: string,
+  image: string
+}
+
+export interface PaymentSuccess{
+  id: number
+  senderName: string,
+  message: string,
+  amount: number,
+  campaignId: number,
+  paymentChannel: number,
+  accountId: number,
+  paymentStatus: string,
+  orderId: string
+}

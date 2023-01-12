@@ -1,12 +1,7 @@
 import { Injectable } from '@angular/core';
 import { catchError, Subject, tap, throwError } from "rxjs";
-import { HttpClient, HttpHeaders } from "@angular/common/http";
+import { HttpClient } from "@angular/common/http";
 import { SystemUtil } from "../utils/SystemUtil";
-
-const headers: HttpHeaders = new HttpHeaders({
-  Authorization: 'Bearer ' + "token",
-  'content-type': 'application/json'
-});
 
 @Injectable({
   providedIn: 'root'
@@ -54,6 +49,32 @@ export class ApiService {
   public getSponsor() {
     return this.http
       .get<any>(SystemUtil.BASE_URL + '/api/v1/sponsors')
+      .pipe(
+        catchError((error: any) => {
+          return throwError(error);
+        }),
+        tap(() => {
+          this.RefreshData.next();
+        })
+      );
+  }
+
+  public getRandomCategories(random : number) {
+    return this.http
+      .get<any>(SystemUtil.BASE_URL + `/api/v1/categories/random?number=${random}`)
+      .pipe(
+        catchError((error: any) => {
+          return throwError(error);
+        }),
+        tap(() => {
+          this.RefreshData.next();
+        })
+      );
+  }
+
+  public getCampaignUrgent() {
+    return this.http
+      .get<any>(SystemUtil.BASE_URL + `/api/v1/campaigns/urgent`)
       .pipe(
         catchError((error: any) => {
           return throwError(error);
