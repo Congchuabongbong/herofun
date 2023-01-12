@@ -47,49 +47,7 @@
                   {{campaign.description}}
                 </div>
                 <hr>
-                <div>
-                  {{campaign.detail}}
-<!--                  <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the-->
-<!--                    industry's standard dummy text ever since the 1500 an when an unknown printer took a galley of type-->
-<!--                    and scrambled it to make a type specimen book. It has survived not only five centuries, but also the-->
-<!--                    leap into electronic typesetting, remaining essentially unchanged was popularised in the 1960s with-->
-<!--                    the release of etraset sheets containing Lorem Ipsum passages.</p>-->
-<!--                  <p class="mb-26">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum-->
-<!--                    has been the industry's standard dummy text ever since the 1500 an when an unknown printer took a-->
-<!--                    galley of type and scrambled it to make a type specimen book.</p>-->
-<!--                  <h3>Cause Challenge</h3>-->
-<!--                  <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the-->
-<!--                    industry's standard dummy text ever since the 1500 an when an unknown printer took a galley of type-->
-<!--                    and scrambled it to make a type specimen book. It has survived not only five centuries, but also the-->
-<!--                    leap into electronic typesetting, remaining essentially unchanged was popularised in the 1960s with-->
-<!--                    the release of etraset sheets containing Lorem Ipsum passages.</p>-->
-<!--                  <p class="mb-26">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum-->
-<!--                    has been the industry's standard dummy text ever since the 1500 an when an unknown printer took a-->
-<!--                    galley of type and scrambled it to make a type specimen book.</p>-->
-<!--                  <h3>Summery And Documents</h3>-->
-<!--                  <div class="row">-->
-<!--                    <div class="col-sm-6">-->
-<!--                      <div class="document-item mb-xs-10">-->
-<!--                        <h4>Documents.pdf</h4>-->
-<!--                        <img src="assets/img/icons/file.png" alt="Icon">-->
-<!--                      </div>-->
-<!--                    </div>-->
-<!--                    <div class="col-sm-6">-->
-<!--                      <div class="document-item bgcolor-theme2">-->
-<!--                        <h4>Documents.pdf</h4>-->
-<!--                        <img src="assets/img/icons/file.png" alt="Icon">-->
-<!--                      </div>-->
-<!--                    </div>-->
-<!--                  </div>-->
-<!--                  <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the-->
-<!--                    industry's standard dummy text ever since the 1500 an when an unknown printer took a galley of type-->
-<!--                    and scrambled it to make a type specimen book. It has survived not only five centuries, but also the-->
-<!--                    leap into electronic typesetting, remaining essentially unchanged was popularised in the 1960s with-->
-<!--                    the release of etraset sheets containing Lorem Ipsum passages.</p>-->
-<!--                  <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the-->
-<!--                    industry's standard dummy text ever since the 1500 an when an unknown printer took a galley of type-->
-<!--                    and scrambled it to make a type specimen book.</p>-->
-<!--                  <p></p>-->
+                <div [innerHTML]="campaign.detail" >
                 </div>
               </div>
               <br>
@@ -266,9 +224,9 @@
                     </ul>
                     <!-- Start Progress Item -->
                     <div class="progress-item">
-                      <div class="progress-line">
-                        <div class="progress-bar-line" data-percent="75%"><span class="percent"></span></div>
-                      </div>
+<!--                      <div class="progress-line">-->
+<!--                        <div class="progress-bar-line" data-percent="75%"><span class="percent"></span></div>-->
+<!--                      </div>-->
                     </div>
                     <form action="causes-details.html#">
                       <div class="amount-info">
@@ -280,30 +238,27 @@
                           <input class="form-control" type="text" placeholder="Custome Amount">
                         </div>
                       </div>
-                      <a class="btn-theme btn-gradient btn-slide" href="causes-details.html#"><span>Donate Now <img
+                      <a class="btn-theme btn-gradient btn-slide" href="causes{{campaignUrgent.id}}"><span>Donate Now <img
                             class="icon icon-img" src="assets/img/icons/arrow-line-right2.png" alt="Icon"></span></a>
                     </form>
                   </div>
                 </div>
               </div>
-<!--              <div class="widget mb-0 pb-3">-->
-<!--                <h3 class="widget-title">Popular Tags</h3>-->
-<!--                <div class="separator-line">-->
-<!--                  <img class="me-1" src="assets/img/shape/line-t2.png" alt="Image-Givest">-->
-<!--                </div>-->
-<!--                <div class="widget-tags">-->
-<!--                  <ul>-->
-<!--                    <li><a href="causes-details.html#/">Clean Water</a></li>-->
-<!--                    <li><a href="causes-details.html#/">Education</a></li>-->
-<!--                    <li><a class="style2" href="causes-details.html#/">Health</a></li>-->
-<!--                    <li><a class="style2" href="causes-details.html#/">Medicine</a></li>-->
-<!--                    <li><a href="causes-details.html#/">Poor</a></li>-->
-<!--                    <li><a href="causes-details.html#/">Children</a></li>-->
-<!--                    <li><a class="style2" href="causes-details.html#/">Charity</a></li>-->
-<!--                    <li><a class="style2" href="causes-details.html#/">Non Profit</a></li>-->
-<!--                  </ul>-->
-<!--                </div>-->
-<!--              </div>-->
+              <div class="widget mb-0 pb-3">
+                <h3 class="widget-title">Sponsor</h3>
+                <div class="separator-line">
+                  <img class="me-1" src="assets/img/shape/line-t2.png" alt="Image-Givest">
+                </div>
+                <div class="widget-tags">
+                  <div class="thumb">
+                    <img src="{{campaign.sponsor.image}}" alt="Givest-HasTech">
+                  </div>
+                  <br>
+                  <div class="content ">
+                    <h5 class="title" style="text-align: center">{{campaign.sponsor.name}}</h5>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>

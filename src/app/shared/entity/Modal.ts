@@ -12,9 +12,20 @@ export interface Campaign {
   detail: string;
   image: string;
   portal: string;
-  categoryId: string;
+  category: {
+    id: number;
+    name: string
+  };
   description: string;
-  accountId: number;
+  account: {
+    id: number;
+    username: string
+  };
+  sponsor: {
+    id: number;
+    name: string;
+    image: string;
+  }
 }
 
 export interface Sponsor {
@@ -68,7 +79,7 @@ export interface Category {
   image: string
 }
 
-export interface PaymentSuccess{
+export interface PaymentSuccess {
   id: number
   senderName: string,
   message: string,
