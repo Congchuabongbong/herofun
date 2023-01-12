@@ -17,10 +17,11 @@
                     <h2>Need Your Big Hand For <span>Change</span> The World.</h2>
                   </div>
                   <div class="btn-wrp">
-                    <a href="/causes" class="btn-theme btn-gradient btn-slide btn-style">All Causes <img
-                        class="icon icon-img" src="assets/img/icons/arrow-line-right2.png" alt="Icon"></a>
-                    <a href="index.html#/" class="btn-theme btn-border btn-black btn-style">Donate Now <img
-                        class="icon icon-img" src="assets/img/icons/arrow-right-line-dark.png" alt="Icon"></a>
+                    <a href="#" class="btn-theme btn-gradient btn-slide btn-style">All Causes <img class="icon icon-img"
+                        src="assets/img/icons/arrow-line-right2.png" alt="Icon"></a>
+                    <a routerLink="/causes/id=1" routerLinkActive="active" ariaCurrentWhenActive="page"
+                      class="btn-theme btn-border btn-black btn-style">Donate Now <img class="icon icon-img"
+                        src="assets/img/icons/arrow-right-line-dark.png" alt="Icon"></a>
                   </div>
                 </div>
               </div>
@@ -207,7 +208,7 @@
           </div>
         </div>
       </div>
-      <div class="row" data-aos="fade-up" data-aos-duration="1000" >
+      <div class="row" data-aos="fade-up" data-aos-duration="1000">
         <div class="col-md-6 col-lg-4" *ngFor="let item of campaigns">
           <div class="causes-item mb-md-30">
             <div class="thumb">
@@ -233,8 +234,8 @@
             </div>
             <div class="causes-footer">
               <div class="admin">
-                <h5><a href="causes-details.html/{{item.id}}"><span class="icon-img"><img src="assets/img/icons/admin1.png"
-                        alt="Icon"></span>{{item.portal}}</a></h5>
+                <h5><a href="causes-details.html/{{item.id}}"><span class="icon-img"><img
+                        src="assets/img/icons/admin1.png" alt="Icon"></span>{{item.portal}}</a></h5>
               </div>
               <a class="btn-theme btn-border-gradient gray-border btn-size-md" href="index.html#"><span>Donate Now <img
                     class="icon icon-img" src="assets/img/icons/arrow-line-right-gradient.png" alt="Icon"></span></a>

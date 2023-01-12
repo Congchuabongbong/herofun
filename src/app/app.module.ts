@@ -22,10 +22,11 @@ import { PageTitleAreaComponent } from './shared/components/page-title-area/page
 import { SlideTestimonialComponent } from './shared/components/slide-testimonial/slide-testimonial.component';
 import { EventDetailComponent } from './pages/event-detail/event-detail.component';
 import { VolunteerComponent } from './pages/volunteer/volunteer.component';
-import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { LoginComponent } from './layout/auth/login/login.component';
 import { RegisterComponent } from './layout/auth/register/register.component';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
+import { PaymentSuccessComponent } from './pages/payment-success/payment-success.component';
 
 @NgModule({
   declarations: [
@@ -50,6 +51,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     VolunteerComponent,
     LoginComponent,
     RegisterComponent,
+    PaymentSuccessComponent,
   ],
   imports: [
     BrowserModule,
@@ -57,6 +59,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     SwiperModule,
     CountUpModule,
     HttpClientModule,
+    ReactiveFormsModule,
     ReactiveFormsModule,
   ],
   providers: [HttpClient],

@@ -17,7 +17,7 @@ export interface Campaign {
   accountId: number;
 }
 
-export interface Sponsor{
+export interface Sponsor {
   updatedAt: string;
   status: number;
   id: number;
@@ -26,4 +26,35 @@ export interface Sponsor{
   description: string;
   detail: string;
   image: string;
+}
+
+
+export interface ITransaction {
+  senderName: string,
+  message: string,
+  amount: number,
+  campaignId: number,
+  paymentChannel: number,
+  anonymous: boolean;
+}
+
+export interface IOrder {
+  status: boolean,
+  message: string,
+  data: {
+    id: number,
+    senderName: string,
+    message: string,
+    amount: number,
+    campaignId: number,
+    paymentChannel: number,
+    accountId: number,
+    paymentStatus: string,
+    orderId: string,
+    link: {
+      href: string,
+      rel: string,
+      method: string;
+    };
+  };
 }

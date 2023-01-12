@@ -11,13 +11,13 @@ import { EventDetailComponent } from './pages/event-detail/event-detail.componen
 import { VolunteerComponent } from './pages/volunteer/volunteer.component';
 import { LoginComponent } from './layout/auth/login/login.component';
 import { RegisterComponent } from './layout/auth/register/register.component';
-
 import { AuthGuard } from '../app/shared/helpers';
+import { PaymentSuccessComponent } from './pages/payment-success/payment-success.component';
 
 const routes: Routes = [
   {
     path: '',
-    title: 'Herofund',
+    title: 'Hero Fund',
     component: MainComponent,
     children: [
       { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -51,6 +51,16 @@ const routes: Routes = [
         path: 'volunteer',
         title: 'Volunteer',
         component: VolunteerComponent,
+      },
+      {
+        path: 'payment-success',
+        title: 'Payment Success',
+        component: PaymentSuccessComponent,
+      },
+      {
+        path: 'causes/:id',
+        title: 'Cause Detail',
+        component: CauseDetailComponent,
       },
       {
         path: 'causes',
