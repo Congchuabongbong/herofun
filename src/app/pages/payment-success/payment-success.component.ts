@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import { PaymentService } from 'src/app/shared/services/payment.service';
+import {Component, OnInit} from '@angular/core';
+import {PaymentService} from 'src/app/shared/services/payment.service';
+import {PaymentSuccess} from "../../shared/entity/Modal";
 
 @Component({
   selector: 'app-payment-success',
@@ -8,10 +9,20 @@ import { PaymentService } from 'src/app/shared/services/payment.service';
 })
 export class PaymentSuccessComponent implements OnInit {
 
-  constructor(private _paymentService: PaymentService) { }
+  public paymentSuccess!: PaymentSuccess;
+
+  constructor(private _paymentService: PaymentService) {
+  }
 
   ngOnInit(): void {
-    this._paymentService.executeOrder(localStorage.getItem("orderId") as string, localStorage.getItem("paymentChannelId") as string).subscribe(res => console.log(res));
+    let orderId = localStorage.getItem("orderId") as string;
+    let paymentChannelId = localStorage.getItem("paymentChannelId") as string;
+    this.executeOder(orderId, paymentChannelId);
+  }
+
+  executeOder(orderId: string, paymentChannelId: string) {
+    this._paymentService.executeOrder(orderId, paymentChannelId)
+      .subscribe(paymentSuccess => paymentSuccess && (this.paymentSuccess = paymentSuccess.data));
   }
 
 }
