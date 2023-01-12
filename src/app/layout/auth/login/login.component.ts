@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { first } from 'rxjs';
 import { AuthenticationService } from 'src/app/shared/services/authentication.service';
+import { AlertService } from 'src/app/shared/services/alert.service';
 
 @Component({
   selector: 'app-login',
@@ -19,7 +20,8 @@ export class LoginComponent implements OnInit {
     private formBuilder: FormBuilder,
     private route: ActivatedRoute,
     private router: Router,
-    private authenticationService: AuthenticationService
+    private authenticationService: AuthenticationService,
+    private alertService: AlertService
   ) {
     if (this.authenticationService.currentUserValue)
       this.router.navigate(['/']);
@@ -39,6 +41,7 @@ export class LoginComponent implements OnInit {
 
   public onSubmit() {
     this.submitted = true;
+    this.alertService.clear();
     if (this.loginForm.invalid) return;
 
     this.loading = true;
@@ -50,6 +53,7 @@ export class LoginComponent implements OnInit {
           this.router.navigate([this.returnUrl]);
         },
         (error) => {
+          this.alertService.error(error);
           this.loading = false;
         }
       );

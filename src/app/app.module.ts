@@ -27,6 +27,7 @@ import { RegisterComponent } from './layout/auth/register/register.component';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
 import { PaymentSuccessComponent } from './pages/payment-success/payment-success.component';
+import { NotifierModule } from 'angular-notifier';
 
 @NgModule({
   declarations: [
@@ -61,6 +62,7 @@ import { PaymentSuccessComponent } from './pages/payment-success/payment-success
     HttpClientModule,
     ReactiveFormsModule,
     ReactiveFormsModule,
+    NotifierModule,
   ],
   providers: [HttpClient],
   bootstrap: [AppComponent],
