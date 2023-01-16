@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {AuthenticationService} from "../../shared/services/authentication.service";
+import {Profile} from "../../shared/models";
 
 @Component({
   selector: 'app-profile',
@@ -8,9 +10,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProfileComponent implements OnInit {
 
-  constructor() { }
+  profile!: Profile;
+
+  constructor(private authService: AuthenticationService) { }
 
   ngOnInit(): void {
+    this.getProfile();
+    console.log(this.profile)
+  }
+
+  getProfile(){
+    this.authService.getProfile().subscribe(res => this.profile = res.data)
   }
 
 }

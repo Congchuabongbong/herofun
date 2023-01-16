@@ -78,11 +78,12 @@
                                      ariaCurrentWhenActive="page">{{item.title}}</a></h4>
                 <p>{{item.description}}</p>
               </div>
-              <div class="causes-footer">
+
+              <div *ngIf="item?.portal === 'ADMIN'; else elseBlock" class="causes-footer">
                 <div class="admin">
                   <h5>
-                    <a routerLink="/causes/{{item.id}}" routerLinkActive="active" ariaCurrentWhenActive="page"><span
-                      class="icon-img"><img src="assets/img/icons/admin1.png" alt="Icon"></span>{{item.portal}}
+                    <a routerLink="/causes/{{item.id}}" routerLinkActive="active" ariaCurrentWhenActive="page">
+                      <span  class="icon-img"><img src="assets/img/icons/admin1.png" alt="Icon"></span>{{item.portal}}
                     </a>
                   </h5>
                 </div>
@@ -90,6 +91,20 @@
                    routerLinkActive="active" ariaCurrentWhenActive="page"><span>Donate Now
                   <img class="icon icon-img" src="assets/img/icons/arrow-line-right-gradient.png" alt="Icon"></span></a>
               </div>
+             <ng-template #elseBlock>
+               <div class="causes-footer">
+                 <div class="admin">
+                   <h5>
+                     <a routerLink="/causes/{{item.id}}" routerLinkActive="active" ariaCurrentWhenActive="page">
+                       <span  class="icon-img"><img src="assets/img/icons/admin1.png" alt="Icon"></span>{{item?.account?.username}}
+                     </a>
+                   </h5>
+                 </div>
+                 <a class="btn-theme btn-border-gradient gray-border btn-size-md" routerLink="/causes/{{item.id}}"
+                    routerLinkActive="active" ariaCurrentWhenActive="page"><span>Donate Now
+                  <img class="icon icon-img" src="assets/img/icons/arrow-line-right-gradient.png" alt="Icon"></span></a>
+               </div>
+             </ng-template>
             </div>
           </div>
         </ng-template>

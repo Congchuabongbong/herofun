@@ -15,20 +15,8 @@
           <div class="header-navigation-area">
             <ul class="main-menu nav justify-content-center">
               <li routerLink="/home" routerLinkActive="active" ariaCurrentWhenActive="page"><a>Home</a></li>
-              <li routerLink="/about" routerLinkActive="active" ariaCurrentWhenActive="page"><a>About
-                Us</a></li>
-              <li class="has-submenu" routerLinkActive="active">
-                <a>Causes</a>
-                <ul class="submenu-nav">
-                  <li>
-                    <a routerLink="causes" routerLinkActive="text-theme-color" ariaCurrentWhenActive="page">Causes</a>
-                  </li>
-                  <li>
-                    <a routerLink="cause-detail" routerLinkActive="text-theme-color" ariaCurrentWhenActive="page">Causes
-                      Details</a>
-                  </li>
-                </ul>
-              </li>
+              <li routerLink="/about" routerLinkActive="active" ariaCurrentWhenActive="page"><a>About Us</a></li>
+              <li routerLink="/causes" routerLinkActive="active" ariaCurrentWhenActive="page"><a>Causes</a></li>
               <li class="has-submenu"><a href="blog.html">Blog</a>
                 <ul class="submenu-nav">
                   <li><a href="blog.html">Blog Grid</a></li>
@@ -48,14 +36,14 @@
             </ul>
           </div>
           <div class="header-action-area">
-            <button class="btn-menu d-xl-none">
-              <span></span>
-              <span></span>
-              <span></span>
-            </button>
-            <a routerLink="/login" class="btn-theme btn-gradient btn-slide btn-style">Login<img class="icon icon-img"
-                                                                                                src="assets/img/icons/arrow-line-right2.png"
-                                                                                                alt="Icon"></a>
+            <a *ngIf="!jwt; else elseBlock" routerLink="/login" class="btn-theme btn-gradient btn-slide btn-style">Login
+              <img class="icon icon-img" src="assets/img/icons/arrow-line-right2.png" alt="Icon">
+            </a>
+            <ng-template #elseBlock>
+              <p class="btn-theme btn-gradient btn-slide btn-style" style="cursor: pointer" (click)="logOut()">Logout
+                <img class="icon icon-img" src="assets/img/icons/arrow-line-right2.png" alt="Icon">
+              </p>
+            </ng-template>
           </div>
         </div>
       </div>

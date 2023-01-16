@@ -24,15 +24,11 @@
                             placeholder="Confirm password">
                     </div>
                     <div class="form-check">
-                        <label class="switch">
-                            <input type="checkbox">
-                            <span class="slider round"></span>
-                        </label>
-                        <label class="form-check-label" for="exampleCheck1">Remember me</label>
                         <label class="forgot-password"><a routerLink="/login">Already have an account?</a></label>
                     </div>
                     <br>
-                    <button [disabled]="loading" type="submit" class="btn btn-lg btn-block btn-success">
+                    <button [disabled]="loading" type="submit" class="btn btn-lg btn-block text-white"
+                            style="background: #FEA444">
                         <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
                         Sign up
                     </button>

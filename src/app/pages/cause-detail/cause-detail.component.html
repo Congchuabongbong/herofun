@@ -122,21 +122,12 @@
             </div>
             <div class="sidebar-area">
               <div class="widget">
-                <h3 class="widget-title">Search Here</h3>
+                <h3 class="widget-title">{{campaign.title}}</h3>
                 <div class="separator-line">
                   <img class="me-1" src="assets/img/shape/line-t2.png" alt="Image-Givest">
                 </div>
-                <div class="widget-search-box">
-                  <form action="causes-details.html#" method="post">
-                    <div class="form-input-item">
-                      <label for="search2" class="sr-only">Search Here</label>
-                      <input type="text" id="search2" placeholder="Search here">
-                      <button type="submit" class="btn-src">
-                        <i class="icofont-search-1"></i>
-                      </button>
-                    </div>
-                  </form>
-                </div>
+                <a class="btn-theme btn-gradient btn-slide" href="causes{{campaign?.id}}"><span>Donate Now <img
+                  class="icon icon-img" src="assets/img/icons/arrow-line-right2.png" alt="Icon"></span></a>
               </div>
               <div class="widget">
                 <h3 class="widget-title">Causes Categories</h3>

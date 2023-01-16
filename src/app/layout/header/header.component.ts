@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {AuthenticationService} from "../../shared/services/authentication.service";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-header',
@@ -9,9 +11,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor() { }
+  jwt!: string;
+
+  constructor(private authService: AuthenticationService, private router: Router) { }
 
   ngOnInit(): void {
+    this.jwt = JSON.parse(localStorage.getItem("jwt")!)
+
+  }
+  logOut(){
+    this.authService.logout();
+    window.location.href = '/home'
   }
 
 }
