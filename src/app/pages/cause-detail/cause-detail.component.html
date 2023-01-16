@@ -12,20 +12,20 @@
             <div class="causes-details-content">
               <div class="causes-details">
                 <div class="thumb">
-                  <img class="w-100" src="{{campaign.image}}" alt="Image-Givest">
+                  <img class="w-100" src="{{campaign?.image}}" alt="Image-Givest">
                 </div>
-                <h3 class="cause-title">{{campaign.title}}</h3>
+                <h3 class="cause-title">{{campaign?.title}}</h3>
                 <div class="donate-info-wrp">
                   <div class="row">
                     <div class="col-md-6">
                       <ul class="donate-info">
                         <li class="info-item">
                           <span class="info-title">Target:</span>
-                          <span class="amount">$ {{campaign.targetAmount}}</span>
+                          <span class="amount">$ {{campaign?.targetAmount}}</span>
                         </li>
                         <li class="info-item">
                           <span class="info-title">Current:</span>
-                          <span class="amount">$ {{campaign.currentAmount}}</span>
+                          <span class="amount">$ {{campaign?.currentAmount}}</span>
                         </li>
                         <li class="info-item">
                           <span class="info-title">Missing:</span>
@@ -44,60 +44,14 @@
                   </div>
                 </div>
                 <div>
-                  {{campaign.description}}
+                  {{campaign?.description}}
                 </div>
                 <hr>
-                <div [innerHTML]="campaign.detail" >
+                <div [innerHTML]="campaign?.detail" >
                 </div>
               </div>
               <br>
               <hr>
-              <!-- **Donate ** -->
-<!--              <div class="donners-info">-->
-<!--                <h3>Great Donners</h3>-->
-<!--                <div class="donners-item">-->
-<!--                  <div class="donner-item">-->
-<!--                    <img src="assets/img/photos/donner1.png" alt="Image-Givest">-->
-<!--                  </div>-->
-<!--                  <div class="donner-item">-->
-<!--                    <img src="assets/img/photos/donner2.png" alt="Image-Givest">-->
-<!--                  </div>-->
-<!--                  <div class="donner-item">-->
-<!--                    <img src="assets/img/photos/donner3.png" alt="Image-Givest">-->
-<!--                  </div>-->
-<!--                  <div class="donner-item">-->
-<!--                    <img src="assets/img/photos/donner4.png" alt="Image-Givest">-->
-<!--                  </div>-->
-<!--                  <div class="donner-item">-->
-<!--                    <img src="assets/img/photos/donner2.png" alt="Image-Givest">-->
-<!--                  </div>-->
-<!--                  <div class="donner-item">-->
-<!--                    <img src="assets/img/photos/donner3.png" alt="Image-Givest">-->
-<!--                  </div>-->
-<!--                  <div class="donner-item">-->
-<!--                    <img src="assets/img/photos/donner5.png" alt="Image-Givest">-->
-<!--                  </div>-->
-<!--                  <div class="donner-item">-->
-<!--                    <img src="assets/img/photos/donner3.png" alt="Image-Givest">-->
-<!--                  </div>-->
-<!--                  <div class="donner-item">-->
-<!--                    <img src="assets/img/photos/donner1.png" alt="Image-Givest">-->
-<!--                  </div>-->
-<!--                  <div class="donner-item">-->
-<!--                    <img src="assets/img/photos/donner2.png" alt="Image-Givest">-->
-<!--                  </div>-->
-<!--                  <div class="donner-item">-->
-<!--                    <img src="assets/img/photos/donner3.png" alt="Image-Givest">-->
-<!--                  </div>-->
-<!--                  <div class="donner-item">-->
-<!--                    <img src="assets/img/photos/donner1.png" alt="Image-Givest">-->
-<!--                  </div>-->
-<!--                  <div class="donner-item">-->
-<!--                    <img src="assets/img/photos/donner2.png" alt="Image-Givest">-->
-<!--                  </div>-->
-<!--                  <div class="donner-item donner-number">+286</div>-->
-<!--                </div>-->
-<!--              </div>-->
               <div class="donation-form bgcolor-theme3">
                 <div class="section-title">
                   <h5 class="subtitle line-theme-color mb-14">Make A Donation</h5>
@@ -198,7 +152,7 @@
                   <img class="me-1" src="assets/img/shape/line-t2.png" alt="Image-Givest">
                 </div>
                 <div class="widget-category">
-                  <a *ngFor="let c of categories" href="causes">{{c.name}}</a>
+                  <a *ngFor="let c of categories" href="#">{{c?.name}}</a>
                 </div>
               </div>
               <div class="widget">
@@ -208,18 +162,18 @@
                 </div>
                 <div class="widget-causes-item">
                   <div class="thumb">
-                    <img src="{{campaignUrgent.image}}" alt="Givest-HasTech">
+                    <img src="{{campaignUrgent?.image}}" alt="Givest-HasTech">
                   </div>
                   <div class="content">
-                    <h4 class="title"><a href="causes/{{campaignUrgent.id}}">{{campaignUrgent.title}}.</a></h4>
+                    <h4 class="title"><a href="causes/{{campaignUrgent?.id}}">{{campaignUrgent?.title}}.</a></h4>
                     <ul class="donate-info">
                       <li class="info-item">
                         <span class="info-title">Goal:</span>
-                        <span class="amount">$ {{campaignUrgent.targetAmount}}</span>
+                        <span class="amount">$ {{campaignUrgent?.targetAmount}}</span>
                       </li>
                       <li class="info-item">
                         <span class="info-title">Raised:</span>
-                        <span class="amount">$ {{campaignUrgent.currentAmount}}</span>
+                        <span class="amount">$ {{campaignUrgent?.currentAmount}}</span>
                       </li>
                     </ul>
                     <!-- Start Progress Item -->
@@ -238,7 +192,7 @@
                           <input class="form-control" type="text" placeholder="Custome Amount">
                         </div>
                       </div>
-                      <a class="btn-theme btn-gradient btn-slide" href="causes{{campaignUrgent.id}}"><span>Donate Now <img
+                      <a class="btn-theme btn-gradient btn-slide" href="causes{{campaignUrgent?.id}}"><span>Donate Now <img
                             class="icon icon-img" src="assets/img/icons/arrow-line-right2.png" alt="Icon"></span></a>
                     </form>
                   </div>
@@ -251,11 +205,11 @@
                 </div>
                 <div class="widget-tags">
                   <div class="thumb">
-                    <img src="{{campaign.sponsor.image}}" alt="Givest-HasTech">
+                    <img src="{{campaign?.sponsor?.image}}" alt="Givest-HasTech">
                   </div>
                   <br>
                   <div class="content ">
-                    <h5 class="title" style="text-align: center">{{campaign.sponsor.name}}</h5>
+                    <h5 class="title" style="text-align: center">{{campaign?.sponsor?.name}}</h5>
                   </div>
                 </div>
               </div>
