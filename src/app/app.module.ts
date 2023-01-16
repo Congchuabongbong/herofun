@@ -25,7 +25,7 @@ import { VolunteerComponent } from './pages/volunteer/volunteer.component';
 import { LoginComponent } from './layout/auth/login/login.component';
 import { RegisterComponent } from './layout/auth/register/register.component';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
-import { ReactiveFormsModule } from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { PaymentSuccessComponent } from './pages/payment-success/payment-success.component';
 import { NotifierModule } from 'angular-notifier';
 
@@ -63,6 +63,7 @@ import { NotifierModule } from 'angular-notifier';
     ReactiveFormsModule,
     ReactiveFormsModule,
     NotifierModule,
+    FormsModule,
   ],
   providers: [HttpClient],
   bootstrap: [AppComponent],

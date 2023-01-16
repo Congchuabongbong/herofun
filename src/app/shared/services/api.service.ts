@@ -35,6 +35,11 @@ export class ApiService {
     return this.http
       .get<any>(SystemUtil.BASE_URL + '/api/v1/sponsors')
   }
+  public getCategories() {
+    return this.http
+      .get<any>(SystemUtil.BASE_URL + '/api/v1/categories/active')
+  }
+
 
   public getRandomCategories(random : number) {
     return this.http

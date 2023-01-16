@@ -1,6 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {ApiService} from "../../shared/services/api.service";
-import {Campaign, Sponsor} from "../../shared/entity/Modal";
+import {Campaign, Category, Sponsor} from "../../shared/entity/Modal";
+import {CampaignService} from "../../shared/services/campaign.service";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-causes',
@@ -12,16 +14,23 @@ export class CausesComponent implements OnInit {
 
   campaigns: Campaign[] = [];
   sponsors: Sponsor[] = [];
+  categories: Category[] = [];
   limit: number = 6;
   offset: number = 1;
 
-  constructor(private apiService: ApiService) {
+  category: number = 0;
+  keyword?: string = "";
+
+  constructor(private apiService: ApiService, private campaignService: CampaignService, private router: Router) {
   }
 
   ngOnInit(): void {
     this.getPageCampaign();
     this.getSponsor();
+    this.getCategories();
   }
+
+
 
   getPageCampaign() {
     this.apiService.getPageCampaign(this.offset, this.limit)
@@ -31,8 +40,32 @@ export class CausesComponent implements OnInit {
   getSponsor() {
     this.apiService.getSponsor().subscribe(
       res => this.sponsors = res,
-      e => console.log(e)
     )
   }
 
+  searchCampaign() {
+    this.campaignService.searchCampaign(this.category, this.keyword, this.offset, this.limit)
+      .subscribe(res => {
+        this.campaigns = res.items;
+      })
+  }
+
+  private getCategories() {
+    this.apiService.getCategories().subscribe(res => this.categories = res)
+  }
+
+  changeCategories($event: any) {
+    this.category = $event.target.value;
+
+  }
+
+  btnSearch() {
+    this.searchCampaign();
+  }
+
+  reset() {
+    this.category = 0;
+    this.keyword = "";
+    this.getPageCampaign();
+  }
 }
