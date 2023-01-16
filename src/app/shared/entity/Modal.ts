@@ -14,7 +14,8 @@ export interface Campaign {
   portal: string;
   category: {
     id: number;
-    name: string
+    name: string;
+    image: string;
   };
   description: string;
   account: {
