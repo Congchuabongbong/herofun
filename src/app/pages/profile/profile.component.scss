@@ -8,7 +8,7 @@ body {
 }
 
 .profile-button {
-  background: rgb(99, 39, 120);
+  background: #FEA444;
   box-shadow: none;
   border: none;
 }
@@ -41,4 +41,29 @@ body {
   color: #fff;
   cursor: pointer;
   border: solid 1px #ba68c8;
+}
+
+.pointer{
+  cursor: pointer;
+}
+
+.nav-link{
+  color: #FEA444 ;
+}
+
+.page-item .active{
+  background-color: #FEA444;
+  border: #FEA444;
+}
+
+.status__custom{
+  padding: 0 10px;
+  border-radius: 3px;
+  font-weight: 500;
+  color: white;
+}
+
+.spinner_custom{
+  left: 60px;
+  top: 6px;
 }

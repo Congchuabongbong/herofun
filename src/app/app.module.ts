@@ -28,6 +28,7 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { PaymentSuccessComponent } from './pages/payment-success/payment-success.component';
 import { NotifierModule } from 'angular-notifier';
+import {CKEditorModule} from "ckeditor4-angular";
 
 @NgModule({
   declarations: [
@@ -64,6 +65,7 @@ import { NotifierModule } from 'angular-notifier';
     ReactiveFormsModule,
     NotifierModule,
     FormsModule,
+    CKEditorModule,
   ],
   providers: [HttpClient],
   bootstrap: [AppComponent],

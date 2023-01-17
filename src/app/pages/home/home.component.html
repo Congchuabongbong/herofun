@@ -217,16 +217,16 @@
             <div class="content">
               <ul class="donate-info">
                 <li class="info-item">
-                  <span class="info-title">Goal:</span>
+                  <span class="info-title">Target:</span>
                   <span class="amount">${{item.targetAmount}}</span>
                 </li>
                 <li class="info-item">
-                  <span class="info-title">Raised:</span>
+                  <span class="info-title">Current:</span>
                   <span class="amount">${{item.currentAmount}}</span>
                 </li>
                 <li class="info-item">
-                  <span class="info-title">To Go:</span>
-                  <span class="amount">${{item.targetAmount - item.currentAmount}}</span>
+                  <span class="info-title">Donations:</span>
+                  <span class="amount">{{item.donations}}</span>
                 </li>
               </ul>
               <h4 class="title"><a href="causes-details.html/{{item.id}}">{{item.title}}</a></h4>
@@ -545,7 +545,6 @@
                   <img src="{{s.image}}" alt="Image-Givest">
                 </div>
               </div>
-
             </div>
           </div>
         </div>

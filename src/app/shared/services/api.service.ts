@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { catchError, Subject, tap, throwError } from "rxjs";
 import { HttpClient } from "@angular/common/http";
 import { SystemUtil } from "../utils/SystemUtil";
-import {Campaign} from "../entity/Modal";
+import {Campaign, CampaignRequest} from "../entity/Modal";
 
 @Injectable({
   providedIn: 'root'
@@ -49,5 +49,27 @@ export class ApiService {
   public getCampaignUrgent() {
     return this.http
       .get<Campaign>(SystemUtil.BASE_URL + `/api/v1/campaigns/urgent/random`)
+  }
+
+  public uploadImage(file: File){
+    let url = SystemUtil.BASE_URL + `/api/v1/files/upload`;
+    let formData = new FormData();
+    formData.append("file", file);
+    return this.http
+      .post<any>(url, formData)
+      .pipe(
+        catchError((error: any) => {
+          return throwError(error);
+        }),
+        tap(()=>{
+          this.RefreshData.next()
+        })
+      );
+  }
+
+  public createCampaign(request: CampaignRequest){
+    let url = SystemUtil.BASE_URL + `/api/v1/auth/campaign`;
+    let headers = SystemUtil.setTokenHeader();
+    return this.http.post<any>(url, JSON.stringify(request), {headers})
   }
 }

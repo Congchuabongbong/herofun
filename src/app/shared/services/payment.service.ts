@@ -18,8 +18,6 @@ const headers: HttpHeaders = new HttpHeaders({
 export class PaymentService {
 
   constructor(private _http: HttpClient) { }
-
-
   public createDonate(paymentInfo: ITransaction): Observable<IOrder> {
     const url = SystemUtil.BASE_URL + '/api/v1/payments/paypal';
     return this._http.post<any>(url, paymentInfo, {

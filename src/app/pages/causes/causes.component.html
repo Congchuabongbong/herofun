@@ -33,7 +33,7 @@
               <img class="me-1" src="assets/img/shape/line-t2.png" alt="Image-Givest">
             </div>
             <div class="widget-category">
-              <input class="form-control" [(ngModel)]="keyword"/>
+              <input class="form-control" [(ngModel)]="keyword" placeholder="Enter keyword"/>
             </div>
           </div>
         </div>
@@ -61,16 +61,16 @@
               <div class="content">
                 <ul class="donate-info">
                   <li class="info-item">
-                    <span class="info-title">Goal:</span>
+                    <span class="info-title">Target:</span>
                     <span class="amount">$ {{item.targetAmount}}</span>
                   </li>
                   <li class="info-item">
-                    <span class="info-title">Raised:</span>
+                    <span class="info-title">Current:</span>
                     <span class="amount">$ {{item.currentAmount}}</span>
                   </li>
                   <li class="info-item">
-                    <span class="info-title">To Go:</span>
-                    <span class="amount">$ {{item.targetAmount - item.currentAmount}}</span>
+                    <span class="info-title">Donations:</span>
+                    <span class="amount">{{item.donations}}</span>
                   </li>
                 </ul>
 
