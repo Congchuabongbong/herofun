@@ -1,6 +1,6 @@
-import {Component, OnInit} from '@angular/core';
-import {PaymentService} from 'src/app/shared/services/payment.service';
-import {PaymentSuccess} from "../../shared/entity/Modal";
+import { Component, OnInit } from '@angular/core';
+import { PaymentService } from 'src/app/shared/services/payment.service';
+import { PaymentSuccess } from "../../shared/entity/Modal";
 
 @Component({
   selector: 'app-payment-success',

@@ -1,11 +1,11 @@
-import {Component, OnInit} from '@angular/core';
-import {ActivatedRoute, Router} from '@angular/router';
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 
-import {ApiService} from 'src/app/shared/services/api.service';
-import {CampaignService} from 'src/app/shared/services/campaign.service';
-import {Campaign, Category} from '../../shared/entity/Modal';
-import {FormBuilder, FormGroup} from '@angular/forms';
-import {PaymentService} from 'src/app/shared/services/payment.service';
+import { ApiService } from 'src/app/shared/services/api.service';
+import { CampaignService } from 'src/app/shared/services/campaign.service';
+import { Campaign, Category } from '../../shared/entity/Modal';
+import { FormBuilder, FormGroup } from '@angular/forms';
+import { PaymentService } from 'src/app/shared/services/payment.service';
 
 @Component({
   selector: 'app-cause-detail',
@@ -14,10 +14,10 @@ import {PaymentService} from 'src/app/shared/services/payment.service';
 })
 export class CauseDetailComponent implements OnInit {
   constructor(private _route: ActivatedRoute,
-              private _campaignService: CampaignService,
-              private _router: Router, private _fb: FormBuilder,
-              private _apiService: ApiService,
-              private _paymentService: PaymentService) {
+    private _campaignService: CampaignService,
+    private _router: Router, private _fb: FormBuilder,
+    private _apiService: ApiService,
+    private _paymentService: PaymentService) {
   }
 
   public campaign!: Campaign;
@@ -26,13 +26,16 @@ export class CauseDetailComponent implements OnInit {
   public categories: Category[] = [];
   public campaignUrgent!: Campaign;
   public percent!: string;
+  public idCampaign!: string;
 
   ngOnInit(): void {
     let id = this._route.snapshot.paramMap.get('id');
     if (!id) {
       //redirect not 404 found
       this._router.navigate(['/home']);
+      return;
     }
+    this.idCampaign = id;
     this._campaignService.getPageCampaign(id).pipe().subscribe((campaign) => {
       campaign && (this.campaign = campaign);
       if (campaign) {
@@ -46,11 +49,11 @@ export class CauseDetailComponent implements OnInit {
   }
 
   getRandomCategory() {
-    this._apiService.getRandomCategories(this.random).subscribe(res => this.categories = res)
+    this._apiService.getRandomCategories(this.random).subscribe(res => this.categories = res);
   }
 
   getCampaignUrgent() {
-    this._apiService.getCampaignUrgent().subscribe(campaignUrgent => campaignUrgent && (this.campaignUrgent = campaignUrgent))
+    this._apiService.getCampaignUrgent().subscribe(campaignUrgent => campaignUrgent && (this.campaignUrgent = campaignUrgent));
   }
 
   submitDonate() {
@@ -58,7 +61,7 @@ export class CauseDetailComponent implements OnInit {
       senderName: ['NGUYEN HS'],
       message: ['ủng hộ em Kiên mau chóng chữa khỏi bệnh ngáo chó nhé. '],
       amount: [2000],
-      campaignId: [2],
+      campaignId: this.idCampaign,
       paymentChannel: [1],
       anonymous: [false],
     });
@@ -67,7 +70,7 @@ export class CauseDetailComponent implements OnInit {
 
   createPaymentDonate() {
     this._paymentService.createDonate(this.paymentInfo.getRawValue()).subscribe((data) => {
-      console.log(data)
+      console.log(data);
       localStorage.setItem("orderId", data.data.orderId);
       localStorage.setItem("paymentChannelId", data.data.paymentChannel.toString());
       window.open(data.data.link.href);
