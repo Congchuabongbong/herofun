@@ -29,52 +29,52 @@ export class CauseDetailComponent implements OnInit {
   public idCampaign!: string;
 
   ngOnInit(): void {
-    let id = this._route.snapshot.paramMap.get('id');
-    if (!id) {
-      //redirect not 404 found
-      this._router.navigate(['/home']);
-      return;
-    }
-    this.idCampaign = id;
-    this._campaignService.getPageCampaign(id).pipe().subscribe((campaign) => {
-      campaign && (this.campaign = campaign);
-      if (campaign) {
-        // let p = (campaign.currentAmount / campaign.targetAmount) * 100
-        // this.percent = p.toString() + "%";
-      }
-    });
+    // let id = this._route.snapshot.paramMap.get('id');
+    // if (!id) {
+    //   //redirect not 404 found
+    //   this._router.navigate(['/home']);
+    //   return;
+    // }
+    // this.idCampaign = id;
+    // this._campaignService.getPageCampaign(id).pipe().subscribe((campaign) => {
+    //   campaign && (this.campaign = campaign);
+    //   if (campaign) {
+    //     // let p = (campaign.currentAmount / campaign.targetAmount) * 100
+    //     // this.percent = p.toString() + "%";
+    //   }
+    // });
 
-    this.getRandomCategory();
-    this.getCampaignUrgent();
+    // this.getRandomCategory();
+    // this.getCampaignUrgent();
   }
 
-  getRandomCategory() {
-    this._apiService.getRandomCategories(this.random).subscribe(res => this.categories = res);
-  }
+  // getRandomCategory() {
+  //   this._apiService.getRandomCategories(this.random).subscribe(res => this.categories = res);
+  // }
 
-  getCampaignUrgent() {
-    this._apiService.getCampaignUrgent().subscribe(campaignUrgent => campaignUrgent && (this.campaignUrgent = campaignUrgent));
-  }
+  // getCampaignUrgent() {
+  //   this._apiService.getCampaignUrgent().subscribe(campaignUrgent => campaignUrgent && (this.campaignUrgent = campaignUrgent));
+  // }
 
-  submitDonate() {
-    this.paymentInfo = this._fb.group({
-      senderName: ['NGUYEN HS'],
-      message: ['ủng hộ em Kiên mau chóng chữa khỏi bệnh ngáo chó nhé. '],
-      amount: [2000],
-      campaignId: this.idCampaign,
-      paymentChannel: [1],
-      anonymous: [false],
-    });
-    this.createPaymentDonate();
-  }
+  // submitDonate() {
+  //   this.paymentInfo = this._fb.group({
+  //     senderName: ['NGUYEN HS'],
+  //     message: ['ủng hộ em Kiên mau chóng chữa khỏi bệnh ngáo chó nhé. '],
+  //     amount: [2000],
+  //     campaignId: this.idCampaign,
+  //     paymentChannel: [1],
+  //     anonymous: [false],
+  //   });
+  //   this.createPaymentDonate();
+  // }
 
-  createPaymentDonate() {
-    this._paymentService.createDonate(this.paymentInfo.getRawValue()).subscribe((data) => {
-      console.log(data);
-      localStorage.setItem("orderId", data.data.orderId);
-      localStorage.setItem("paymentChannelId", data.data.paymentChannel.toString());
-      window.open(data.data.link.href);
-    });
-  }
+  // createPaymentDonate() {
+  //   this._paymentService.createDonate(this.paymentInfo.getRawValue()).subscribe((data) => {
+  //     console.log(data);
+  //     localStorage.setItem("orderId", data.data.orderId);
+  //     localStorage.setItem("paymentChannelId", data.data.paymentChannel.toString());
+  //     window.open(data.data.link.href);
+  //   });
+  // }
 
 }

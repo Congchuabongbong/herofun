@@ -14,23 +14,23 @@
             <nav>
               <div class="nav nav-tabs" id="nav-tab" role="tablist">
                 <button class="nav-link active" id="nav-profile-tab" data-bs-toggle="tab" data-bs-target="#nav-profile"
-                        type="button" role="tab" aria-controls="nav-profile" aria-selected="false">Profile
+                  type="button" role="tab" aria-controls="nav-profile" aria-selected="false">Profile
                 </button>
                 <button class="nav-link" id="nav-formcampaign-tab" data-bs-toggle="tab"
-                        data-bs-target="#nav-formcampaign"
-                        type="button" role="tab" aria-controls="nav-contact" aria-selected="false">Create Campaign
+                  data-bs-target="#nav-formcampaign" type="button" role="tab" aria-controls="nav-contact"
+                  aria-selected="false">Create Campaign
                 </button>
                 <button class="nav-link" id="nav-transaction-tab" data-bs-toggle="tab" data-bs-target="#nav-transaction"
-                        type="button" role="tab" aria-controls="nav-disabled" aria-selected="false">Transaction
+                  type="button" role="tab" aria-controls="nav-disabled" aria-selected="false">Transaction
                 </button>
                 <button class="nav-link" id="nav-campaign-tab" data-bs-toggle="tab" data-bs-target="#nav-campaign"
-                        type="button" role="tab" aria-controls="nav-campaign" aria-selected="false">My campaign
+                  type="button" role="tab" aria-controls="nav-campaign" aria-selected="false">My campaign
                 </button>
               </div>
             </nav>
             <div class="tab-content my-4" id="nav-tabContent">
               <div class="tab-pane fade show active " id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab"
-                   tabindex="0">
+                tabindex="0">
                 <div class="row mt-2">
                   <div class="col-md-6">
                     <label class="labels">First Name</label>
@@ -38,18 +38,18 @@
                   </div>
                   <div class="col-md-6">
                     <label class="labels">Last Name</label>
-                    <input type="text" class="form-control" [(ngModel)]="profile.lastName" placeholder="surname"></div>
+                    <input type="text" class="form-control" [(ngModel)]="profile.lastName" placeholder="surname">
+                  </div>
                 </div>
                 <div class="row mt-3">
                   <div class="col-md-6">
                     <label class="labels">Date Of Birth</label>
-                    <input type="date" class="form-control" placeholder="enter date of birth"
-                           [(ngModel)]="dateOfBirth">
+                    <input type="date" class="form-control" placeholder="enter date of birth" [(ngModel)]="dateOfBirth">
                   </div>
                   <div class="col-md-6">
                     <label class="labels">Mobile Number</label>
                     <input type="text" class="form-control" placeholder="enter phone number"
-                           [(ngModel)]="profile.phone">
+                      [(ngModel)]="profile.phone">
                   </div>
                   <div class="col-md-6">
                     <label class="labels">Email</label>
@@ -58,7 +58,7 @@
                   <div class="col-md-12">
                     <label class="labels">Address</label>
                     <input type="text" class="form-control" placeholder="enter address line 1"
-                           [(ngModel)]="profile.address">
+                      [(ngModel)]="profile.address">
                   </div>
                   <div class="mt-5 text-center col-md-12">
                     <button class="btn btn-primary profile-button" type="button" (click)="updateProfile()">Save
@@ -68,16 +68,14 @@
                 </div>
               </div>
               <!--   CREAT CAMPAIGN           -->
-              <div class="tab-pane fade" id="nav-formcampaign" role="tabpanel"
-                   aria-labelledby="nav-formcampaign-tab"
-                   tabindex="0">
+              <div class="tab-pane fade" id="nav-formcampaign" role="tabpanel" aria-labelledby="nav-formcampaign-tab"
+                tabindex="0">
                 <div class="row">
                   <form [formGroup]="validateForm">
                     <div class="mb-3">
                       <span style="color: red">*</span>
                       <label class="form-label">Title:</label>
-                      <input formControlName="title"
-                        class="form-control" placeholder="Enter Title">
+                      <input formControlName="title" class="form-control" placeholder="Enter Title">
                       <p class="text-danger mx-1">{{messageError.errorTitle}}</p>
                     </div>
                     <div class="mb-3 d-flex">
@@ -111,7 +109,7 @@
                       <div class="col-md-3">
                         <span style="color: red">*</span>
                         <label class="form-label">Category:</label>
-                        <select formControlName="categoryId"  class="form-control">
+                        <select formControlName="categoryId" class="form-control">
                           <option value="0" selected>Select category</option>
                           <option *ngFor="let c of categories" [value]="c.id">{{c.name}}</option>
                         </select>
@@ -121,8 +119,7 @@
                     <div class="mb-3">
                       <span style="color: red">*</span>
                       <label class="form-label">Description:</label>
-                      <textarea formControlName="description" cols="3"
-                                class="w-100 form-control"></textarea>
+                      <textarea formControlName="description" cols="3" class="w-100 form-control"></textarea>
                       <p class="text-danger mx-1">{{messageError.errorDescription}}</p>
                     </div>
                     <div class="mb-3">
@@ -130,18 +127,17 @@
                         <div>
                           <span style="color: red">*</span>
                           <label class="form-label">Image:</label>
-                          <input type="file" (change)="uploadImage($event)" class="form-control"/>
+                          <input type="file" (change)="uploadImage($event)" class="form-control" />
                           <p class="text-danger mx-1">{{messageError.errorImage}}</p>
                         </div>
                         <div class="spinner-border text-warning spinner-border-sm position-absolute spinner_custom"
-                             [hidden]="isLoadImage"
-                             role="status">
+                          [hidden]="isLoadImage" role="status">
                           <span class="sr-only"></span>
                         </div>
                       </div>
                       <div class="col-md-6 mt-3">
                         <img width="200px" class="border" alt="givest"
-                             src="{{image ?? '../../../assets/img/error.png'}}"/>
+                          src="{{image || '../../../assets/img/error.png'}}" />
                       </div>
                     </div>
                     <div class="mb-3">
@@ -152,7 +148,7 @@
                     </div>
                     <div class="text-center">
                       <button type="button" (click)="btnCreateCampaign()" class="btn btn-success"
-                              style="margin-right: 3px">Submit
+                        style="margin-right: 3px">Submit
                       </button>
                       <button type="reset" (click)="btnResetFormCampaign()" class="btn btn-primary">Reset</button>
                     </div>
@@ -160,24 +156,20 @@
                 </div>
               </div>
               <!--   MY TRANSACTION           -->
-              <div class="tab-pane fade" id="nav-transaction" role="tabpanel"
-                   aria-labelledby="nav-transaction-tab" tabindex="0">
+              <div class="tab-pane fade" id="nav-transaction" role="tabpanel" aria-labelledby="nav-transaction-tab"
+                tabindex="0">
                 <div class="row">
                   <div class="col-md-4">
                     <label>Keyword:</label>
-                    <input placeholder="Enter keyword" class="form-control"
-                           [(ngModel)]="filterTransaction.keyword"
-                    />
+                    <input placeholder="Enter keyword" class="form-control" [(ngModel)]="filterTransaction.keyword" />
                   </div>
                   <div class="col-md-4 ">
                     <label>Amount:</label>
                     <div class="d-flex">
-                      <input placeholder="Start amount" class="form-control" style="margin-right: 10px"
-                             type="number"
-                             [(ngModel)]="filterTransaction.startAmount"/>
-                      <input placeholder="End amount" class="form-control"
-                             type="number"
-                             [(ngModel)]="filterTransaction.endAmount"/>
+                      <input placeholder="Start amount" class="form-control" style="margin-right: 10px" type="number"
+                        [(ngModel)]="filterTransaction.startAmount" />
+                      <input placeholder="End amount" class="form-control" type="number"
+                        [(ngModel)]="filterTransaction.endAmount" />
                     </div>
                   </div>
                   <div class="col-md-4">
@@ -186,12 +178,8 @@
                     </label>
                     <div class="d-flex">
                       <input placeholder="Start date" class="form-control" type="date"
-                             [(ngModel)]="startDateSendingTime"
-                             style="margin-right: 10px"
-                      />
-                      <input placeholder="End date" class="form-control" type="date"
-                             [(ngModel)]="endDateSendingTime"
-                      />
+                        [(ngModel)]="startDateSendingTime" style="margin-right: 10px" />
+                      <input placeholder="End date" class="form-control" type="date" [(ngModel)]="endDateSendingTime" />
                     </div>
                   </div>
                 </div>
@@ -200,8 +188,7 @@
                     <div class="col-md-10"></div>
                     <div class="col-md-2 d-flex">
                       <button type="button" (click)="btnSearch(1)" class="btn mx-1"
-                              style="background: #ffc22c; color: #FFF"
-                      >Search
+                        style="background: #ffc22c; color: #FFF">Search
                       </button>
                       <button type="reset" (click)="btnReset(1)" class="btn btn-primary">Reset</button>
                     </div>
@@ -209,24 +196,24 @@
                 </div>
                 <table class="table table-bordered">
                   <thead>
-                  <tr>
-                    <th>Stt</th>
-                    <th>Campaign</th>
-                    <th width="13%">Sender Name</th>
-                    <th width="10%">Amount ($)</th>
-                    <th width="17%">Sending Time</th>
-                    <th>Transaction Id</th>
-                  </tr>
+                    <tr>
+                      <th>Stt</th>
+                      <th>Campaign</th>
+                      <th width="13%">Sender Name</th>
+                      <th width="10%">Amount ($)</th>
+                      <th width="17%">Sending Time</th>
+                      <th>Transaction Id</th>
+                    </tr>
                   </thead>
                   <tbody class="table-group-divider">
-                  <tr *ngFor="let t of responseTransactionToken.items; let i = index">
-                    <th>{{i + 1}}</th>
-                    <td>{{t.campaign}}</td>
-                    <td>{{t.senderName}}</td>
-                    <td style="text-align: center">{{t.amount}}</td>
-                    <td>{{t.sendingTime}}</td>
-                    <td>{{t.paypalTransactionId}}</td>
-                  </tr>
+                    <tr *ngFor="let t of responseTransactionToken.items; let i = index">
+                      <th>{{i + 1}}</th>
+                      <td>{{t.campaign}}</td>
+                      <td>{{t.senderName}}</td>
+                      <td style="text-align: center">{{t.amount}}</td>
+                      <td>{{t.sendingTime}}</td>
+                      <td>{{t.paypalTransactionId}}</td>
+                    </tr>
                   </tbody>
                 </table>
                 <nav class="float-end" aria-label="Page navigation example">
@@ -234,54 +221,43 @@
 
                     <li class="page-item">
                       <p class="page-link pointer {{responseTransactionToken.offset == 1 ? 'disabled' : ''}}"
-                         (click)="previousPage(1)">Previous</p>
+                        (click)="previousPage(1)">Previous</p>
                     </li>
                     <li *ngFor="let p of renderPage(1);" class="page-item">
                       <p class="page-link pointer  {{p === responseTransactionToken.offset ? 'active' : ''}}"
-                         (click)="changePage(1,p)"
-                      >{{p}}</p>
+                        (click)="changePage(1,p)">{{p}}</p>
                     </li>
                     <li class="page-item ">
-                      <p
-                        class="page-link pointer {{responseTransactionToken.offset == responseTransactionToken.totalPages ? 'disabled' : ''}}"
+                      <p class="page-link pointer {{responseTransactionToken.offset == responseTransactionToken.totalPages ? 'disabled' : ''}}"
                         (click)="nextPage(1)">Next</p>
                     </li>
                   </ul>
                 </nav>
               </div>
               <!--   MY CAMPAIGN           -->
-              <div class="tab-pane fade" id="nav-campaign" role="tabpanel"
-                   aria-labelledby="nav-campaign-tab"
-                   tabindex="0">
+              <div class="tab-pane fade" id="nav-campaign" role="tabpanel" aria-labelledby="nav-campaign-tab"
+                tabindex="0">
                 <div class="row">
                   <div class="col-md-4">
                     <label>Keyword:</label>
-                    <input placeholder="Enter keyword" class="form-control"
-                           [(ngModel)]="filterCampaign.keyword"
-                    />
+                    <input placeholder="Enter keyword" class="form-control" [(ngModel)]="filterCampaign.keyword" />
                   </div>
                   <div class="col-md-5 ">
                     <label>Amount:</label>
                     <div class="d-flex ">
                       <input placeholder="Start target amount" class="form-control" style="margin-right: 10px"
-                             type="number"
-                             [(ngModel)]="filterCampaign.targetAmountStart"/>
-                      <input placeholder="End target amount" class="form-control"
-                             type="number"
-                             [(ngModel)]="filterCampaign.targetAmountEnd"/>
+                        type="number" [(ngModel)]="filterCampaign.targetAmountStart" />
+                      <input placeholder="End target amount" class="form-control" type="number"
+                        [(ngModel)]="filterCampaign.targetAmountEnd" />
                     </div>
                   </div>
                   <div class="col-3"></div>
                   <div class="col-md-4  mt-3">
                     <label>Created Date:</label>
                     <div class="d-flex">
-                      <input placeholder="Start date" class="form-control" type="date"
-                             [(ngModel)]="startCreatedDate"
-                             style="margin-right: 10px"
-                      />
-                      <input placeholder="End date" class="form-control" type="date"
-                             [(ngModel)]="endCreatedDate"
-                      />
+                      <input placeholder="Start date" class="form-control" type="date" [(ngModel)]="startCreatedDate"
+                        style="margin-right: 10px" />
+                      <input placeholder="End date" class="form-control" type="date" [(ngModel)]="endCreatedDate" />
                     </div>
                   </div>
                 </div>
@@ -290,8 +266,7 @@
                     <div class="col-md-10"></div>
                     <div class="col-md-2 d-flex">
                       <button type="button" (click)="btnSearch(2)" class="btn mx-1"
-                              style="background: #ffc22c; color: #FFF"
-                      >Search
+                        style="background: #ffc22c; color: #FFF">Search
                       </button>
                       <button type="reset" (click)="btnReset(2)" class="btn btn-primary">Reset</button>
                     </div>
@@ -299,33 +274,33 @@
                 </div>
                 <table class="table table-bordered">
                   <thead>
-                  <tr>
-                    <th style="text-align: center">Stt</th>
-                    <th style="text-align: center">Image</th>
-                    <th style="text-align: center">Title</th>
-                    <th width="15%" style="text-align: center">Target Amount( $ )</th>
-                    <th width="10%" style="text-align: center">Start Date</th>
-                    <th width="10%" style="text-align: center">End Date</th>
-                    <th style="text-align: center">Status</th>
-                    <th style="text-align: center">Created At</th>
-                  </tr>
+                    <tr>
+                      <th style="text-align: center">Stt</th>
+                      <th style="text-align: center">Image</th>
+                      <th style="text-align: center">Title</th>
+                      <th width="15%" style="text-align: center">Target Amount( $ )</th>
+                      <th width="10%" style="text-align: center">Start Date</th>
+                      <th width="10%" style="text-align: center">End Date</th>
+                      <th style="text-align: center">Status</th>
+                      <th style="text-align: center">Created At</th>
+                    </tr>
                   </thead>
                   <tbody class="table-group-divider">
-                  <tr *ngFor="let c of responseCampaignToken.items; let i = index">
-                    <th>{{i + 1}}</th>
-                    <td>
-                      <img src="{{c.image}}" alt="givest" width="250px">
-                    </td>
-                    <td>{{c.title}}</td>
-                    <td style="text-align: center">{{c.targetAmount}}</td>
-                    <td>{{c.startDate}}</td>
-                    <td>{{c.endDate}}</td>
-                    <td>
-                      <p style="background:{{handlerStatus(c.status).color}}" class="status__custom">
-                        {{handlerStatus(c.status).name}}</p>
-                    </td>
-                    <td width="15%">{{handlerCreatedDate(c.createdAt)}}</td>
-                  </tr>
+                    <tr *ngFor="let c of responseCampaignToken.items; let i = index">
+                      <th>{{i + 1}}</th>
+                      <td>
+                        <img src="{{c.image}}" alt="givest" width="250px">
+                      </td>
+                      <td>{{c.title}}</td>
+                      <td style="text-align: center">{{c.targetAmount}}</td>
+                      <td>{{c.startDate}}</td>
+                      <td>{{c.endDate}}</td>
+                      <td>
+                        <p [style.background]="handlerStatus(c.status).color" class="status__custom">
+                          {{handlerStatus(c.status).name}}</p>
+                      </td>
+                      <td width="15%">{{handlerCreatedDate(c.createdAt)}}</td>
+                    </tr>
                   </tbody>
                 </table>
                 <nav class="float-end" aria-label="Page navigation example">
@@ -333,16 +308,14 @@
 
                     <li class="page-item">
                       <p class="page-link pointer {{responseCampaignToken.offset == 1 ? 'disabled' : ''}}"
-                         (click)="previousPage(2)">Previous</p>
+                        (click)="previousPage(2)">Previous</p>
                     </li>
                     <li *ngFor="let p of renderPage(2);" class="page-item">
                       <p class="page-link pointer  {{p === responseCampaignToken.offset ? 'active' : ''}}"
-                         (click)="changePage(2,p)"
-                      >{{p}}</p>
+                        (click)="changePage(2,p)">{{p}}</p>
                     </li>
                     <li class="page-item ">
-                      <p
-                        class="page-link pointer {{responseCampaignToken.offset == responseCampaignToken.totalPages ? 'disabled' : ''}}"
+                      <p class="page-link pointer {{responseCampaignToken.offset == responseCampaignToken.totalPages ? 'disabled' : ''}}"
                         (click)="nextPage(2)">Next</p>
                     </li>
                   </ul>
