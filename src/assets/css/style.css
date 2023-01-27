@@ -5163,11 +5163,13 @@ table p {
 }
 
 .causes-item .thumb {
+  height: 250px;
   overflow: hidden;
 }
 
 .causes-item .thumb img {
   width: 100%;
+  height: 100%;
   transition: 0.8s;
   -webkit-transition: 0.8s;
   -moz-transition: 0.8s;
@@ -11069,4 +11071,11 @@ table p {
   .site-wrapper-reveal {
     margin-bottom: 0 !important;
   }
+}
+
+.causes-item .content p {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
