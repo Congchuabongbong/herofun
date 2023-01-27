@@ -13,14 +13,14 @@ import { LoginComponent } from './layout/auth/login/login.component';
 import { RegisterComponent } from './layout/auth/register/register.component';
 import { AuthGuard } from '../app/shared/helpers';
 import { PaymentSuccessComponent } from './pages/payment-success/payment-success.component';
-
+import { ErrorComponent } from './pages/error/error.component';
+import { PaymentFormComponent } from './pages/payment-form/payment-form.component';
 const routes: Routes = [
   {
     path: '',
     title: 'Hero Fund',
     component: MainComponent,
     children: [
-      { path: '', redirectTo: '/home', pathMatch: 'full' },
       {
         path: 'home',
         title: 'Home',
@@ -66,13 +66,11 @@ const routes: Routes = [
         path: 'causes',
         title: 'Causes',
         component: CausesComponent,
-        children: [
-          {
-            path: 'detail',
-            title: 'Cause Detail',
-            component: CauseDetailComponent,
-          },
-        ],
+      },
+      {
+        path: 'payment:id',
+        title: 'Payment Form',
+        component: PaymentFormComponent,
       },
     ],
   },
@@ -86,10 +84,12 @@ const routes: Routes = [
     title: 'Register',
     component: RegisterComponent,
   },
+  { path: '404', component: ErrorComponent },
+  { path: '**', redirectTo: '/404' }
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule],
 })
-export class AppRoutingModule {}
+export class AppRoutingModule { }

@@ -25,7 +25,6 @@ export class CauseDetailComponent implements OnInit {
   public random: number = 5;
   public categories: Category[] = [];
   public campaignUrgent!: Campaign;
-  public percent!: string;
   public idCampaign!: string;
 
   ngOnInit(): void {
@@ -38,10 +37,6 @@ export class CauseDetailComponent implements OnInit {
     this.idCampaign = id;
     this._campaignService.getPageCampaign(id).pipe().subscribe((campaign) => {
       campaign && (this.campaign = campaign);
-      if (campaign) {
-        // let p = (campaign.currentAmount / campaign.targetAmount) * 100
-        // this.percent = p.toString() + "%";
-      }
     });
 
     this.getRandomCategory();

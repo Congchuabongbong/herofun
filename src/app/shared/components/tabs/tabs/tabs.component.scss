@@ -1,0 +1,15 @@
+.nav-item {
+  cursor: pointer;
+  a {
+    color: #595959ed;
+  }
+  &.active a {
+    background: #fea444;
+    background: linear-gradient(to right, #fea444 0%, #fc6539 100%);
+  }
+  &:hover a {
+    background-color: #fea444;
+    border-color: #fea444;
+    color: #fff;
+  }
+}

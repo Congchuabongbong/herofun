@@ -1,9 +1,15 @@
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
+import { NotifierModule } from 'angular-notifier';
+import { CKEditorModule } from "ckeditor4-angular";
 import { CountUpModule } from 'ngx-countup';
 import { SwiperModule } from 'swiper/angular';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { LoginComponent } from './layout/auth/login/login.component';
+import { RegisterComponent } from './layout/auth/register/register.component';
 import { BodyComponent } from './layout/body/body.component';
 import { FooterComponent } from './layout/footer/footer.component';
 import { HeaderComponent } from './layout/header/header.component';
@@ -14,21 +20,20 @@ import { AboutComponent } from './pages/about/about.component';
 import { CauseDetailComponent } from './pages/cause-detail/cause-detail.component';
 import { CausesComponent } from './pages/causes/causes.component';
 import { ContactUsComponent } from './pages/contact-us/contact-us.component';
+import { ErrorComponent } from './pages/error/error.component';
+import { EventDetailComponent } from './pages/event-detail/event-detail.component';
 import { HomeComponent } from './pages/home/home.component';
 import { MainComponent } from './pages/main/main.component';
+import { PaymentFormComponent } from './pages/payment-form/payment-form.component';
+import { PaymentSuccessComponent } from './pages/payment-success/payment-success.component';
 import { ProfileComponent } from './pages/profile/profile.component';
+import { VolunteerComponent } from './pages/volunteer/volunteer.component';
 import { CouterUpComponent } from './shared/components/couter-up/couter-up.component';
 import { PageTitleAreaComponent } from './shared/components/page-title-area/page-title-area.component';
 import { SlideTestimonialComponent } from './shared/components/slide-testimonial/slide-testimonial.component';
-import { EventDetailComponent } from './pages/event-detail/event-detail.component';
-import { VolunteerComponent } from './pages/volunteer/volunteer.component';
-import { LoginComponent } from './layout/auth/login/login.component';
-import { RegisterComponent } from './layout/auth/register/register.component';
-import { HttpClient, HttpClientModule } from '@angular/common/http';
-import {FormsModule, ReactiveFormsModule} from '@angular/forms';
-import { PaymentSuccessComponent } from './pages/payment-success/payment-success.component';
-import { NotifierModule } from 'angular-notifier';
-import {CKEditorModule} from "ckeditor4-angular";
+import { TabComponent } from './shared/components/tabs/tab/tab.component';
+import { TabsComponent } from './shared/components/tabs/tabs/tabs.component';
+
 
 @NgModule({
   declarations: [
@@ -54,6 +59,10 @@ import {CKEditorModule} from "ckeditor4-angular";
     LoginComponent,
     RegisterComponent,
     PaymentSuccessComponent,
+    TabComponent,
+    TabsComponent,
+    ErrorComponent,
+    PaymentFormComponent,
   ],
   imports: [
     BrowserModule,
@@ -66,8 +75,9 @@ import {CKEditorModule} from "ckeditor4-angular";
     NotifierModule,
     FormsModule,
     CKEditorModule,
+
   ],
   providers: [HttpClient],
   bootstrap: [AppComponent],
 })
-export class AppModule {}
+export class AppModule { }
