@@ -14,6 +14,7 @@ import {SystemUtil} from "../../shared/utils/SystemUtil";
 import {ApiService} from "../../shared/services/api.service";
 import {FormGroup, UntypedFormBuilder, UntypedFormGroup, Validators} from "@angular/forms";
 
+
 @Component({
   selector: 'app-profile',
   templateUrl: './profile.component.html',
@@ -37,6 +38,7 @@ export class ProfileComponent implements OnInit {
   campaignRequest = new CampaignRequest();
   validateForm!: UntypedFormGroup;
   image!: string;
+  imageDefault = '../../../assets/img/error.png';
 
   messageError = {
     errorTitle: "",
@@ -242,7 +244,6 @@ export class ProfileComponent implements OnInit {
   }
 
   btnCreateCampaign() {
-    console.log(this.validateForm.value)
     if (this.validateForm.valid) {
       // if (this.id) {
       // this.updateCampaign(this.validateForm.value)
