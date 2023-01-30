@@ -67,7 +67,7 @@ export class ProfileComponent implements OnInit {
     this.createForm();
     this.findTransaction(this.filterTransaction);
     this.findCampaign(this.filterCampaign);
-    this.handlerCreatedDate('');
+    this.handlerDateTime('');
   }
 
   createForm(): void {
@@ -227,10 +227,12 @@ export class ProfileComponent implements OnInit {
     return SystemUtil.handlerStatus(status);
   }
 
-  handlerCreatedDate(date: string) {
+  handlerDateTime(date: string) {
     let str = new Date(date)
     let month = str.getMonth() < 10 ? `0${str.getMonth() + 1}` : str.getMonth()
-    return `${str.getDate()}/${month}/${str.getFullYear()}  ${str.getHours()}:${str.getMinutes()}`
+    let hours = str.getHours() < 10 ? `0${str.getHours()}` : str.getHours()
+    let minutes = str.getMinutes() < 10 ? `0${str.getMinutes()}` : str.getMinutes()
+    return `${str.getDate()}/${month}/${str.getFullYear()}  ${hours}:${minutes}`
   }
 
   uploadImage($event: any) {

@@ -1,7 +1,11 @@
-import { Component, OnInit, ViewChild, AfterViewInit } from '@angular/core';
+import {Component, OnInit, ViewChild, AfterViewInit} from '@angular/core';
 import Swiper from 'swiper';
-import { SwiperComponent } from 'swiper/angular';
+import {SwiperComponent} from 'swiper/angular';
+import {ApiService} from "../../shared/services/api.service";
+import {Sponsor} from "../../shared/entity/Modal";
+
 declare var $: any;
+
 @Component({
   selector: 'app-about',
   templateUrl: './about.component.html',
@@ -9,8 +13,11 @@ declare var $: any;
 
 })
 export class AboutComponent implements OnInit, AfterViewInit {
-  @ViewChild('swiper', { static: false }) swiper!: SwiperComponent;
-  constructor() { }
+  @ViewChild('swiper', {static: false}) swiper!: SwiperComponent;
+
+  constructor(private apiService: ApiService) {
+  }
+
   ngAfterViewInit(): void {
     var teamSlider = new Swiper(".team-slider-container", {
       slidesPerView: 3,
@@ -53,12 +60,18 @@ export class AboutComponent implements OnInit, AfterViewInit {
     });
 
   }
+
+  sponsor!: Sponsor[];
+
   ngOnInit(): void {
+    this.apiService.getSponsor().subscribe(res => res && (this.sponsor = res))
   }
+
   slideNext() {
     this.swiper.swiperRef.slideNext(1000);
 
   }
+
   slidePrev() {
     this.swiper.swiperRef.slidePrev(1000);
 

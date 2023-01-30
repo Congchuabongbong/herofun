@@ -16,12 +16,12 @@ export class CauseDetailComponent implements OnInit {
   constructor(private _route: ActivatedRoute,
     private _campaignService: CampaignService,
     private _router: Router, private _fb: FormBuilder,
-    private _apiService: ApiService,
-    private _paymentService: PaymentService) {
+    private _apiService: ApiService
+    ) {
   }
 
   public campaign!: Campaign;
-  public paymentInfo!: FormGroup;
+
   public random: number = 5;
   public categories: Category[] = [];
   public campaignUrgent!: Campaign;
@@ -51,25 +51,5 @@ export class CauseDetailComponent implements OnInit {
     this._apiService.getCampaignUrgent().subscribe(campaignUrgent => campaignUrgent && (this.campaignUrgent = campaignUrgent));
   }
 
-  submitDonate() {
-    this.paymentInfo = this._fb.group({
-      senderName: ['NGUYEN HS'],
-      message: ['ủng hộ em Kiên mau chóng chữa khỏi bệnh ngáo chó nhé. '],
-      amount: [2000],
-      campaignId: this.idCampaign,
-      paymentChannel: [1],
-      anonymous: [false],
-    });
-    this.createPaymentDonate();
-  }
-
-  createPaymentDonate() {
-    this._paymentService.createDonate(this.paymentInfo.getRawValue()).subscribe((data) => {
-      console.log(data);
-      localStorage.setItem("orderId", data.data.orderId);
-      localStorage.setItem("paymentChannelId", data.data.paymentChannel.toString());
-      window.open(data.data.link.href);
-    });
-  }
 
 }

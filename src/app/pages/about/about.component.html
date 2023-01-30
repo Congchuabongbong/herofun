@@ -161,54 +161,9 @@
         <div class="col-lg-8 col-xl-7 offset-xl-1">
           <div class="brand-logo-content">
             <div class="row row-cols-3 row-cols-sm-5">
-              <div class="col">
+              <div *ngFor="let s of sponsor" class="col">
                 <div class="brand-logo-item">
-                  <img src="assets/img/brand-logo/1.png" alt="Image-Givest">
-                </div>
-              </div>
-              <div class="col">
-                <div class="brand-logo-item">
-                  <img src="assets/img/brand-logo/2.png" alt="Image-Givest">
-                </div>
-              </div>
-              <div class="col">
-                <div class="brand-logo-item">
-                  <img src="assets/img/brand-logo/3.png" alt="Image-Givest">
-                </div>
-              </div>
-              <div class="col">
-                <div class="brand-logo-item">
-                  <img src="assets/img/brand-logo/4.png" alt="Image-Givest">
-                </div>
-              </div>
-              <div class="col">
-                <div class="brand-logo-item">
-                  <img src="assets/img/brand-logo/5.png" alt="Image-Givest">
-                </div>
-              </div>
-              <div class="col">
-                <div class="brand-logo-item">
-                  <img src="assets/img/brand-logo/6.png" alt="Image-Givest">
-                </div>
-              </div>
-              <div class="col">
-                <div class="brand-logo-item">
-                  <img src="assets/img/brand-logo/7.png" alt="Image-Givest">
-                </div>
-              </div>
-              <div class="col">
-                <div class="brand-logo-item">
-                  <img src="assets/img/brand-logo/8.png" alt="Image-Givest">
-                </div>
-              </div>
-              <div class="col">
-                <div class="brand-logo-item">
-                  <img src="assets/img/brand-logo/9.png" alt="Image-Givest">
-                </div>
-              </div>
-              <div class="col">
-                <div class="brand-logo-item">
-                  <img src="assets/img/brand-logo/10.png" alt="Image-Givest">
+                  <img src="{{s.image}}" alt="Image-Givest">
                 </div>
               </div>
             </div>
