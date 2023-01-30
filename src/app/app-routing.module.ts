@@ -68,7 +68,7 @@ const routes: Routes = [
         component: CausesComponent,
       },
       {
-        path: 'payment:id',
+        path: 'payment/:id',
         title: 'Payment Form',
         component: PaymentFormComponent,
       },
