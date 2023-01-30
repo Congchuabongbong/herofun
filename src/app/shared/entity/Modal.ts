@@ -26,6 +26,7 @@ export interface Campaign {
     id: number;
     name: string;
     image: string;
+    description: string;
   }
 }
 
