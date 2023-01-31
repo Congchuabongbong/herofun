@@ -22,19 +22,19 @@ export class SystemUtil {
     let color;
     switch (status) {
       case 0:
-        color = '#f5b77a'; // disable
+        color = '#5b5b5b'; // disable
         break;
       case 1:
-        color = '#98ee78'; // enable
+        color = '#26d53d'; // enable
         break;
       case 2:
         color = '#7191e8'; // wait
         break;
       case 3:
-        color = '#de6e6e'; // reject
+        color = '#c0b700'; // reject
         break;
       case 4:
-        color = '#f8c58d'; // khẩn cấp
+        color = '#ff2323'; // khẩn cấp
         break;
       default:
         color = '#44fefe'

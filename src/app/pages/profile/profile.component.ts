@@ -12,7 +12,7 @@ import {
 import {AlertService} from "../../shared/services/alert.service";
 import {SystemUtil} from "../../shared/utils/SystemUtil";
 import {ApiService} from "../../shared/services/api.service";
-import {FormGroup, UntypedFormBuilder, UntypedFormGroup, Validators} from "@angular/forms";
+import {UntypedFormBuilder, UntypedFormGroup, Validators} from "@angular/forms";
 
 
 @Component({
@@ -35,11 +35,8 @@ export class ProfileComponent implements OnInit {
   responseCampaignToken = new ResponseCampaignToken();
   categories: Category[] = [];
   sponsors: Sponsor[] = [];
-  campaignRequest = new CampaignRequest();
   validateForm!: UntypedFormGroup;
   image!: string;
-  imageDefault = '../../../assets/img/error.png';
-
   messageError = {
     errorTitle: "",
     errorDescription: "",
@@ -232,7 +229,7 @@ export class ProfileComponent implements OnInit {
     let month = str.getMonth() < 10 ? `0${str.getMonth() + 1}` : str.getMonth()
     let hours = str.getHours() < 10 ? `0${str.getHours()}` : str.getHours()
     let minutes = str.getMinutes() < 10 ? `0${str.getMinutes()}` : str.getMinutes()
-    return `${str.getDate()}/${month}/${str.getFullYear()}  ${hours}:${minutes}`
+    return `${str.getDate()}-${month}-${str.getFullYear()}`
   }
 
   uploadImage($event: any) {
@@ -247,18 +244,13 @@ export class ProfileComponent implements OnInit {
 
   btnCreateCampaign() {
     if (this.validateForm.valid) {
-      // if (this.id) {
-      // this.updateCampaign(this.validateForm.value)
-      // } else {
       this.createCampaign(this.validateForm.value);
-      // }
     } else {
       this.handlerErrorMessageFormCreateCampaign();
     }
   }
 
   btnResetFormCampaign() {
-
   }
 
   createCampaign(request: CampaignRequest) {
