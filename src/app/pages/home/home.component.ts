@@ -35,11 +35,12 @@ export class HomeComponent implements OnInit, AfterViewInit {
   limit: number = 3;
   offset: number = 1;
   campaigns: Campaign[] = [];
+  public campaignUrgent!: Campaign;
   sponsors: Sponsor[] = [];
 
   ngOnInit(): void {
-
     this.getCampaign();
+    this.getCampaignUrgent();
     this.getSponsor();
   }
 
@@ -50,6 +51,9 @@ export class HomeComponent implements OnInit, AfterViewInit {
     );
   }
 
+  getCampaignUrgent() {
+    this.apiService.getCampaignUrgent().subscribe(campaignUrgent => campaignUrgent && (this.campaignUrgent = campaignUrgent));
+  }
   getSponsor() {
     this.apiService.getSponsor().subscribe(
       res => this.sponsors = res,

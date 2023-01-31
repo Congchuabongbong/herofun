@@ -24,7 +24,7 @@ export class LoginComponent implements OnInit {
     private alertService: AlertService
   ) {
     if (this.authenticationService.currentUserValue)
-      this.router.navigate(['/']);
+      this.router.navigate(['/home']);
   }
 
   ngOnInit(): void {
@@ -32,7 +32,7 @@ export class LoginComponent implements OnInit {
       username: ['', Validators.required],
       password: ['', Validators.required],
     });
-    this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
+    this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/home';
   }
 
   get f() {

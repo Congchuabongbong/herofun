@@ -11,17 +11,14 @@
                 <div class="content" data-aos="fade-right" data-aos-duration="1000">
                   <div class="subtitle-content">
                     <img src="assets/img/icons/1.png" alt="Givest-HasTech">
-                    <h6>Change The World.</h6>
+                    <h6>Thay đổi thế giới.</h6>
                   </div>
                   <div class="tittle-wrp">
-                    <h2>Need Your Big Hand For <span>Change</span> The World.</h2>
+                    <h2>Cần bàn tay của bạn để <span>giúp đỡ</span> những hoàn cảnh khó khăn.</h2>
                   </div>
                   <div class="btn-wrp">
-                    <a href="#" class="btn-theme btn-gradient btn-slide btn-style">All Causes <img class="icon icon-img"
+                    <a routerLink="/causes" class="btn-theme btn-gradient btn-slide btn-style">Quyên góp <img class="icon icon-img"
                         src="assets/img/icons/arrow-line-right2.png" alt="Icon"></a>
-                    <a routerLink="/causes/id=1" routerLinkActive="active"
-                      class="btn-theme btn-border btn-black btn-style">Donate Now <img class="icon icon-img"
-                        src="assets/img/icons/arrow-right-line-dark.png" alt="Icon"></a>
                   </div>
                 </div>
               </div>
@@ -51,7 +48,7 @@
                     <div class="donate-content">
                       <div class="raised-amount">$865M</div>
                       <img class="line-shape-img" src="assets/img/shape/line-s2.png" alt="Image-Givest">
-                      <h5 class="donate-title">Total Raised</h5>
+                      <h5 class="donate-title">Tổng số tiền quyên góp</h5>
                     </div>
                   </div>
                 </div>
@@ -151,8 +148,8 @@
       <div class="row">
         <div class="col-lg-9">
           <div class="section-title position-relative z-index-1" data-aos="fade-up" data-aos-duration="1000">
-            <h5 class="subtitle line-theme-color">About Us.</h5>
-            <h2 class="title"><span>Givest</span> is The Non Profitable Organization.</h2>
+            <h5 class="subtitle line-theme-color">Về chúng tôi.</h5>
+            <h2 class="title"><span>Givest</span> là tổ chức phi lợi nhuận.</h2>
           </div>
         </div>
       </div>
@@ -174,20 +171,18 @@
         </div>
         <div class="col-lg-6 col-xl-5">
           <div class="about-content" data-aos="fade-up" data-aos-duration="1100">
-            <p class="text-style">Lorem Ipsum is simply dummy text of the printing and typesetting industry has been the
-              industry standard.</p>
-            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry orem Ipsum has been the
-              industry's standard dummy text ever since the 1500s, when an unknown.</p>
-            <p class="mb-0">Lorem Ipsum is simply dummy text of the printing and typesetting industry orem Ipsum has
-              been the industry's standard dummy text ever since the 1500s, when an unknown.</p>
+            <p class="text-style">Ra đời năm 2023, Givest là một quỹ từ thiện hoạt động vì cộng đồng, không vì lợi nhuận,
+               hỗ trợ các hoàn cảnh khó khăn và tạo động lực phát triển.</p>
+            <p>Thực hiện các chương trình cứu trợ nhân đạo đến các đối tượng có
+              nguy cơ rơi vào tình trạng cực đoan: những nạn nhân của thiên tai, người khuyết tật, các cộng đồng yếu thế…</p>
+            <p class="mb-0">Thực hiện các chương trình cứu trợ nhân đạo đến các
+              đối tượng có nguy cơ rơi vào tình trạng cực đoan: những nạn nhân của thiên tai, người khuyết tật,
+              các cộng đồng yếu thế…</p>
             <ul class="list-icon-style">
-              <li><img class="icon-img" src="assets/img/icons/check-double-line.png" alt="Image-Givest"> Need your
-                simple help <br>for save children.</li>
-              <li class="line-center"></li>
-              <li><img class="icon-img" src="assets/img/icons/check-double-line.png" alt="Image-Givest"> Need your
-                simple help <br>for save children.</li>
+              <li><img class="icon-img" src="assets/img/icons/check-double-line.png" alt="Image-Givest">
+                Cần sự giúp đỡ của bạn để <br>giúp đỡ những hoàn cảnh khó khăn.</li>
             </ul>
-            <a href="causes" class="btn-theme btn-gradient btn-slide">View Causes <img class="icon icon-img"
+            <a routerLink="/causes" class="btn-theme btn-gradient btn-slide">Quyên góp <img class="icon icon-img"
                 src="assets/img/icons/arrow-line-right2.png" alt="Icon"></a>
           </div>
         </div>
@@ -202,8 +197,8 @@
       <div class="row">
         <div class="col-lg-8 m-auto">
           <div class="section-title text-center" data-aos="fade-up" data-aos-duration="1000">
-            <h5 class="subtitle line-theme-color">Check Causes</h5>
-            <h2 class="title title-style">Donate For Poor People. Causes of Givest <img class="img-shape"
+            <h5 class="subtitle line-theme-color">Chiến dịch quyên góp mới nhất</h5>
+            <h2 class="title title-style">Quyên góp để giúp đỡ những hoàn cảnh khó khăn <img class="img-shape"
                 src="assets/img/shape/3.png" alt="Image-Givest"></h2>
           </div>
         </div>
@@ -255,24 +250,16 @@
         <div class="col-lg-7 col-xxl-7">
           <div class="content" data-aos="fade-up" data-aos-duration="1000">
             <div class="section-title">
-              <h5 class="subtitle line-theme-color mb-7">Make A Donation</h5>
-              <h2 class="title title-style text-white">Need Pure Water For Mozambique People. <img class="img-shape"
+              <h5 class="subtitle line-theme-color mb-7">Trường hợp khẩn cấp</h5>
+              <h2 class="title title-style text-white">{{campaignUrgent.title}}. <img class="img-shape"
                   src="assets/img/shape/3.png" alt="Image-Givest"></h2>
             </div>
             <div class="donate-form">
               <form action="index.html#">
-                <div class="amount-info">
-                  <div class="donate-amount">$20</div>
-                  <div class="donate-amount">$50</div>
-                  <div class="donate-amount">$200</div>
-                  <div class="donate-amount donate-custom-amount">
-                    <input class="form-control" type="text" placeholder="Custom">
-                  </div>
-                </div>
                 <div class="btn-wrp">
-                  <a href="index.html#/" class="btn-theme btn-gradient btn-slide">Donate Now <img class="icon icon-img"
+                  <a routerLink="/payment/{{campaignUrgent && campaignUrgent.id}}" class="btn-theme btn-gradient btn-slide">Quyên góp <img class="icon icon-img"
                       src="assets/img/icons/arrow-line-right2.png" alt="Icon"></a>
-                  <a href="index.html#/" class="btn-theme btn-gradient btn-border">Join Events <img
+                  <a routerLink="/causes/{{campaignUrgent && campaignUrgent.id}}" class="btn-theme btn-gradient btn-border">Chi tiết <img
                       class="icon icon-img" src="assets/img/icons/arrow-line-right2-gradient.png" alt="Icon"></a>
                 </div>
               </form>
@@ -284,21 +271,8 @@
             <div class="thumb-bg-layer" data-aos="fade-left" data-aos-duration="1000"
               data-bg-img="assets/img/photos/bg-donate1.jpg"></div>
             <div class="donners-info" data-aos="fade-up" data-aos-duration="1000">
-              <h3>Great Donners</h3>
-              <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry since the 1500s, when an
-                unknown.</p>
-              <div class="donners-item">
-                <div class="donner-item">
-                  <img src="assets/img/photos/donner1.png" alt="Image-Givest">
-                </div>
-                <div class="donner-item">
-                  <img src="assets/img/photos/donner2.png" alt="Image-Givest">
-                </div>
-                <div class="donner-item">
-                  <img src="assets/img/photos/donner3.png" alt="Image-Givest">
-                </div>
-                <div class="donner-item donner-number">+286</div>
-              </div>
+              <img src="{{campaignUrgent && campaignUrgent.image}}">
+              <p>{{campaignUrgent && campaignUrgent.description}}</p>
             </div>
           </div>
         </div>
@@ -317,7 +291,7 @@
       <div class="row">
         <div class="col-lg-8">
           <div class="section-title" data-aos="fade-up" data-aos-duration="1000">
-            <h5 class="subtitle line-theme-color mb-7">Recent Events</h5>
+            <h5 class="subtitle line-theme-color mb-7">Sự kiện gần đây</h5>
             <h2 class="title title-style">Join Recent Fundraising Event Of Givest. <img class="img-shape"
                 src="assets/img/shape/3.png" alt="Image-Givest"></h2>
           </div>
@@ -397,8 +371,8 @@
       <div class="row">
         <div class="col-md-8 col-lg-6 m-auto">
           <div class="section-title text-center" data-aos="fade-up" data-aos-duration="1000">
-            <h5 class="subtitle line-theme-color">Blog Post</h5>
-            <h2 class="title title-style">Latest News From Givest Blog <img class="img-shape"
+            <h5 class="subtitle line-theme-color">Bài viết</h5>
+            <h2 class="title title-style">Tin tức mới nhất từ chúng tôi <img class="img-shape"
                 src="assets/img/shape/3.png" alt="Image-Givest"></h2>
           </div>
         </div>
@@ -417,7 +391,7 @@
             <div class="content">
               <div class="inner-content">
                 <div class="meta">
-                  <a class="post-category" href="blog.html">Education</a>
+                  <a class="post-category" href="blog.html">Giáo dục</a>
                   <div class="post-share">
                     <a class="icon-share" href="blog.html"><img src="assets/img/icons/share-line-gradient.png"
                         alt="Icon"></a>
@@ -430,7 +404,7 @@
                   </div>
                 </div>
                 <h4 class="title">
-                  <a href="blog-details.html">Save Children Life For Future.</a>
+                  <a href="#">Cứu trẻ em cuộc sống cho tương lai.</a>
                 </h4>
                 <p>Lorem Ipsum is simply dummy text industry since unknown..</p>
               </div>
@@ -534,7 +508,7 @@
       <div class="row" data-aos="fade-up" data-aos-duration="1000">
         <div class="col-sm-8 offset-sm-2 col-md-8 offset-md-2 col-lg-4 offset-lg-0 col-xl-4">
           <div class="section-title text-center text-lg-start">
-            <h2 class="title title-style mt-xl-30">Our Current Sponsors. <img class="img-shape"
+            <h2 class="title title-style mt-xl-30">Nhà tài trợ hiện tại của chúng tôi. <img class="img-shape"
                 src="assets/img/shape/3.png" alt="Image-Givest"></h2>
           </div>
         </div>
@@ -543,7 +517,7 @@
             <div class="row row-cols-3 row-cols-sm-5">
               <div class="col" *ngFor="let s of sponsors">
                 <div class="brand-logo-item">
-                  <img src="{{s.image}}" alt="Image-Givest">
+                  <img width="120px" src="{{s.image}}" alt="Image-Givest">
                 </div>
               </div>
             </div>

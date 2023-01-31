@@ -11,7 +11,7 @@
     <div class="row justify-content-center">
         <div class="col-lg-8">
             <div class="login">
-                <h1>Register</h1>
+                <h1>Đăng ký</h1>
                 <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
                     <div class="form-group">
                         <input formControlName="username" type="text" class="form-control" placeholder="Username">
@@ -24,13 +24,13 @@
                             placeholder="Confirm password">
                     </div>
                     <div class="form-check">
-                        <label class="forgot-password"><a routerLink="/login">Already have an account?</a></label>
+                        <label class="forgot-password"><a routerLink="/login">Bạn đã có tài khoản?</a></label>
                     </div>
                     <br>
                     <button [disabled]="loading" type="submit" class="btn btn-lg btn-block text-white"
                             style="background: #FEA444">
                         <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
-                        Sign up
+                        Đăng ký
                     </button>
                 </form>
             </div>
