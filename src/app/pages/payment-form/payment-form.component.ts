@@ -4,6 +4,7 @@ import {ActivatedRoute, Router} from "@angular/router";
 import {PaymentService} from "../../shared/services/payment.service";
 import {AuthenticationService} from "../../shared/services/authentication.service";
 import {FormDonateRequest} from "../../shared/entity/Modal";
+import {CampaignService} from "../../shared/services/campaign.service";
 
 @Component({
   selector: 'app-payment-form',
@@ -26,17 +27,24 @@ export class PaymentFormComponent implements OnInit {
   constructor(private _route: ActivatedRoute,
               private _router: Router, private _fb: FormBuilder,
               private _paymentService: PaymentService,
+              private _campaignService: CampaignService,
               private authService: AuthenticationService,
   ) {
   }
 
   ngOnInit(): void {
     let id = this._route.snapshot.paramMap.get('id');
+
     if (!id) {
       //redirect not 404 found
       this._router.navigate(['/home']).then((r) => console.log(r));
       return;
     }
+    this._campaignService.getDetailCampaign(id).subscribe(
+      res => console.log(res),
+      error => this._router.navigate(['/404',{message: error && error.message}])
+        .then((r) => console.log(r))
+    )
     this.getProfile();
     this.idCampaign = id;
 

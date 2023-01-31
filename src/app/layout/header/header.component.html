@@ -14,9 +14,9 @@
         <div class="header-align">
           <div class="header-navigation-area">
             <ul class="main-menu nav justify-content-center">
-              <li routerLink="/home" routerLinkActive="active" ariaCurrentWhenActive="page"><a>Home</a></li>
-              <li routerLink="/about" routerLinkActive="active" ariaCurrentWhenActive="page"><a>About Us</a></li>
-              <li routerLink="/causes" routerLinkActive="active" ariaCurrentWhenActive="page"><a>Causes</a></li>
+              <li routerLink="/home" routerLinkActive="active" ariaCurrentWhenActive="page"><a>Trang chủ</a></li>
+              <li routerLink="/about" routerLinkActive="active" ariaCurrentWhenActive="page"><a>Về chúng tôi</a></li>
+              <li routerLink="/causes" routerLinkActive="active" ariaCurrentWhenActive="page"><a>Chiến dịch</a></li>
 <!--              <li class="has-submenu"><a href="blog.html">Blog</a>-->
 <!--                <ul class="submenu-nav">-->
 <!--                  <li><a href="blog.html">Blog Grid</a></li>-->
@@ -32,15 +32,15 @@
                       ariaCurrentWhenActive="page">Volunteer</a></li>
                 </ul>
               </li>
-              <li routerLink="contact-us" routerLinkActive="active" ariaCurrentWhenActive="page"><a>Contact Us</a></li>
+              <li routerLink="contact-us" routerLinkActive="active" ariaCurrentWhenActive="page"><a>Liên hệ</a></li>
             </ul>
           </div>
           <div class="header-action-area">
-            <a *ngIf="!jwt; else elseBlock" routerLink="/login" class="btn-theme btn-gradient btn-slide btn-style">Login
+            <a *ngIf="!jwt; else elseBlock" routerLink="/login" class="btn-theme btn-gradient btn-slide btn-style">Đăng nhập
               <img class="icon icon-img" src="assets/img/icons/arrow-line-right2.png" alt="Icon">
             </a>
             <ng-template #elseBlock>
-              <p class="btn-theme btn-gradient btn-slide btn-style" style="cursor: pointer" (click)="logOut()">Logout
+              <p class="btn-theme btn-gradient btn-slide btn-style" style="cursor: pointer" (click)="logOut()">Đăng xuất
                 <img class="icon icon-img" src="assets/img/icons/arrow-line-right2.png" alt="Icon">
               </p>
             </ng-template>

@@ -1,6 +1,6 @@
 <main class="main-content site-wrapper-reveal">
   <!--== Start Page Title Area ==-->
-  <app-page-title-area [name]="'Causes-Detail'"></app-page-title-area>
+  <app-page-title-area [name]="'Chi tiết chiến dịch'"></app-page-title-area>
   <!--== End Page Title Area ==-->
 
   <!--== Start Causes Area ==-->
@@ -12,36 +12,36 @@
             <div class="causes-details-content">
               <div class="causes-details">
                 <div class="thumb">
-                  <img class="w-100" src="{{campaign.image}}" alt="Image-Givest">
+                  <img class="w-100" src="{{campaign && campaign.image}}" alt="Image-Givest">
                 </div>
-                <h3 class="cause-title">{{campaign.title}}</h3>
-                <div class="cause-description">{{campaign.description}}</div>
-                <div class="cause-start-date">{{campaign.startDate}}</div>
+                <h3 class="cause-title">{{campaign && campaign.title}}</h3>
+                <div class="cause-description">{{campaign && campaign.description}}</div>
+                <div class="cause-start-date">{{campaign && campaign.startDate}}</div>
                 <br>
                 <!-- **Tab here** -->
                 <app-tabs>
-                  <app-tab [tabTitle]="'Story'">
+                  <app-tab [tabTitle]="'Câu chuyện'">
                     <div class="donate-info-wrp">
                       <div class="row">
                         <div class="col-md-6">
                           <ul class="donate-info">
                             <li class="info-item">
                               <span class="info-title">Target:</span>
-                              <span class="amount">$ {{campaign.targetAmount}}</span>
+                              <span class="amount">$ {{campaign && campaign.targetAmount}}</span>
                             </li>
                             <li class="info-item">
                               <span class="info-title">Current:</span>
-                              <span class="amount">$ {{campaign.currentAmount}}</span>
+                              <span class="amount">$ {{campaign && campaign.currentAmount}}</span>
                             </li>
                           </ul>
                         </div>
                         <div class="col-md-6"></div>
                       </div>
                     </div>
-                    <div [innerHTML]="campaign.detail"></div>
+                    <div [innerHTML]="campaign && campaign.detail"></div>
                   </app-tab>
 
-                  <app-tab tabTitle="Philanthropists">
+                  <app-tab [tabTitle]="'Danh sách quyên góp'">
                     <div class="donners-info">
                       <h3>Great Donners</h3>
                       <div class="donners-item">
@@ -88,7 +88,7 @@
                       </div>
                     </div>
                   </app-tab>
-                  <app-tab tabTitle="Article">
+                  <app-tab [tabTitle]="'Bài viết'">
                     <p>Hello</p>
                   </app-tab>
                 </app-tabs>
@@ -99,7 +99,7 @@
             </div>
             <div class="sidebar-area">
               <div class="widget">
-                <h3 class="widget-title">Information donate</h3>
+                <h3 class="widget-title">Thông tin quyên góp</h3>
                 <div class="separator-line">
                   <img class="me-1" src="assets/img/shape/line-t2.png" alt="Image-Givest">
                 </div>
@@ -108,39 +108,41 @@
                     <div class="col-md-6">
                       <ul class="donate-info">
                         <li class="info-item">
-                          <span class="info-title">Target:</span>
-                          <span class="amount">$ {{campaign.targetAmount}}</span>
+                          <span class="info-title">Mục tiêu:</span>
+                          <span class="amount"> ${{campaign &&  campaign.targetAmount}}</span>
                         </li>
                         <li class="info-item">
-                          <span class="info-title">Current:</span>
-                          <span class="amount">$ {{campaign.currentAmount}}</span>
+                          <span class="info-title">Hiện tại:</span>
+                          <span class="amount"> ${{campaign && campaign.currentAmount}}</span>
                         </li>
                       </ul>
+                      <a class="btn-theme btn-gradient btn-slide" routerLink="/payment/{{campaign && campaign.id}}"><span>Quyên góp <img
+                        class="icon icon-img" src="assets/img/icons/arrow-line-right2.png" alt="Icon"></span></a>
                     </div>
                     <div class="col-md-6"></div>
                   </div>
                 </div>
               </div>
               <div class="widget">
-                <h3 class="widget-title">Sponsor</h3>
+                <h3 class="widget-title">Đồng hành cùng dự án</h3>
                 <div class="separator-line">
                   <img class="me-1" src="assets/img/shape/line-t2.png" alt="Image-Givest">
                 </div>
                 <div class="widget-category">
                  <div class="row">
                    <div class="col-md-4">
-                     <img style="width: 100%" src="{{campaign.sponsor.image}}">
+                     <img style="width: 100%" src="{{campaign && campaign.sponsor.image}}">
                    </div>
                    <div class="col-md-8">
-                     <h6 style="font-size: 16px">{{campaign.sponsor.name}}</h6>
-                     <p style="font-size: 12px; color: #8d8d8d">{{campaign.sponsor.description}}</p>
+                     <h6 style="font-size: 16px">{{campaign && campaign.sponsor.name}}</h6>
+                     <p style="font-size: 12px; color: #8d8d8d">{{campaign && campaign.sponsor.description}}</p>
                    </div>
 
                  </div>
                 </div>
               </div>
               <div class="widget">
-                <h3 class="widget-title">Causes Categories</h3>
+                <h3 class="widget-title">Danh mục quyên góp</h3>
                 <div class="separator-line">
                   <img class="me-1" src="assets/img/shape/line-t2.png" alt="Image-Givest">
                 </div>
@@ -149,7 +151,7 @@
                 </div>
               </div>
               <div class="widget">
-                <h3 class="widget-title">Urgent Causes</h3>
+                <h3 class="widget-title">Khẩn cấp</h3>
                 <div class="separator-line">
                   <img class="me-1" src="assets/img/shape/line-t2.png" alt="Image-Givest">
                 </div>
@@ -158,15 +160,15 @@
                     <img src="assets/img/causes/w1.jpg" alt="Givest-HasTech">
                   </div>
                   <div class="content">
-                    <h5 class="title-custom"><a href="/causes/{{campaignUrgent.id}}">{{campaignUrgent.title}}</a></h5>
+                    <h5 class="title-custom"><a href="/causes/{{campaignUrgent && campaignUrgent.id}}">{{campaignUrgent && campaignUrgent.title}}</a></h5>
                     <ul class="donate-info">
                       <li class="info-item">
-                        <span class="info-title">Target:</span>
-                        <span class="amount">$ {{campaignUrgent.targetAmount}}</span>
+                        <span class="info-title">Mục tiêu:</span>
+                        <span class="amount">${{campaignUrgent && campaignUrgent.targetAmount}}</span>
                       </li>
                       <li class="info-item">
-                        <span class="info-title">Current:</span>
-                        <span class="amount">$ {{campaignUrgent.currentAmount}}</span>
+                        <span class="info-title">Hiện tại:</span>
+                        <span class="amount">${{campaignUrgent && campaignUrgent.currentAmount}}</span>
                       </li>
                     </ul>
                     <!-- Start Progress Item -->
@@ -177,10 +179,10 @@
                         <div class="donate-amount">$48</div>
                         <div class="donate-amount me-0">$90</div>
                         <div class="donate-amount donate-custom-amount">
-                          <input class="form-control" type="text" placeholder="Custome Amount">
+                          <input class="form-control" type="text" placeholder="Số tiền ủng hộ">
                         </div>
                       </div>
-                      <a class="btn-theme btn-gradient btn-slide" routerLink="/payment/{{campaignUrgent.id}}"><span>Donate Now <img
+                      <a class="btn-theme btn-gradient btn-slide" routerLink="/payment/{{campaignUrgent && campaignUrgent.id}}"><span>Quyên góp <img
                             class="icon icon-img" src="assets/img/icons/arrow-line-right2.png" alt="Icon"></span></a>
                     </form>
                   </div>

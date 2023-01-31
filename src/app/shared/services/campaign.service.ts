@@ -26,7 +26,7 @@ export class CampaignService {
   constructor(private _http: HttpClient) {
   }
 
-  public getPageCampaign(id: any) {
+  public getDetailCampaign(id: any) {
     let query = `/api/v1/campaigns/detail?id=${id}`;
     return this._http
       .get<any>(SystemUtil.BASE_URL + query)

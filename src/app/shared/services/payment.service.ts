@@ -4,13 +4,8 @@ import { Observable } from 'rxjs';
 import { IOrder, ITransaction } from '../entity/Modal';
 import { SystemUtil } from '../utils/SystemUtil';
 
-const headers: HttpHeaders = new HttpHeaders({
+const headers: HttpHeaders = SystemUtil.setTokenHeader();
 
-  'content-type': 'application/json',
-  'returnUrl': 'http://localhost:4200/payment-success',
-  // 'returnUrl': 'http://localhost:55584/payment-success',
-  'cancelUrl': 'https://dev110521.service-now.com/sp'
-});
 @Injectable({
   providedIn: 'root'
 })
@@ -26,7 +21,7 @@ export class PaymentService {
   }
 
   public executeOrder(orderId: string, paymentChannelId: string): Observable<IOrder> {
-    const url = SystemUtil.BASE_URL + `/api/v1/payments/paypal/execute?payId=${orderId}&paymentChannelId=${paymentChannelId}`;
+    const url = SystemUtil.BASE_URL + `/api/v1/payments/paypal/execute?orderId=${orderId}&paymentChannelId=${paymentChannelId}`;
     return this._http.post<any>(url, {}, {
       headers: headers,
     });

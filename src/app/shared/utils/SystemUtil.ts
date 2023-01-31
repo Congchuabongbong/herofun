@@ -5,13 +5,16 @@ export class SystemUtil {
 
   public static BASE_URL = 'http://localhost:8080';
   static local = 'http://localhost:8080';
+ static returnUrlProd = 'https://herofun-client.vercel.app/payment-success';
   static prod = 'https://herofund.up.railway.app';
 
   public static setTokenHeader() {
     let jwt = JSON.parse(localStorage.getItem('jwt')!);
     return new HttpHeaders({
       Authorization: 'Bearer ' + jwt?.accessToken,
-      'content-type': 'application/json'
+      'content-type': 'application/json',
+      'returnUrl': 'http://localhost:4200/payment-success',
+      'cancelUrl': 'https://dev110521.service-now.com/sp'
     });
   }
 

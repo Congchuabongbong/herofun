@@ -1,6 +1,6 @@
 <main class="main-content site-wrapper-reveal">
   <!--== Start Page Title Area ==-->
-  <app-page-title-area [name]="'Causes'"></app-page-title-area>
+  <app-page-title-area [name]="'Chiến dịch'"></app-page-title-area>
 
   <!--== End Page Title Area ==-->
 
@@ -10,13 +10,13 @@
       <div class="row mb-5">
         <div class="col-4">
           <div class="widget">
-            <h3 class="widget-title">Causes Categories</h3>
+            <h3 class="widget-title">Danh mục quyên góp:</h3>
             <div class="separator-line">
               <img class="me-1" src="assets/img/shape/line-t2.png" alt="Image-Givest">
             </div>
             <div class="widget-category">
               <select class="form-control" [(ngModel)]="category" (change)="changeCategories($event)">
-                <option selected value="0">Select category</option>
+                <option selected value="0">Vui lòng chọn danh mục</option>
                 <option
                   *ngFor="let c of categories"
                   value="{{c.id}}"
@@ -28,12 +28,12 @@
         </div>
         <div class="col-4">
           <div class="widget">
-            <h3 class="widget-title">Keyword</h3>
+            <h3 class="widget-title">Từ khóa:</h3>
             <div class="separator-line">
               <img class="me-1" src="assets/img/shape/line-t2.png" alt="Image-Givest">
             </div>
             <div class="widget-category">
-              <input class="form-control" [(ngModel)]="keyword" placeholder="Enter keyword"/>
+              <input class="form-control" [(ngModel)]="keyword" placeholder="Vui lòng nhập từ khóa"/>
             </div>
           </div>
         </div>
@@ -41,8 +41,10 @@
       <div class="row">
         <div class="col-10"></div>
         <div class="col-2">
-          <button style="background: #FEA444; margin-right: 10px" class="btn text-white" (click)="btnSearch()" type="button">Search</button>
-          <button style="background: #FEA444" class="btn text-white" (click)="reset()" type="button">Reset</button>
+          <button style="background: #FEA444; margin-right: 10px"
+                  class="btn text-white" (click)="btnSearch()" type="button">Tìm kiếm</button>
+          <button style="background: #FEA444" class="btn text-white"
+                  (click)="reset()" type="button">Xóa</button>
         </div>
       </div>
       <br>
@@ -61,15 +63,15 @@
               <div class="content">
                 <ul class="donate-info">
                   <li class="info-item">
-                    <span class="info-title">Target:</span>
+                    <span class="info-title">Mục tiêu:</span>
                     <span class="amount">$ {{item.targetAmount}}</span>
                   </li>
                   <li class="info-item">
-                    <span class="info-title">Current:</span>
+                    <span class="info-title">Hiện tại:</span>
                     <span class="amount">$ {{item.currentAmount}}</span>
                   </li>
                   <li class="info-item">
-                    <span class="info-title">Donations:</span>
+                    <span class="info-title">Số người:</span>
                     <span class="amount">{{item.donations}}</span>
                   </li>
                 </ul>
@@ -79,32 +81,18 @@
                 <p>{{item.description}}</p>
               </div>
 
-              <div *ngIf="item?.portal === 'ADMIN'; else elseBlock" class="causes-footer">
+              <div class="causes-footer">
                 <div class="admin">
                   <h5>
                     <a routerLink="/causes/{{item.id}}" routerLinkActive="active" ariaCurrentWhenActive="page">
-                      <span  class="icon-img"><img src="assets/img/icons/admin1.png" alt="Icon"></span>{{item.portal}}
+                      <span  class="icon-img"><img src="assets/img/icons/admin1.png" alt="Icon"></span>{{ item.account.username}}
                     </a>
                   </h5>
                 </div>
                 <a class="btn-theme btn-border-gradient gray-border btn-size-md" routerLink="/causes/{{item.id}}"
-                   routerLinkActive="active" ariaCurrentWhenActive="page"><span>Donate Now
+                   routerLinkActive="active" ariaCurrentWhenActive="page"><span>Quyên góp
                   <img class="icon icon-img" src="assets/img/icons/arrow-line-right-gradient.png" alt="Icon"></span></a>
               </div>
-             <ng-template #elseBlock>
-               <div class="causes-footer">
-                 <div class="admin">
-                   <h5>
-                     <a routerLink="/causes/{{item.id}}" routerLinkActive="active" ariaCurrentWhenActive="page">
-                       <span  class="icon-img"><img src="assets/img/icons/admin1.png" alt="Icon"></span>{{item?.account?.username}}
-                     </a>
-                   </h5>
-                 </div>
-                 <a class="btn-theme btn-border-gradient gray-border btn-size-md" routerLink="/causes/{{item.id}}"
-                    routerLinkActive="active" ariaCurrentWhenActive="page"><span>Donate Now
-                  <img class="icon icon-img" src="assets/img/icons/arrow-line-right-gradient.png" alt="Icon"></span></a>
-               </div>
-             </ng-template>
             </div>
           </div>
         </ng-template>

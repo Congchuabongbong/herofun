@@ -35,7 +35,7 @@ export class CauseDetailComponent implements OnInit {
       return;
     }
     this.idCampaign = id;
-    this._campaignService.getPageCampaign(id).pipe().subscribe((campaign) => {
+    this._campaignService.getDetailCampaign(id).pipe().subscribe((campaign) => {
       console.log(campaign)
       campaign && (this.campaign = campaign);
     });
