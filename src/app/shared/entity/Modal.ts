@@ -1,3 +1,5 @@
+import {Profile} from "../models";
+
 export interface Campaign {
   createdAt: string;
   updatedAt: string;
@@ -113,6 +115,7 @@ export class FilterTransaction {
   public limit: number;
 
 }
+
 export class ResponseTransactionToken {
   constructor() {
     this.items = [];
@@ -121,6 +124,7 @@ export class ResponseTransactionToken {
     this.offset = 0;
     this.limit = 0;
   }
+
   totalElements: number;
   totalPages: number;
   offset: number;
@@ -140,6 +144,7 @@ export class Transaction {
     this.paymentStatus = "";
     this.paypalTransactionId = "";
   }
+
   public senderName: string;
   public message: string;
   public amount: number;
@@ -159,14 +164,13 @@ export class ResponseCampaignToken {
     this.limit = 0;
     this.items = [];
   }
+
   totalElements: number;
   totalPages: number;
   offset: number;
   limit: number;
   items: Campaign[];
 }
-
-
 
 
 export class FilterCampaign {
@@ -206,6 +210,7 @@ export class CampaignRequest {
     this.categoryId = 0;
     this.sponsorId = 0;
   }
+
   title: string;
   startDate: string;
   endDate: string;
@@ -215,4 +220,28 @@ export class CampaignRequest {
   targetAmount: number;
   categoryId: number;
   sponsorId: number;
+}
+
+export class FormDonateRequest {
+  senderName: string;
+  message: string;
+  phone: string;
+  email: string;
+  address: string;
+  amount: number;
+  campaignId: number;
+  paymentChannel: number;
+  anonymous: boolean;
+
+  constructor() {
+    this.senderName = "";
+    this.message = "";
+    this.phone = "";
+    this.email = "";
+    this.address = "";
+    this.amount = 0;
+    this.campaignId = 0;
+    this.paymentChannel = 1;
+    this.anonymous = false;
+  }
 }

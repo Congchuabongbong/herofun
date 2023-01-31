@@ -6,71 +6,87 @@
           <div class="causes-details-content" style="max-width:100%">
             <div class="donation-form bgcolor-theme3">
               <div class="section-title">
-                <h5 class="subtitle line-theme-color mb-14">Make A Donation</h5>
-                <h2 class="title text-white">Donate Now</h2>
+                <h5 class="subtitle line-theme-color mb-14">Quyên góp</h5>
+                <h2 class="title text-white">Thông tin quyên góp</h2>
                 <img class="line-shape" src="assets/img/shape/line-t3.png" alt="Image-Givest">
               </div>
-              <form action="causes-details.html#">
+              <form>
                 <div class="amount-info">
-                  <div class="donate-amount">$20</div>
-                  <div class="donate-amount">$50</div>
-                  <div class="donate-amount">$200</div>
-                  <div class="donate-amount donate-custom-amount">
-                    <input class="form-control" type="text" placeholder="Custom">
+                  <div class="donate-amount donate-custom-amount" style="max-width: 300px">
+                    <input class="form-control"
+                           [(ngModel)]="formDonate && formDonate.amount" name="amount"
+                           type="number" placeholder="Số tiền quyên góp ($)">
+                    <p class="error_validate" [hidden]="validateFormDonate.hiddenErrorAmount">*Vui lòng kiểm tra số tiền quyên góp.</p>
                   </div>
                 </div>
                 <div class="payment-method-wrp">
-                  <h4>Payment Method:</h4>
+                  <h4>Kênh thanh toán:</h4>
                   <div class="payment-method">
                     <div class="payment-type">
                       <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1"
-                          value="option1">
-                        <label class="form-check-label" for="inlineRadio1">Offline</label>
-                      </div>
-                      <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2"
-                          value="option2">
-                        <label class="form-check-label" for="inlineRadio2">Credit Card</label>
+                        <input class="form-check-input"
+                               type="radio" checked value="1">
+                        <label class="form-check-label text-white">Paypal</label>
                       </div>
                     </div>
                     <img src="assets/img/photos/payment-card.png" alt="Image-Givest">
                   </div>
                 </div>
                 <div class="personal-info">
-                  <h4>Personal Info:</h4>
+                  <h4>Thông tin người ủng hộ:</h4>
                   <div class="row row-gutter-20">
                     <div class="col-md-6">
                       <div class="form-group">
-                        <input class="form-control" type="text" name="con_name" placeholder="Name">
+                        <input id="name" class="form-control" type="text" name="senderName"
+                               [(ngModel)]="formDonate && formDonate.senderName"
+                               placeholder="Tên người quyên góp">
+                        <p [hidden]="validateFormDonate.hiddenErrorSenderName"
+                           class="error_validate">*Vui lòng nhập tên người gửi.</p>
                       </div>
                     </div>
                     <div class="col-md-6">
                       <div class="form-group">
-                        <input class="form-control" type="email" name="con_email" placeholder="Email">
+                        <input class="form-control" name="email"
+                               [(ngModel)]="formDonate && formDonate.email"
+                               type="email" placeholder="Email">
+                        <p [hidden]="validateFormDonate.hiddenErrorEmail"
+                          class="error_validate">*Vui lòng nhập email.</p>
                       </div>
                     </div>
                     <div class="col-md-6">
                       <div class="form-group">
-                        <input class="form-control" type="text" name="con_phone" placeholder="Phone">
+                        <input class="form-control" name="phone"
+                               [(ngModel)]="formDonate && formDonate.phone"
+                               type="text" placeholder="Số điện thoại">
+                        <p [hidden]="validateFormDonate.hiddenErrorPhone"
+                          class="error_validate">*Vui lòng nhập số điện thoại.</p>
                       </div>
                     </div>
                     <div class="col-md-6">
                       <div class="form-group">
-                        <input class="form-control" type="text" name="con_address" placeholder="Address">
+                        <input class="form-control" type="text" name="address"
+                               [(ngModel)]="formDonate && formDonate.address"
+                               placeholder="Địa chỉ">
+                        <p [hidden]="validateFormDonate.hiddenErrorAddress"
+                          class="error_validate">*Vui lòng nhập địa chỉ.</p>
                       </div>
                     </div>
                     <div class="col-md-12">
                       <div class="form-group mb-0">
-                        <textarea class="form-control textarea" name="con_message" placeholder="Message"></textarea>
+                        <textarea class="form-control textarea" name="message"
+                                  [(ngModel)]="formDonate && formDonate.message"
+                                  placeholder="Lời động viên"></textarea>
+                        <p [hidden]="validateFormDonate.hiddenErrorMessage"
+                          class="error_validate">*Vui lòng nhập lời động viên.</p>
                       </div>
                     </div>
                   </div>
                 </div>
                 <div class="btn-wrp">
-                  <a href="causes-details.html#/" class="btn-theme btn-gradient btn-slide">Donate Now <img
-                      class="icon icon-img" src="assets/img/icons/arrow-line-right2.png" alt="Icon"></a>
-                  <a href="causes-details.html#/" class="btn-theme btn-gradient btn-border">Total Donation: $50</a>
+                  <button type="button" (click)="btnDonate()" class="btn-theme btn-gradient btn-slide">Quyên góp <img
+                    class="icon icon-img" src="assets/img/icons/arrow-line-right2.png" alt="Icon"></button>
+                  <button type="button" class="btn-theme btn-gradient btn-border">Số tiền ủng hộ
+                    ($): {{formDonate && formDonate.amount}}</button>
                 </div>
               </form>
               <div class="layer-style">
