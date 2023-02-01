@@ -1,0 +1,67 @@
+.box-info {
+  padding: 5px;
+
+}
+
+.number-info {
+  border-left: #cb5700 2px solid;
+  margin-bottom: 0;
+  padding-left: 10px;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.content-info {
+  font-size: 14px;
+  padding-left: 10px;
+}
+
+.title-custom {
+  font-size: 35px;
+}
+
+.title-custom > p {
+  margin: 0;
+  padding: 0;
+}
+
+.title-custom .name-sponsor {
+  color: rgba(0, 66, 159, 0.96);
+}
+
+.title-custom .name-givest {
+  color: rgb(176, 1, 175);
+}
+
+.sponsor-name {
+  color: #d7017c;
+  font-size: 30px;
+}
+
+.description-sponsor {
+  font-size: .75rem;
+  margin-bottom: 5px;
+  box-sizing: border-box;
+
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+
+}
+
+.view-detail-sponsor {
+  font-size: .75rem;
+  color: #0b5ed7;
+  cursor: pointer;
+}
+
+.image-custom {
+  width: 200px;
+}
+
+.btn-custom {
+  border-radius: 20px;
+  background-color: #f17f2e;
+  border: none
+}

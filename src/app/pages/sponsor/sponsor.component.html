@@ -2,20 +2,20 @@
   <!--== Start Page Title Area ==-->
   <app-page-title-area [name]="'Đối tác đồng hành'"></app-page-title-area>
 
-  <section class="causes-details-area">
+  <section class="causes-details-area" style=" padding: 30px 0 391px">
     <div class="container">
       <div class="row">
         <div class="col-md-8">
-          <h4 class="my-5">Các đối tác đồng hành</h4>
+          <h4 class="my-5" style="color: #da0da0; font-size: 20px">Các đối tác đồng hành</h4>
           <div class="row">
             <div *ngFor="let s of sponsor" class="col-md-6 py-2 px-2">
-              <div class="d-flex border p-2">
+              <div class="d-flex border p-2 " style="border-radius: 10px">
                 <img width="100px"
                      src="{{s.image}}">
                 <div class="mt-2 ml-15">
                   <h6>{{s.name}}</h6>
                   <p class="description-sponsor">{{s.description}}</p>
-                  <p class="view-detail-sponsor">Xem chi tiết</p>
+                  <p class="view-detail-sponsor" routerLink="/sponsor/{{s.id}}">Xem chi tiết</p>
                 </div>
               </div>
             </div>
@@ -26,7 +26,7 @@
         </div>
         <div class="col-md-4">
          <div class="border-left">
-           <h4 class="my-5">Hoàn cảnh quyên góp mới nhất</h4>
+           <h4 class="my-5" style="color: #da0da0; font-size: 20px">Hoàn cảnh quyên góp mới nhất</h4>
            <div class="row">
              <div *ngFor="let campaign of campaigns" class="col-md-12 sidebar-area">
                <div class="widget custom-widget">

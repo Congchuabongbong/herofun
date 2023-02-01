@@ -47,4 +47,16 @@ export class CampaignService {
         })
       );
   }
+
+  public getCampaignBySponsorId(id: any, offset: number, limit: number) {
+    let query = `/api/v1/campaigns/sponsor?sponsorId=${id}&offset=${offset}&limit=${limit}`;
+    return this._http
+      .get<any>(SystemUtil.BASE_URL + query)
+      .pipe(
+        tap(() => {
+          this.RefreshData.next()
+        })
+      );
+    ;
+  }
 }

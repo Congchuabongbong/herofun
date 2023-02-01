@@ -33,7 +33,8 @@ import { PageTitleAreaComponent } from './shared/components/page-title-area/page
 import { SlideTestimonialComponent } from './shared/components/slide-testimonial/slide-testimonial.component';
 import { TabComponent } from './shared/components/tabs/tab/tab.component';
 import { TabsComponent } from './shared/components/tabs/tabs/tabs.component';
-import {SponsorComponent} from "./pages/sopnsor/sponsor.component";
+import {SponsorComponent} from "./pages/sponsor/sponsor.component";
+import {SponsorDetailComponent} from "./pages/sponsor-detail/sponsor-detail.component";
 
 
 @NgModule({
@@ -48,6 +49,7 @@ import {SponsorComponent} from "./pages/sopnsor/sponsor.component";
     AboutComponent,
     HomeComponent,
     SponsorComponent,
+    SponsorDetailComponent,
     ProfileComponent,
     MainComponent,
     CausesComponent,

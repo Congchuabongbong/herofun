@@ -1,0 +1,150 @@
+<main class="main-content">
+  <!--== Start Page Title Area ==-->
+  <app-page-title-area [name]="'Chi tiết nhà đồng hành'"></app-page-title-area>
+
+  <section class="causes-details-area"
+           style="padding-bottom: 50px; padding-top: 50px; background-color: rgba(250,250,250,0.89)">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-2"></div>
+        <div class="col-md-8">
+          <div class="bg-line-shape">
+            <h4 class="mb-5" style="font-size: 35px; color: #fd0c9c">{{sponsorDetail && sponsorDetail.name}}</h4>
+            <div class="d-flex mb-5">
+              <img class="border" src="{{sponsorDetail && sponsorDetail.image}}" alt="givest">
+              <p class="ml-10">{{sponsorDetail && sponsorDetail.description}}.</p>
+            </div>
+            <div class="row mb-5">
+              <div class="col-md-4">
+                <div class="box-info">
+                  <p class="number-info">3</p>
+                  <p class="content-info">dự án đã được gây quỹ thành công</p>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="box-info">
+                  <p class="number-info">175+ nghìn</p>
+                  <p class="content-info">đô được quyên góp</p>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="box-info">
+                  <p class="number-info">520+ ngàn</p>
+                  <p class="content-info">lượt tham gia quyên góp</p>
+                </div>
+              </div>
+            </div>
+            <a class="btn btn-success mr-10" href="#target1">Quyên góp</a>
+            <a class="btn btn-success">Giới thiệu</a>
+          </div>
+        </div>
+        <div class="col-md-2"></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="target1" class="causes-area causes-default-area" style="padding: 20px 0 0 0; margin-bottom: 50px">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 m-auto">
+          <div class="section-title text-center" style="margin-bottom: 50px" data-aos="fade-up" data-aos-duration="1000">
+            <h5  class="subtitle line-theme-color mb-1">Chiến dịch quyên góp mới nhất</h5>
+            <h5 class="title title-style title-custom">
+              <p>Các chương trình quyên góp của</p>
+              <p class="name-sponsor">{{sponsorDetail && sponsorDetail.name}}</p>
+              <p>trên</p>
+              <p class="name-givest">GIVEST</p>
+              <img class="img-shape" src="assets/img/shape/3.png" alt="Image-Givest">
+            </h5>
+          </div>
+        </div>
+      </div>
+      <div class="row" data-aos="fade-up" data-aos-duration="1000">
+        <div class="col-md-6 col-lg-4" *ngFor="let item of campaigns">
+          <div class="causes-item mb-md-30">
+            <div class="thumb">
+              <img src="{{item?.image}}" alt="Givest-HasTech">
+            </div>
+            <div class="content">
+              <ul class="donate-info">
+                <li class="info-item">
+                  <span class="info-title">Mục tiêu:</span>
+                  <span class="amount">${{item.targetAmount}}</span>
+                </li>
+                <li class="info-item">
+                  <span class="info-title">Hiện tại:</span>
+                  <span class="amount">${{item.currentAmount}}</span>
+                </li>
+                <li class="info-item">
+                  <span class="info-title">Số người:</span>
+                  <span class="amount">{{item.donations}}</span>
+                </li>
+              </ul>
+              <h4 class="title"><a routerLink="/causes/{{item.id}}">{{item.title}}</a></h4>
+              <p class="mb-2">{{item.description}}</p>
+              <div class="d-flex" >
+                <div>
+                  <img width="50px" style="border-radius: 50%" src="{{item && item.sponsor.image}}" alt="givest">
+                </div>
+                <div class="m-auto" style="margin-left: 10px !important;">{{item && item.sponsor.name}}</div>
+              </div>
+            </div>
+            <div class="causes-footer">
+              <div class="admin">
+                <h5><a href="causes/{{item.id}}"><span class="icon-img"><img src="assets/img/icons/admin1.png"
+                                                                             alt="Icon"></span>{{item?.account?.username}}
+                </a></h5>
+              </div>
+              <a class="btn-theme btn-border-gradient gray-border btn-size-md" routerLink="/causes/{{item.id}}"><span>Quyên góp <img
+                class="icon icon-img" src="assets/img/icons/arrow-line-right-gradient.png"
+                alt="Icon"></span></a>
+            </div>
+          </div>
+        </div>
+        <div class="mt-15 text-center">
+          <button (click)="loadMore()" class="btn btn-success" style="background-color: #ea6c18; border: none">Xem thêm</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section style="padding: 10px 0 0 0; margin-bottom: 50px">
+    <h5 class="text-center sponsor-name">{{sponsorDetail && sponsorDetail.name}}</h5>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-2"></div>
+        <div class="col-md-8" [innerHTML]="sponsorDetail && sponsorDetail.detail"></div>
+        <div class="col-md-2"></div>
+      </div>
+    </div>
+  </section>
+
+  <section style="padding: 30px 0 50px 0; margin-bottom: 250px; background-color: rgba(250,250,250,0.89)">
+    <div class="container">
+      <div class="row">
+        <div class="text-center">
+          <h5 class="sponsor-name">Các đối tác đồng hành khác</h5>
+          <p style="margin-bottom: 0">Các tổ chức nhân đạo Phi Lợi Nhuận đồng hành cùng Ví MoMo giúp đỡ các hoàn cảnh khó khăn</p>
+          <p style="margin-bottom: 0">trên khắp cả nước.</p>
+        </div>
+      </div>
+      <div class="row mt-15">
+        <div *ngFor="let s of sponsor" class="col-md-4 py-2 px-2">
+          <div class="d-flex border p-2" style="border-radius: 15px">
+            <img width="100px"
+                 src="{{s.image}}">
+            <div class="mt-2 ml-15">
+              <h6>{{s.name}}</h6>
+              <p class="description-sponsor">{{s.description}}</p>
+              <a class="view-detail-sponsor" href="/sponsor/{{s.id}}">Xem chi tiết</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="text-center mt-15">
+        <p class="btn-success btn btn-custom" >Xem thêm</p>
+      </div>
+    </div>
+  </section>
+</main>
+

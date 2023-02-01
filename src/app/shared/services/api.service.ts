@@ -41,6 +41,12 @@ export class ApiService {
     return this.http
       .get<any>(url)
   }
+  public getDetailSponsor(id: number){
+    let url = `${SystemUtil.BASE_URL}/api/v1/sponsors/detail?id=${id}`
+    return this.http
+      .get<any>(url)
+  }
+
   public getCategories() {
     return this.http
       .get<any>(SystemUtil.BASE_URL + '/api/v1/categories/active')
