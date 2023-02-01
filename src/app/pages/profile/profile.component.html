@@ -198,11 +198,12 @@
                   <thead>
                     <tr>
                       <th>Stt</th>
-                      <th>Campaign</th>
-                      <th width="15%">Sender Name</th>
-                      <th width="10%">Amount ($)</th>
-                      <th class="text-center" width="17%">Sending Time</th>
-                      <th>Transaction Id</th>
+                      <th>Chiến dịch</th>
+                      <th width="15%">Tên người gửi</th>
+                      <th width="10%">Số tiền ($)</th>
+                      <th class="text-center" width="17%">Thời gian quyên góp</th>
+                      <th>Mã giao dịch</th>
+                      <th width="8%">Thao tác</th>
                     </tr>
                   </thead>
                   <tbody class="table-group-divider">
@@ -213,6 +214,9 @@
                       <td style="text-align: center">{{t.amount}}</td>
                       <td class="text-center">{{handlerDateTime(t.sendingTime)}}</td>
                       <td>{{t.paypalTransactionId}}</td>
+                      <td class="text-center">
+                        <i class="fa-solid fa-eye" style="color: #0a53be; cursor: pointer" routerLink="/causes/{{t.campaignId}}"></i>
+                      </td>
                     </tr>
                   </tbody>
                 </table>
@@ -276,13 +280,14 @@
                   <thead>
                     <tr>
                       <th style="text-align: center">Stt</th>
-                      <th style="text-align: center">Image</th>
-                      <th style="text-align: center">Title</th>
-                      <th width="15%" style="text-align: center">Target Amount( $ )</th>
-                      <th width="10%" style="text-align: center">Start Date</th>
-                      <th width="10%" style="text-align: center">End Date</th>
-                      <th style="text-align: center">Status</th>
-                      <th style="text-align: center">Created At</th>
+                      <th style="text-align: center">Ảnh</th>
+                      <th style="text-align: center">Name</th>
+                      <th width="10%" style="text-align: center">Mục tiêu($)</th>
+                      <th width="10%" style="text-align: center">Bắt đầu</th>
+                      <th width="10%" style="text-align: center">Kết thúc</th>
+                      <th style="text-align: center">Trạng thái</th>
+                      <th style="text-align: center">Ngày tạo</th>
+                      <th style="text-align: center; width: 8%">Thao tác</th>
                     </tr>
                   </thead>
                   <tbody class="table-group-divider">
@@ -300,6 +305,9 @@
                           {{handlerStatus(c.status).name}}</p>
                       </td>
                       <td width="10%" class="text-center">{{handlerDateTime(c.createdAt)}}</td>
+                      <td class="text-center">
+                        <i class="fa-solid fa-eye" style="color: #0a53be; cursor: pointer" routerLink="/causes/{{c.id}}"></i>
+                      </td>
                     </tr>
                   </tbody>
                 </table>

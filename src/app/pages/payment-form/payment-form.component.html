@@ -1,7 +1,7 @@
 <section class="causes-details-area">
   <div class="container">
     <div class="row">
-      <div class="col-12">
+      <div class="col-8">
         <div class="causes-details-column">
           <div class="causes-details-content" style="max-width:100%">
             <div class="donation-form bgcolor-theme3">
@@ -11,11 +11,13 @@
                 <img class="line-shape" src="assets/img/shape/line-t3.png" alt="Image-Givest">
               </div>
               <form>
+                <div class="text-white">Số tiền quyên góp:</div>
                 <div class="amount-info">
+
                   <div class="donate-amount donate-custom-amount" style="max-width: 300px">
                     <input class="form-control"
                            [(ngModel)]="formDonate && formDonate.amount" name="amount"
-                           type="number" placeholder="Số tiền quyên góp ($)">
+                           type="text" placeholder="Số tiền quyên góp ($)">
                     <p class="error_validate" [hidden]="validateFormDonate.hiddenErrorAmount">*Vui lòng kiểm tra số tiền quyên góp.</p>
                   </div>
                 </div>
@@ -96,6 +98,19 @@
             </div>
           </div>
 
+        </div>
+      </div>
+      <div class="col-4">
+        <img src="{{campaign && campaign.image}}" alt="givest">
+        <h5 class="mt-2">{{campaign && campaign.title}}</h5>
+        <p class="mt-2">{{campaign && campaign.description}}</p>
+        <hr>
+        <p>Đồng hành cùng dự án</p>
+        <div class="d-flex">
+          <div class="col-md-4 image-custom">
+            <img src="{{campaign && campaign.sponsor.image}}" alt="givest">
+          </div>
+          <div class="col-md-8 sponsor-name"><h6>{{campaign && campaign.sponsor.name}}</h6></div>
         </div>
       </div>
     </div>

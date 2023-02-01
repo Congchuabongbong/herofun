@@ -1,0 +1,74 @@
+<main class="main-content site-wrapper-reveal">
+  <!--== Start Page Title Area ==-->
+  <app-page-title-area [name]="'Đối tác đồng hành'"></app-page-title-area>
+
+  <section class="causes-details-area">
+    <div class="container">
+      <div class="row">
+
+        <div class="col-md-8">
+          <h4 class="my-5">Các đối tác đồng hành</h4>
+          <div class="row">
+            <div *ngFor="let s of sponsor" class="col-md-6 py-2 px-2">
+              <div class="d-flex border p-2">
+                <img width="100px"
+                     src="{{s.image}}">
+                <div class="mt-2 ml-15">
+                  <h6>{{s.name}}</h6>
+                  <p class="description-sponsor">{{s.description}}</p>
+                  <p class="view-detail-sponsor">Xem chi tiết</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+         <div class="border-left">
+           <h4 class="my-5">Hoàn cảnh quyên góp mới nhất</h4>
+           <div class="row">
+             <div *ngFor="let campaign of campaigns" class="col-md-12 sidebar-area">
+               <div class="widget custom-widget">
+                 <div class="widget-causes-item">
+                   <div class="thumb">
+                     <img src="{{campaign && campaign.image}}" alt="Givest-HasTech">
+                   </div>
+                   <div class="content">
+                     <h5 class="title-custom"><a href="/causes/{{campaign && campaign.id}}">{{campaign && campaign.title}}</a></h5>
+                     <ul class="donate-info">
+                       <li class="info-item">
+                         <span class="info-title">Mục tiêu:</span>
+                         <span class="amount">${{campaign && campaign.targetAmount}}</span>
+                       </li>
+                       <li class="info-item">
+                         <span class="info-title">Hiện tại:</span>
+                         <span class="amount">${{campaign && campaign.currentAmount}}</span>
+                       </li>
+                     </ul>
+                     <div>
+                       <div class="d-flex">
+                         <h6 class="info-title mr-10">Bắt đầu: </h6>
+                         <h6 class="info-title">{{campaign && campaign.startDate}}</h6>
+                       </div>
+                       <div class="d-flex">
+                         <h6 class="info-title mr-10">Kết thúc: </h6>
+                         <h6 class="info-title">{{campaign && campaign.startDate}}</h6>
+                       </div>
+                     </div>
+                     <!-- Start Progress Item -->
+                     <hr>
+                     <div class="text-center">
+                       <a class="btn btn-success mr-10" style="background: #fc6539; border: none" href="/causes/{{campaign && campaign.id}}">Chi tiết</a>
+                       <a class="btn btn-success " style="background: #fc6539; border: none" href="/payment/{{campaign && campaign.id}}">Quyên góp</a>
+                     </div>
+                   </div>
+                 </div>
+               </div>
+             </div>
+           </div>
+         </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+

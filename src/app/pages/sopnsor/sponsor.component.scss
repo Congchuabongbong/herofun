@@ -1,0 +1,29 @@
+.description-sponsor{
+  font-size: .75rem;
+  margin-bottom: 5px;
+  box-sizing: border-box;
+
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+
+}
+
+.view-detail-sponsor{
+  font-size: .75rem;
+  color: #0b5ed7;
+  cursor: pointer;
+}
+.image-custom{
+  width: 200px;
+}
+
+.border-left{
+  border-left: #c0c0c0 solid 2px;
+  padding-left: 15px;
+}
+
+.custom-widget{
+  padding: 30px 30px;
+}

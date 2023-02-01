@@ -140,6 +140,7 @@ export class Transaction {
     this.amount = 0;
     this.sendingTime = "";
     this.campaign = "";
+    this.campaignId = 0;
     this.paymentChannel = "";
     this.paymentStatus = "";
     this.paypalTransactionId = "";
@@ -150,6 +151,7 @@ export class Transaction {
   public amount: number;
   public sendingTime: string;
   public campaign: string;
+  public campaignId: number;
   public paymentChannel: string;
   public paymentStatus: string;
   public paypalTransactionId: string;

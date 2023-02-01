@@ -3,7 +3,7 @@ import {FormBuilder, FormGroup} from "@angular/forms";
 import {ActivatedRoute, Router} from "@angular/router";
 import {PaymentService} from "../../shared/services/payment.service";
 import {AuthenticationService} from "../../shared/services/authentication.service";
-import {FormDonateRequest} from "../../shared/entity/Modal";
+import {Campaign, FormDonateRequest} from "../../shared/entity/Modal";
 import {CampaignService} from "../../shared/services/campaign.service";
 
 @Component({
@@ -22,6 +22,7 @@ export class PaymentFormComponent implements OnInit {
   };
   formDonate = new FormDonateRequest();
   public paymentInfo!: FormGroup;
+  public campaign!: Campaign;
   public idCampaign!: string;
 
   constructor(private _route: ActivatedRoute,
@@ -45,8 +46,9 @@ export class PaymentFormComponent implements OnInit {
       error => this._router.navigate(['/404',{message: error && error.message}])
         .then((r) => console.log(r))
     )
-    this.getProfile();
     this.idCampaign = id;
+    this.getProfile();
+    this.getDetailCampaign();
 
   }
 
@@ -65,6 +67,11 @@ export class PaymentFormComponent implements OnInit {
       }
       console.log(this.formDonate)
     })
+  }
+
+  getDetailCampaign(){
+    this._campaignService.getDetailCampaign(this.idCampaign)
+      .subscribe(res => res && (this.campaign = res))
   }
 
   convertResponseProfileToFormDonate(data: any): void {

@@ -33,7 +33,13 @@ export class ApiService {
 
   public getSponsor() {
     return this.http
-      .get<any>(SystemUtil.BASE_URL + '/api/v1/sponsors')
+      .get<any>(SystemUtil.BASE_URL + '/api/v1/sponsors/all')
+  }
+
+  public getPageSponsor(offset: number, limit: number){
+    let url = `${SystemUtil.BASE_URL}/api/v1/sponsors?offset=${offset}&limit=${limit}`
+    return this.http
+      .get<any>(url)
   }
   public getCategories() {
     return this.http

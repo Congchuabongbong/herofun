@@ -2,7 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {ApiService} from "../../shared/services/api.service";
 import {Campaign, Category, Sponsor} from "../../shared/entity/Modal";
 import {CampaignService} from "../../shared/services/campaign.service";
-import {Router} from "@angular/router";
+import {ActivatedRoute, Router} from "@angular/router";
 
 @Component({
   selector: 'app-causes',
@@ -20,12 +20,23 @@ export class CausesComponent implements OnInit {
 
   category: number = 0;
   keyword?: string = "";
+  categoryId?: string;
 
-  constructor(private apiService: ApiService, private campaignService: CampaignService, private router: Router) {
+  constructor(private apiService: ApiService,
+              private campaignService: CampaignService,
+              private activeRouter: ActivatedRoute,
+              private router: Router) {
   }
 
   ngOnInit(): void {
-    this.getPageCampaign();
+    this.activeRouter.queryParams.subscribe(param => this.categoryId = param['categoryId'])
+    if (this.categoryId){
+      this.category = parseInt(this.categoryId)
+      this.searchCampaign();
+    }else {
+      this.getPageCampaign();
+    }
+
     this.getSponsor();
     this.getCategories();
   }
