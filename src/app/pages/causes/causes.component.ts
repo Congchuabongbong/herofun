@@ -3,6 +3,7 @@ import {ApiService} from "../../shared/services/api.service";
 import {Campaign, Category, Sponsor} from "../../shared/entity/Modal";
 import {CampaignService} from "../../shared/services/campaign.service";
 import {ActivatedRoute, Router} from "@angular/router";
+import {SystemUtil} from "../../shared/utils/SystemUtil";
 
 @Component({
   selector: 'app-causes',
@@ -78,5 +79,9 @@ export class CausesComponent implements OnInit {
     this.category = 0;
     this.keyword = "";
     this.getPageCampaign();
+  }
+
+  handlerDateTime(date: string) {
+    return SystemUtil.handlerDateTime(date)
   }
 }

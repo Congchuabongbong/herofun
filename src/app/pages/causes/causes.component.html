@@ -78,7 +78,17 @@
 
                 <h4 class="title"><a routerLink="/causes/{{item.id}}" routerLinkActive="active"
                                      ariaCurrentWhenActive="page">{{item.title}}</a></h4>
-                <p>{{item.description}}</p>
+                <p style="margin-bottom: 10px">{{item.description}}</p>
+                <div class="row">
+                  <p class="col-md-6" style="margin: 0">
+                    <span style="font-weight: 600">Bắt đầu: </span>
+                    <span>{{handlerDateTime(item.startDate)}}</span>
+                  </p>
+                  <p class="col-md-6" style="margin: 0;">
+                    <span style="font-weight: 600">Kết thúc: </span>
+                    <span>{{handlerDateTime(item.endDate)}}</span>
+                  </p>
+                </div>
               </div>
 
               <div class="causes-footer">

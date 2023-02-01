@@ -101,17 +101,19 @@
         </div>
       </div>
       <div class="col-4">
-        <img src="{{campaign && campaign.image}}" alt="givest">
-        <h5 class="mt-2">{{campaign && campaign.title}}</h5>
-        <p class="mt-2">{{campaign && campaign.description}}</p>
-        <hr>
-        <p>Đồng hành cùng dự án</p>
-        <div class="d-flex">
-          <div class="col-md-4 image-custom">
-            <img src="{{campaign && campaign.sponsor.image}}" alt="givest">
-          </div>
-          <div class="col-md-8 sponsor-name"><h6>{{campaign && campaign.sponsor.name}}</h6></div>
-        </div>
+       <div style="border-left: #e0e0e0 solid 2px; padding-left: 25px">
+         <img src="{{campaign && campaign.image}}" alt="givest">
+         <h5 class="mt-2">{{campaign && campaign.title}}</h5>
+         <p class="mt-2">{{campaign && campaign.description}}</p>
+         <hr>
+         <p>Đồng hành cùng dự án</p>
+         <div class="d-flex">
+           <div class="col-md-4 image-custom">
+             <img src="{{campaign && campaign.sponsor.image}}" alt="givest">
+           </div>
+           <div class="col-md-8 sponsor-name"><h6>{{campaign && campaign.sponsor.name}}</h6></div>
+         </div>
+       </div>
       </div>
     </div>
   </div>

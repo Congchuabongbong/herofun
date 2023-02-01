@@ -6,6 +6,7 @@ import { CampaignService } from 'src/app/shared/services/campaign.service';
 import { Campaign, Category } from '../../shared/entity/Modal';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { PaymentService } from 'src/app/shared/services/payment.service';
+import {SystemUtil} from "../../shared/utils/SystemUtil";
 
 @Component({
   selector: 'app-cause-detail',
@@ -53,4 +54,7 @@ export class CauseDetailComponent implements OnInit {
   }
 
 
+  handlerDateTime(s: string) {
+    return SystemUtil.handlerDateTime(s);
+  }
 }

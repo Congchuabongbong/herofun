@@ -98,7 +98,7 @@
 
             </div>
             <div class="sidebar-area">
-              <div class="widget">
+              <div class="widget bdr-10 p-30">
                 <h3 class="widget-title">Thông tin quyên góp</h3>
                 <div class="separator-line">
                   <img class="me-1" src="assets/img/shape/line-t2.png" alt="Image-Givest">
@@ -109,39 +109,40 @@
                       <ul class="donate-info">
                         <li class="info-item">
                           <span class="info-title">Mục tiêu:</span>
-                          <span class="amount"> ${{campaign &&  campaign.targetAmount}}</span>
+                          <span class="amount"> ${{campaign && campaign.targetAmount}}</span>
                         </li>
                         <li class="info-item">
                           <span class="info-title">Hiện tại:</span>
                           <span class="amount"> ${{campaign && campaign.currentAmount}}</span>
                         </li>
                       </ul>
-                      <a class="btn-theme btn-gradient btn-slide" routerLink="/payment/{{campaign && campaign.id}}"><span>Quyên góp <img
+                      <a class="btn-theme btn-gradient btn-slide"
+                         routerLink="/payment/{{campaign && campaign.id}}"><span>Quyên góp <img
                         class="icon icon-img" src="assets/img/icons/arrow-line-right2.png" alt="Icon"></span></a>
                     </div>
                     <div class="col-md-6"></div>
                   </div>
                 </div>
               </div>
-              <div class="widget">
+              <div class="widget bdr-10 p-30">
                 <h3 class="widget-title">Đồng hành cùng dự án</h3>
                 <div class="separator-line">
                   <img class="me-1" src="assets/img/shape/line-t2.png" alt="Image-Givest">
                 </div>
                 <div class="widget-category">
-                 <div class="row">
-                   <div class="col-md-4">
-                     <img style="width: 100%" src="{{campaign && campaign.sponsor.image}}">
-                   </div>
-                   <div class="col-md-8">
-                     <h6 style="font-size: 16px">{{campaign && campaign.sponsor.name}}</h6>
-                     <p style="font-size: 12px; color: #8d8d8d">{{campaign && campaign.sponsor.description}}</p>
-                   </div>
+                  <div class="row">
+                    <div class="col-md-4">
+                      <img style="width: 100%" src="{{campaign && campaign.sponsor.image}}">
+                    </div>
+                    <div class="col-md-8">
+                      <h6 style="font-size: 16px">{{campaign && campaign.sponsor.name}}</h6>
+                      <p style="font-size: 12px; color: #8d8d8d">{{campaign && campaign.sponsor.description}}</p>
+                    </div>
 
-                 </div>
+                  </div>
                 </div>
               </div>
-              <div class="widget">
+              <div class="widget bdr-10 p-30">
                 <h3 class="widget-title">Danh mục quyên góp</h3>
                 <div class="separator-line">
                   <img class="me-1" src="assets/img/shape/line-t2.png" alt="Image-Givest">
@@ -150,7 +151,7 @@
                   <a *ngFor="let c of categories" href="/causes?categoryId={{c.id}}">{{c.name}}</a>
                 </div>
               </div>
-              <div class="widget">
+              <div class="widget bdr-10 p-30">
                 <h3 class="widget-title">Khẩn cấp</h3>
                 <div class="separator-line">
                   <img class="me-1" src="assets/img/shape/line-t2.png" alt="Image-Givest">
@@ -160,32 +161,36 @@
                     <img src="{{campaignUrgent && campaignUrgent.image}}" alt="Givest-HasTech">
                   </div>
                   <div class="content">
-                    <h5 class="title-custom"><a href="/causes/{{campaignUrgent && campaignUrgent.id}}">{{campaignUrgent && campaignUrgent.title}}</a></h5>
+                    <h5 class="title-custom"><a
+                      href="/causes/{{campaignUrgent && campaignUrgent.id}}">{{campaignUrgent && campaignUrgent.title}}</a>
+                    </h5>
                     <ul class="donate-info">
-                      <li class="info-item">
+                      <li class="info-item bdr-8" >
                         <span class="info-title">Mục tiêu:</span>
                         <span class="amount">${{campaignUrgent && campaignUrgent.targetAmount}}</span>
                       </li>
-                      <li class="info-item">
+                      <li class="info-item bdr-8">
                         <span class="info-title">Hiện tại:</span>
                         <span class="amount">${{campaignUrgent && campaignUrgent.currentAmount}}</span>
                       </li>
                     </ul>
-                    <div>
-                      <div class="d-flex">
-                        <h6 class="info-title mr-10">Bắt đầu: </h6>
-                        <h6 class="info-title">{{campaignUrgent && campaignUrgent.startDate}}</h6>
-                      </div>
-                      <div class="d-flex">
-                        <h6 class="info-title mr-10">Kết thúc: </h6>
-                        <h6 class="info-title">{{campaignUrgent && campaignUrgent.startDate}}</h6>
-                      </div>
+                    <div class="row">
+                      <p class="col-md-6" style="margin: 0">
+                        <span style="font-weight: 600">Bắt đầu: </span>
+                        <span>{{handlerDateTime(campaignUrgent && campaignUrgent.startDate)}}</span>
+                      </p>
+                      <p class="col-md-6" style="margin: 0;">
+                        <span style="font-weight: 600">Kết thúc: </span>
+                        <span>{{handlerDateTime(campaignUrgent && campaignUrgent.endDate)}}</span>
+                      </p>
                     </div>
                     <!-- Start Progress Item -->
                     <hr>
-                    <div class="text-center">
-                      <a class="btn btn-success mr-10" style="background: #fc6539; border: none" href="/causes/{{campaignUrgent && campaignUrgent.id}}">Chi tiết</a>
-                      <a class="btn btn-success " style="background: #fc6539; border: none" href="/payment/{{campaignUrgent && campaignUrgent.id}}">Quyên góp</a>
+                    <div class="text-center pb-3">
+                      <a class="btn btn-success mr-10" style="background: #fc6539; border: none"
+                         href="/causes/{{campaignUrgent && campaignUrgent.id}}">Chi tiết</a>
+                      <a class="btn btn-success " style="background: #fc6539; border: none"
+                         href="/payment/{{campaignUrgent && campaignUrgent.id}}">Quyên góp</a>
                     </div>
                   </div>
                 </div>

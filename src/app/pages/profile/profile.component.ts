@@ -225,11 +225,7 @@ export class ProfileComponent implements OnInit {
   }
 
   handlerDateTime(date: string) {
-    let str = new Date(date)
-    let month = str.getMonth() < 10 ? `0${str.getMonth() + 1}` : str.getMonth()
-    let hours = str.getHours() < 10 ? `0${str.getHours()}` : str.getHours()
-    let minutes = str.getMinutes() < 10 ? `0${str.getMinutes()}` : str.getMinutes()
-    return `${str.getDate()}-${month}-${str.getFullYear()}`
+    return SystemUtil.handlerDateTime(date)
   }
 
   uploadImage($event: any) {

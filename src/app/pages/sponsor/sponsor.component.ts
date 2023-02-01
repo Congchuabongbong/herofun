@@ -6,6 +6,7 @@ import {AuthenticationService} from "../../shared/services/authentication.servic
 import {Campaign, Sponsor} from "../../shared/entity/Modal";
 import {CampaignService} from "../../shared/services/campaign.service";
 import {ApiService} from "../../shared/services/api.service";
+import {SystemUtil} from "../../shared/utils/SystemUtil";
 
 @Component({
   selector: 'app-payment-form',
@@ -48,5 +49,9 @@ export class SponsorComponent implements OnInit {
     this.offset++
     this.apiService.getPageSponsor(this.offset, this.limit)
       .subscribe(res => res && (this.sponsor.push(...res.items)))
+  }
+
+  handlerDateTime(s: string) {
+    return SystemUtil.handlerDateTime(s);
   }
 }
