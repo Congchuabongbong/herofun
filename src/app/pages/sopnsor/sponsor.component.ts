@@ -25,7 +25,7 @@ export class SponsorComponent implements OnInit {
   }
 
   offset = 1;
-  limit = 10;
+  limit = 12;
   sponsor!: Sponsor[];
   campaigns!: Campaign[];
 
@@ -36,15 +36,17 @@ export class SponsorComponent implements OnInit {
 
   getSponsor(){
     this.apiService.getPageSponsor(this.offset, this.limit)
-      .subscribe(res => {
-        console.log(res.items)
-        res && (this.sponsor = res.items)
-        console.log("1",this.sponsor)
-      })
+      .subscribe(res => res && (this.sponsor = res.items))
   }
 
   getCampaign(){
     this.apiService.getPageCampaign(1,3)
       .subscribe(res => res && (this.campaigns = res.items))
+  }
+
+  loadMore() {
+    this.offset++
+    this.apiService.getPageSponsor(this.offset, this.limit)
+      .subscribe(res => res && (this.sponsor.push(...res.items)))
   }
 }
