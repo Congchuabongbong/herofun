@@ -10,9 +10,13 @@
         <div class="col-md-8">
           <div class="bg-line-shape">
             <h4 class="mb-5" style="font-size: 35px; color: #fd0c9c">{{sponsorDetail && sponsorDetail.name}}</h4>
-            <div class="d-flex mb-5">
-              <img class="border" src="{{sponsorDetail && sponsorDetail.image}}" alt="givest">
-              <p class="ml-10">{{sponsorDetail && sponsorDetail.description}}.</p>
+            <div class="row mb-5">
+              <div class="col-md-4">
+                <img class="border" width="100%" src="{{sponsorDetail && sponsorDetail.image}}" alt="givest">
+              </div>
+              <div class="col-md-8">
+                <p class="ml-10">{{sponsorDetail && sponsorDetail.description}}.</p>
+              </div>
             </div>
             <div class="row mb-5">
               <div class="col-md-4">
