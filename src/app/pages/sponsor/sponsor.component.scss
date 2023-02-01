@@ -10,6 +10,13 @@
 
 }
 
+.title-custom{
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
 .view-detail-sponsor{
   font-size: .75rem;
   color: #0b5ed7;
