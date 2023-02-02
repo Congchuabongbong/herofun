@@ -64,7 +64,7 @@
         </div>
       </div>
       <div class="row" data-aos="fade-up" data-aos-duration="1000">
-        <div class="col-md-6 col-lg-4" *ngFor="let item of campaigns">
+        <div class="col-md-6 col-lg-4 mb-4" *ngFor="let item of campaigns">
           <div class="causes-item mb-md-30">
             <div class="thumb">
               <img src="{{item?.image}}" alt="Givest-HasTech">
@@ -85,21 +85,35 @@
                 </li>
               </ul>
               <h4 class="title"><a routerLink="/causes/{{item.id}}">{{item.title}}</a></h4>
-              <p class="mb-2">{{item.description}}</p>
-              <div class="d-flex" >
+              <p class="mb-3">{{item.description}}</p>
+              <hr>
+              <div class="d-flex mb-3">
                 <div>
                   <img width="50px" style="border-radius: 50%" src="{{item && item.sponsor.image}}" alt="givest">
                 </div>
                 <div class="m-auto" style="margin-left: 10px !important;">{{item && item.sponsor.name}}</div>
               </div>
+              <hr>
+              <div class="row">
+                <p class="col-md-6" style="margin: 0">
+                  <span style="font-weight: 600">Bắt đầu: </span>
+                  <span>{{handlerDateTime(item.startDate)}}</span>
+                </p>
+                <p class="col-md-6" style="margin: 0;">
+                  <span style="font-weight: 600">Kết thúc: </span>
+                  <span>{{handlerDateTime(item.endDate)}}</span>
+                </p>
+              </div>
+              <hr>
             </div>
-            <div class="causes-footer">
+            <div class="causes-footer pt-0">
               <div class="admin">
                 <h5><a href="causes/{{item.id}}"><span class="icon-img"><img src="assets/img/icons/admin1.png"
                                                                              alt="Icon"></span>{{item?.account?.username}}
                 </a></h5>
               </div>
-              <a class="btn-theme btn-border-gradient gray-border btn-size-md" routerLink="/causes/{{item.id}}"><span>Quyên góp <img
+              <a class="btn-theme btn-border-gradient gray-border btn-size-md" routerLink="/causes/{{item.id}}">
+                <span>Chi tiết <img
                 class="icon icon-img" src="assets/img/icons/arrow-line-right-gradient.png"
                 alt="Icon"></span></a>
             </div>

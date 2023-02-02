@@ -6,6 +6,7 @@ import {AuthenticationService} from "../../shared/services/authentication.servic
 import {Campaign, Sponsor} from "../../shared/entity/Modal";
 import {CampaignService} from "../../shared/services/campaign.service";
 import {ApiService} from "../../shared/services/api.service";
+import {SystemUtil} from "../../shared/utils/SystemUtil";
 
 @Component({
   selector: 'app-payment-form',
@@ -41,6 +42,10 @@ export class SponsorDetailComponent implements OnInit {
     this.getDetailSponsor();
     this.getSponsor();
     this.getCampaignBySponsorId()
+
+    let dates = '02/02/2023'
+
+
   }
 
   getDetailSponsor() {
@@ -54,13 +59,18 @@ export class SponsorDetailComponent implements OnInit {
   }
 
   loadMore() {
-    this.offsetSponsor++
-    this._campaignService.getCampaignBySponsorId(this.idSponsor, this.offsetSponsor, this.limitSponsor)
+    this.offsetCampaign++
+    this._campaignService.getCampaignBySponsorId(this.idSponsor, this.offsetCampaign, this.limitCampaign)
       .subscribe(res => res && (this.campaigns.push(...res.items)))
   }
 
   getSponsor(){
     this.apiService.getPageSponsor(this.offsetSponsor, this.limitSponsor)
       .subscribe(res => res && (this.sponsor = res.items))
+  }
+
+
+  handlerDateTime(date: string) {
+    return SystemUtil.handlerDateTime(date);
   }
 }

@@ -46,12 +46,17 @@ export class SystemUtil {
     };
   }
 
-  static handlerDateTime(date: string) {
-    let str = new Date(date)
+  static handlerDateTime(d: string) {
+    let str = new Date(d)
+    let date = str.getDate() < 10 ? `0${str.getDate()}` : str.getDate()
     let month = str.getMonth() < 10 ? `0${str.getMonth() + 1}` : str.getMonth()
     let hours = str.getHours() < 10 ? `0${str.getHours()}` : str.getHours()
     let minutes = str.getMinutes() < 10 ? `0${str.getMinutes()}` : str.getMinutes()
-    return `${str.getDate()}-${month}-${str.getFullYear()}`
+    return `${date}-${month}-${str.getFullYear()}`
+  }
+
+  checkDateWithCurrent(date: string){
+
   }
 
 }

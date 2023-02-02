@@ -78,7 +78,15 @@
 
                 <h4 class="title"><a routerLink="/causes/{{item.id}}" routerLinkActive="active"
                                      ariaCurrentWhenActive="page">{{item.title}}</a></h4>
-                <p style="margin-bottom: 10px">{{item.description}}</p>
+                <p class="mb-3">{{item.description}}</p>
+                <hr>
+                <div class="d-flex mb-3">
+                  <div>
+                    <img width="50px" style="border-radius: 50%" src="{{item && item.sponsor.image}}" alt="givest">
+                  </div>
+                  <div class="m-auto" style="margin-left: 10px !important;">{{item && item.sponsor.name}}</div>
+                </div>
+                <hr>
                 <div class="row">
                   <p class="col-md-6" style="margin: 0">
                     <span style="font-weight: 600">Bắt đầu: </span>
@@ -89,9 +97,9 @@
                     <span>{{handlerDateTime(item.endDate)}}</span>
                   </p>
                 </div>
+                <hr>
               </div>
-
-              <div class="causes-footer">
+              <div class="causes-footer pt-0">
                 <div class="admin">
                   <h5>
                     <a routerLink="/causes/{{item.id}}" routerLinkActive="active" ariaCurrentWhenActive="page">

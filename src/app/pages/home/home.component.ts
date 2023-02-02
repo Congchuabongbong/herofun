@@ -6,6 +6,7 @@ import { SwiperComponent } from 'swiper/angular';
 import { ApiService } from "../../shared/services/api.service";
 import { Campaign, Sponsor } from "../../shared/entity/Modal";
 import * as Parallax from 'parallax-js';
+import {SystemUtil} from "../../shared/utils/SystemUtil";
 // install Swiper modules
 SwiperCore.use([Virtual]);
 
@@ -71,4 +72,7 @@ export class HomeComponent implements OnInit, AfterViewInit {
 
   }
 
+  handlerDateTime(date: string) {
+    return SystemUtil.handlerDateTime(date);
+  }
 }

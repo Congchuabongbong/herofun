@@ -13,7 +13,7 @@
                 <img width="100px"
                      src="{{s.image}}">
                 <div class="mt-2 ml-15">
-                  <h6 class="title-custom">{{s.name}}</h6>
+                  <h6 class="title-custom-sponsor">{{s.name}}</h6>
                   <p class="description-sponsor">{{s.description}}</p>
                   <p class="view-detail-sponsor" routerLink="/sponsor/{{s.id}}">Xem chi tiết</p>
                 </div>
@@ -46,6 +46,14 @@
                          <span class="amount">${{campaign && campaign.currentAmount}}</span>
                        </li>
                      </ul>
+                     <hr>
+                     <div class="d-flex mb-3">
+                       <div>
+                         <img width="50px" style="border-radius: 50%" src="{{campaign && campaign.sponsor.image}}" alt="givest">
+                       </div>
+                       <div class="m-auto" style="margin-left: 10px !important;">{{campaign && campaign.sponsor.name}}</div>
+                     </div>
+                     <hr>
                      <div class="row">
                        <div class="col-md-6" style="margin: 0">
                          <p class="m-0" style="font-weight: 600">Bắt đầu: </p>
