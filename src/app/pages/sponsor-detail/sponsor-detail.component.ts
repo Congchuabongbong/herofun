@@ -25,8 +25,11 @@ export class SponsorDetailComponent implements OnInit {
   sponsorDetail!: Sponsor;
   campaigns!: Campaign[];
   idSponsor: any;
-  offset = 1;
-  limit = 3
+  offsetSponsor = 1;
+  limitSponsor = 6
+
+  offsetCampaign = 1;
+  limitCampaign = 3
   sponsor!: Sponsor[];
 
   ngOnInit(): void {
@@ -46,18 +49,18 @@ export class SponsorDetailComponent implements OnInit {
   }
 
   getCampaignBySponsorId() {
-    this._campaignService.getCampaignBySponsorId(this.idSponsor, this.offset, this.limit)
+    this._campaignService.getCampaignBySponsorId(this.idSponsor, this.offsetCampaign, this.limitCampaign)
       .subscribe(res => res && (this.campaigns = res.items))
   }
 
   loadMore() {
-    this.offset++
-    this._campaignService.getCampaignBySponsorId(this.idSponsor, this.offset, this.limit)
+    this.offsetSponsor++
+    this._campaignService.getCampaignBySponsorId(this.idSponsor, this.offsetSponsor, this.limitSponsor)
       .subscribe(res => res && (this.campaigns.push(...res.items)))
   }
 
   getSponsor(){
-    this.apiService.getPageSponsor(this.offset, this.limit)
+    this.apiService.getPageSponsor(this.offsetSponsor, this.limitSponsor)
       .subscribe(res => res && (this.sponsor = res.items))
   }
 }
