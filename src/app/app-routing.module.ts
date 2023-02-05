@@ -15,8 +15,8 @@ import { AuthGuard } from '../app/shared/helpers';
 import { PaymentSuccessComponent } from './pages/payment-success/payment-success.component';
 import { ErrorComponent } from './pages/error/error.component';
 import { PaymentFormComponent } from './pages/payment-form/payment-form.component';
-import {SponsorComponent} from "./pages/sponsor/sponsor.component";
-import {SponsorDetailComponent} from "./pages/sponsor-detail/sponsor-detail.component";
+import { SponsorComponent } from "./pages/sponsor/sponsor.component";
+import { SponsorDetailComponent } from "./pages/sponsor-detail/sponsor-detail.component";
 const routes: Routes = [
   {
     path: '',

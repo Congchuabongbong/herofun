@@ -17,13 +17,14 @@
               <li routerLink="/home" routerLinkActive="active" ariaCurrentWhenActive="page"><a>Trang chủ</a></li>
               <li routerLink="/about" routerLinkActive="active" ariaCurrentWhenActive="page"><a>Về chúng tôi</a></li>
               <li routerLink="/causes" routerLinkActive="active" ariaCurrentWhenActive="page"><a>Chiến dịch</a></li>
-              <li routerLink="/sponsor" routerLinkActive="active" ariaCurrentWhenActive="page"><a>Đối tác đồng hành</a></li>
-<!--              <li class="has-submenu"><a href="blog.html">Blog</a>-->
-<!--                <ul class="submenu-nav">-->
-<!--                  <li><a href="blog.html">Blog Grid</a></li>-->
-<!--                  <li><a href="blog-details.html">Blog Single</a></li>-->
-<!--                </ul>-->
-<!--              </li>-->
+              <li routerLink="/sponsor" routerLinkActive="active" ariaCurrentWhenActive="page"><a>Đối tác đồng hành</a>
+              </li>
+              <!--              <li class="has-submenu"><a href="blog.html">Blog</a>-->
+              <!--                <ul class="submenu-nav">-->
+              <!--                  <li><a href="blog.html">Blog Grid</a></li>-->
+              <!--                  <li><a href="blog-details.html">Blog Single</a></li>-->
+              <!--                </ul>-->
+              <!--              </li>-->
               <li class="has-submenu" routerLinkActive="active"><a>Pages</a>
                 <ul class="submenu-nav">
                   <li><a routerLink="profile">Profile</a></li>
@@ -37,13 +38,13 @@
             </ul>
           </div>
           <div class="header-action-area">
-            <a *ngIf="!jwt; else elseBlock" routerLink="/login" class="btn-theme btn-gradient btn-slide btn-style">Đăng nhập
+            <a *ngIf="!jwt; else elseBlock" routerLink="/login" class="btn-theme btn-gradient btn-slide btn-style">Đăng
+              nhập
               <img class="icon icon-img" src="assets/img/icons/arrow-line-right2.png" alt="Icon">
             </a>
             <ng-template #elseBlock>
-              <p class="btn-theme btn-gradient btn-slide btn-style" style="cursor: pointer" (click)="logOut()">Đăng xuất
-                <img class="icon icon-img" src="assets/img/icons/arrow-line-right2.png" alt="Icon">
-              </p>
+
+              <app-profile-menu></app-profile-menu>
             </ng-template>
           </div>
         </div>

@@ -35,6 +35,8 @@ import { TabComponent } from './shared/components/tabs/tab/tab.component';
 import { TabsComponent } from './shared/components/tabs/tabs/tabs.component';
 import {SponsorComponent} from "./pages/sponsor/sponsor.component";
 import {SponsorDetailComponent} from "./pages/sponsor-detail/sponsor-detail.component";
+import { PostArticleComponent } from './shared/components/post-article/post-article.component';
+import { ProfileMenuComponent } from './shared/components/profile-menu/profile-menu.component';
 
 
 @NgModule({
@@ -67,6 +69,8 @@ import {SponsorDetailComponent} from "./pages/sponsor-detail/sponsor-detail.comp
     TabsComponent,
     ErrorComponent,
     PaymentFormComponent,
+    PostArticleComponent,
+    ProfileMenuComponent,
   ],
   imports: [
     BrowserModule,
