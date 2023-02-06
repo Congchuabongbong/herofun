@@ -14,9 +14,9 @@ export class ProfileMenuComponent implements OnInit {
   ngOnInit(): void {
 
   }
-  public onMenuToggle() {
-    const toggleMenu = this._el.nativeElement.querySelector(".menu");
-    toggleMenu.classList.toggle("active");
-  }
 
+  public logOut() {
+    this.authService.logout();
+    window.location.href = '/home';
+  }
 }

@@ -1,15 +1,15 @@
 <div class="action">
-  <div class="profile" (click)="onMenuToggle()">
+  <div class="profile">
     <img src="/assets/img/team/1.jpg" />
   </div>
   <div class="menu active">
     <h3>Someone Famous<br /><span>Website Designer</span></h3>
     <ul>
-      <li>
+      <li style="cursor: pointer;">
         <img src="/assets/img/icons/user.png" /><a routerLink="profile">My profile</a>
       </li>
-      <li>
-        <img src="/assets/img/icons/log-out.png" /><a href="#">Logout</a>
+      <li (click)="logOut()" style="cursor: pointer;">
+        <img src="/assets/img/icons/log-out.png" /><a>Logout</a>
       </li>
     </ul>
   </div>
