@@ -13,6 +13,7 @@ import {AlertService} from "../../shared/services/alert.service";
 import {SystemUtil} from "../../shared/utils/SystemUtil";
 import {ApiService} from "../../shared/services/api.service";
 import {UntypedFormBuilder, UntypedFormGroup, Validators} from "@angular/forms";
+import {Router} from "@angular/router";
 
 
 @Component({
@@ -51,6 +52,7 @@ export class ProfileComponent implements OnInit {
 
   constructor(
     private authService: AuthenticationService,
+    private router: Router,
     private apiService: ApiService,
     private alertService: AlertService,
     private fb: UntypedFormBuilder,
@@ -84,9 +86,15 @@ export class ProfileComponent implements OnInit {
 
   getProfile() {
     this.authService.getProfile().subscribe(res => {
-      this.profile = res.data;
-      this.dateOfBirth = res.data.dateOfBirth
-    })
+        this.profile = res.data;
+        this.dateOfBirth = res.data.dateOfBirth
+      },
+      error => {
+        if (error.error.code === 401 || error.error.code === 403) {
+          this.router.navigate(['/login']).then(r => console.log(r))
+        }
+      }
+    )
   }
 
   getCategories() {
@@ -295,12 +303,12 @@ export class ProfileComponent implements OnInit {
       this.messageError.errorEndDate = "";
     }
 
-    if (!this.validateForm.controls['startDate'].invalid && !this.validateForm.controls['endDate'].invalid){
+    if (!this.validateForm.controls['startDate'].invalid && !this.validateForm.controls['endDate'].invalid) {
       let startDate = new Date(this.validateForm.controls['startDate'].value);
       let endDate = new Date(this.validateForm.controls['endDate'].value);
-      if (endDate.getTime() - startDate.getTime() <= 0){
+      if (endDate.getTime() - startDate.getTime() <= 0) {
         this.messageError.errorEndDate = "End date must be greater than start date";
-      }else {
+      } else {
         this.messageError.errorEndDate = "";
       }
     }
