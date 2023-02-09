@@ -89,11 +89,6 @@ export class ProfileComponent implements OnInit {
         this.profile = res.data;
         this.dateOfBirth = res.data.dateOfBirth
       },
-      error => {
-        if (error.error.code === 401 || error.error.code === 403) {
-          this.router.navigate(['/login']).then(r => console.log(r))
-        }
-      }
     )
   }
 

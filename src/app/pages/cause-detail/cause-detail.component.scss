@@ -40,3 +40,10 @@
 .p-30{
   padding: 30px;
 }
+
+.des-sponsor{
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
