@@ -7,7 +7,7 @@
   <!--== Start Causes Area ==-->
   <section class="causes-area causes-default-area">
     <div class="container">
-      <div class="row mb-5">
+      <!-- <div class="row mb-5">
         <div class="col-4">
           <div class="widget">
             <h3 class="widget-title">Danh mục quyên góp:</h3>
@@ -17,11 +17,7 @@
             <div class="widget-category">
               <select class="form-control" [(ngModel)]="category" (change)="changeCategories($event)">
                 <option selected value="0">Vui lòng chọn danh mục</option>
-                <option
-                  *ngFor="let c of categories"
-                  value="{{c.id}}"
-                  class="form-control"
-                >{{c.name}}</option>
+                <option *ngFor="let c of categories" value="{{c.id}}" class="form-control">{{c.name}}</option>
               </select>
             </div>
           </div>
@@ -33,29 +29,29 @@
               <img class="me-1" src="assets/img/shape/line-t2.png" alt="Image-Givest">
             </div>
             <div class="widget-category">
-              <input class="form-control" [(ngModel)]="keyword" placeholder="Vui lòng nhập từ khóa"/>
+              <input class="form-control" [(ngModel)]="keyword" placeholder="Vui lòng nhập từ khóa" />
             </div>
           </div>
         </div>
-      </div>
-      <div class="row">
+      </div> -->
+      <!-- <div class="row">
         <div class="col-10"></div>
         <div class="col-2">
-          <button style="background: #FEA444; margin-right: 10px"
-                  class="btn text-white" (click)="btnSearch()" type="button">Tìm kiếm</button>
-          <button style="background: #FEA444" class="btn text-white"
-                  (click)="reset()" type="button">Xóa</button>
+          <button style="background: #FEA444; margin-right: 10px" class="btn text-white" (click)="btnSearch()"
+            type="button">Tìm kiếm</button>
+          <button style="background: #FEA444" class="btn text-white" (click)="reset()" type="button">Xóa</button>
         </div>
       </div>
       <br>
-      <hr>
+      <hr> -->
 
-      <div class="row">
-        <div *ngIf="campaigns.length == 0; else elseBlock" class="my_no_campaign">
+      <div class="row" infinite-scroll (scrolled)="onScrollDown($event)" [infiniteScrollDistance]="20"
+        [infiniteScrollThrottle]="0">
+        <div *ngIf="campaignsStore.length == 0; else elseBlock" class="my_no_campaign">
           No Campaigns
         </div>
         <ng-template #elseBlock>
-          <div class="col-md-6 col-lg-4" *ngFor="let item of campaigns">
+          <div class="col-md-6 col-lg-4" *ngFor="let item of campaignsStore">
             <div class="causes-item mb-30">
               <div class="thumb">
                 <img src="{{item.image}}" alt="Givest-HasTech">
@@ -77,7 +73,7 @@
                 </ul>
 
                 <h4 class="title"><a routerLink="/causes/{{item.id}}" routerLinkActive="active"
-                                     ariaCurrentWhenActive="page">{{item.title}}</a></h4>
+                    ariaCurrentWhenActive="page">{{item.title}}</a></h4>
                 <p class="mb-3">{{item.description}}</p>
                 <hr>
                 <div class="d-flex mb-3">
@@ -103,13 +99,15 @@
                 <div class="admin">
                   <h5>
                     <a routerLink="/causes/{{item.id}}" routerLinkActive="active" ariaCurrentWhenActive="page">
-                      <span  class="icon-img"><img src="assets/img/icons/admin1.png" alt="Icon"></span>{{ item.account.username}}
+                      <span class="icon-img"><img src="assets/img/icons/admin1.png" alt="Icon"></span>{{
+                      item.account.username}}
                     </a>
                   </h5>
                 </div>
                 <a class="btn-theme btn-border-gradient gray-border btn-size-md" routerLink="/causes/{{item.id}}"
-                   routerLinkActive="active" ariaCurrentWhenActive="page"><span>Quyên góp
-                  <img class="icon icon-img" src="assets/img/icons/arrow-line-right-gradient.png" alt="Icon"></span></a>
+                  routerLinkActive="active" ariaCurrentWhenActive="page"><span>Quyên góp
+                    <img class="icon icon-img" src="assets/img/icons/arrow-line-right-gradient.png"
+                      alt="Icon"></span></a>
               </div>
             </div>
           </div>
@@ -134,8 +132,7 @@
         <div class="col-sm-8 offset-sm-2 col-md-8 offset-md-2 col-lg-4 offset-lg-0 col-xl-4">
           <div class="section-title text-center text-lg-start">
             <h2 class="title title-style mt-xl-30">Our Current Sponsors. <img class="img-shape"
-                                                                              src="assets/img/shape/3.png"
-                                                                              alt="Image-Givest"></h2>
+                src="assets/img/shape/3.png" alt="Image-Givest"></h2>
           </div>
         </div>
         <div class="col-lg-8 col-xl-7 offset-xl-1">
