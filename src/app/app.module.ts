@@ -33,10 +33,11 @@ import { PageTitleAreaComponent } from './shared/components/page-title-area/page
 import { SlideTestimonialComponent } from './shared/components/slide-testimonial/slide-testimonial.component';
 import { TabComponent } from './shared/components/tabs/tab/tab.component';
 import { TabsComponent } from './shared/components/tabs/tabs/tabs.component';
-import {SponsorComponent} from "./pages/sponsor/sponsor.component";
-import {SponsorDetailComponent} from "./pages/sponsor-detail/sponsor-detail.component";
+import { SponsorComponent } from "./pages/sponsor/sponsor.component";
+import { SponsorDetailComponent } from "./pages/sponsor-detail/sponsor-detail.component";
 import { PostArticleComponent } from './shared/components/post-article/post-article.component';
 import { ProfileMenuComponent } from './shared/components/profile-menu/profile-menu.component';
+import { InfiniteScrollModule } from 'ngx-infinite-scroll';
 
 
 @NgModule({
@@ -83,7 +84,7 @@ import { ProfileMenuComponent } from './shared/components/profile-menu/profile-m
     NotifierModule,
     FormsModule,
     CKEditorModule,
-
+    InfiniteScrollModule
   ],
   providers: [HttpClient],
   bootstrap: [AppComponent],

@@ -10,8 +10,7 @@
           <div class="row">
             <div *ngFor="let s of sponsor" class="col-md-6 py-2 px-2">
               <div class="d-flex border p-2 " style="border-radius: 10px">
-                <img width="100px"
-                     src="{{s.image}}">
+                <img width="100px" src="{{s.image}}">
                 <div class="mt-2 ml-15">
                   <h6 class="title-custom-sponsor">{{s.name}}</h6>
                   <p class="description-sponsor">{{s.description}}</p>
@@ -25,64 +24,68 @@
           </div>
         </div>
         <div class="col-md-4">
-         <div class="border-left">
-           <h4 class="my-5" style="color: #da0da0; font-size: 20px">Hoàn cảnh quyên góp mới nhất</h4>
-           <div class="row">
-             <div *ngFor="let campaign of campaigns" class="col-md-12 sidebar-area">
-               <div class="widget custom-widget" style="border-radius: 10px">
-                 <div class="widget-causes-item">
-                   <div class="thumb">
-                     <img src="{{campaign && campaign.image}}" alt="Givest-HasTech">
-                   </div>
-                   <div class="content">
-                     <h5 class="title-custom"><a href="/causes/{{campaign && campaign.id}}">{{campaign && campaign.title}}</a></h5>
-                     <ul class="donate-info">
-                       <li class="info-item">
-                         <span class="info-title">Mục tiêu:</span>
-                         <span class="amount">${{campaign && campaign.targetAmount}}</span>
-                       </li>
-                       <li class="info-item">
-                         <span class="info-title">Hiện tại:</span>
-                         <span class="amount">${{campaign && campaign.currentAmount}}</span>
-                       </li>
-                     </ul>
-                     <hr>
-                     <div class="d-flex mb-3">
-                       <div>
-                         <img width="50px" style="border-radius: 50%" src="{{campaign && campaign.sponsor.image}}" alt="givest">
-                       </div>
-                       <div class="m-auto" style="margin-left: 10px !important;">{{campaign && campaign.sponsor.name}}</div>
-                     </div>
-                     <hr>
-                     <div class="row">
-                       <div class="col-md-6" style="margin: 0">
-                         <p class="m-0" style="font-weight: 600">Bắt đầu: </p>
-                         <p class="m-0">{{handlerDateTime(campaign && campaign.startDate)}}</p>
-                       </div>
-                       <div class="col-md-6" style="margin: 0;">
-                         <p class="m-0" style="font-weight: 600">Kết thúc: </p>
-                         <p class="m-0">{{handlerDateTime(campaign && campaign.endDate)}}</p>
-                       </div>
-                     </div>
-                     <!-- Start Progress Item -->
-                     <hr>
-                     <div class="text-center pb-2">
-                       <a class="btn btn-success mr-10" style="background: #fc6539; border: none" href="/causes/{{campaign && campaign.id}}">Chi tiết</a>
-                       <a class="btn btn-success " style="background: #fc6539; border: none" href="/payment/{{campaign && campaign.id}}">Quyên góp</a>
-                     </div>
-                   </div>
-                 </div>
-               </div>
-             </div>
-           </div>
-           <hr>
-           <div class="text-center">
-             <a class="btn btn-success " style="background: #fc6539; border: none" routerLink="/causes">Xem tất cả</a>
-           </div>
-         </div>
+          <div class="border-left">
+            <h4 class="my-5" style="color: #da0da0; font-size: 20px">Hoàn cảnh quyên góp mới nhất</h4>
+            <div class="row">
+              <div *ngFor="let campaign of campaigns | async" class="col-md-12 sidebar-area">
+                <div class="widget custom-widget" style="border-radius: 10px">
+                  <div class="widget-causes-item">
+                    <div class="thumb">
+                      <img src="{{campaign && campaign.image}}" alt="Givest-HasTech">
+                    </div>
+                    <div class="content">
+                      <h5 class="title-custom"><a href="/causes/{{campaign && campaign.id}}">{{campaign &&
+                          campaign.title}}</a></h5>
+                      <ul class="donate-info">
+                        <li class="info-item">
+                          <span class="info-title">Mục tiêu:</span>
+                          <span class="amount">${{campaign && campaign.targetAmount}}</span>
+                        </li>
+                        <li class="info-item">
+                          <span class="info-title">Hiện tại:</span>
+                          <span class="amount">${{campaign && campaign.currentAmount}}</span>
+                        </li>
+                      </ul>
+                      <hr>
+                      <div class="d-flex mb-3">
+                        <div>
+                          <img width="50px" style="border-radius: 50%" src="{{campaign && campaign.sponsor.image}}"
+                            alt="givest">
+                        </div>
+                        <div class="m-auto" style="margin-left: 10px !important;">{{campaign && campaign.sponsor.name}}
+                        </div>
+                      </div>
+                      <hr>
+                      <div class="row">
+                        <div class="col-md-6" style="margin: 0">
+                          <p class="m-0" style="font-weight: 600">Bắt đầu: </p>
+                          <p class="m-0">{{handlerDateTime(campaign && campaign.startDate)}}</p>
+                        </div>
+                        <div class="col-md-6" style="margin: 0;">
+                          <p class="m-0" style="font-weight: 600">Kết thúc: </p>
+                          <p class="m-0">{{handlerDateTime(campaign && campaign.endDate)}}</p>
+                        </div>
+                      </div>
+                      <!-- Start Progress Item -->
+                      <hr>
+                      <div class="text-center pb-2">
+                        <a class="btn btn-success mr-10" style="background: #fc6539; border: none"
+                          href="/causes/{{campaign && campaign.id}}">Chi tiết</a>
+                        <a class="btn btn-success " style="background: #fc6539; border: none"
+                          href="/payment/{{campaign && campaign.id}}">Quyên góp</a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <hr>
+            <div class="text-center">
+              <a class="btn btn-success " style="background: #fc6539; border: none" routerLink="/causes">Xem tất cả</a>
+            </div>
+          </div>
         </div>
       </div>
     </div>
   </section>
 </main>
-

@@ -6,7 +6,8 @@ import { SwiperComponent } from 'swiper/angular';
 import { ApiService } from "../../shared/services/api.service";
 import { Campaign, Sponsor } from "../../shared/entity/Modal";
 import * as Parallax from 'parallax-js';
-import {SystemUtil} from "../../shared/utils/SystemUtil";
+import { SystemUtil } from "../../shared/utils/SystemUtil";
+import { Observable } from 'rxjs';
 // install Swiper modules
 SwiperCore.use([Virtual]);
 
@@ -35,7 +36,7 @@ export class HomeComponent implements OnInit, AfterViewInit {
 
   limit: number = 3;
   offset: number = 1;
-  campaigns: Campaign[] = [];
+  campaigns: Observable<Campaign[]> = this.apiService.getPageCampaign(this.offset, this.limit);
   public campaignUrgent!: Campaign;
   sponsors: Sponsor[] = [];
 
@@ -46,10 +47,7 @@ export class HomeComponent implements OnInit, AfterViewInit {
   }
 
   getCampaign() {
-    this.apiService.getPageCampaign(this.offset, this.limit).subscribe(
-      res => this.campaigns = res.items,
-      e => console.log(e)
-    );
+
   }
 
   getCampaignUrgent() {

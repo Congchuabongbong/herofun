@@ -1,9 +1,9 @@
-import {Component, OnInit} from '@angular/core';
-import {ApiService} from "../../shared/services/api.service";
-import {Campaign, Category, Sponsor} from "../../shared/entity/Modal";
-import {CampaignService} from "../../shared/services/campaign.service";
-import {ActivatedRoute, Router} from "@angular/router";
-import {SystemUtil} from "../../shared/utils/SystemUtil";
+import { Component, OnInit } from '@angular/core';
+import { ApiService } from "../../shared/services/api.service";
+import { Campaign, Category, Sponsor } from "../../shared/entity/Modal";
+import { CampaignService } from "../../shared/services/campaign.service";
+import { ActivatedRoute, Router } from "@angular/router";
+import { SystemUtil } from "../../shared/utils/SystemUtil";
 
 @Component({
   selector: 'app-causes',
@@ -13,7 +13,7 @@ import {SystemUtil} from "../../shared/utils/SystemUtil";
 })
 export class CausesComponent implements OnInit {
 
-  campaigns: Campaign[] = [];
+  campaignsStore: Campaign[] = [];
   sponsors: Sponsor[] = [];
   categories: Category[] = [];
   limit: number = 6;
@@ -23,18 +23,20 @@ export class CausesComponent implements OnInit {
   keyword?: string = "";
   categoryId?: string;
 
+  isCampaignSearch = false;
+
   constructor(private apiService: ApiService,
-              private campaignService: CampaignService,
-              private activeRouter: ActivatedRoute,
-              private router: Router) {
+    private campaignService: CampaignService,
+    private activeRouter: ActivatedRoute,
+    private router: Router) {
   }
 
   ngOnInit(): void {
-    this.activeRouter.queryParams.subscribe(param => this.categoryId = param['categoryId'])
-    if (this.categoryId){
-      this.category = parseInt(this.categoryId)
+    this.activeRouter.queryParams.subscribe(param => this.categoryId = param['categoryId']);
+    if (this.categoryId) {
+      this.category = parseInt(this.categoryId);
       this.searchCampaign();
-    }else {
+    } else {
       this.getPageCampaign();
     }
 
@@ -42,28 +44,29 @@ export class CausesComponent implements OnInit {
     this.getCategories();
   }
 
-
-
   getPageCampaign() {
     this.apiService.getPageCampaign(this.offset, this.limit)
-      .subscribe(res => this.campaigns = res.items)
+      .subscribe(res => {
+        this.campaignsStore.push(...res);
+      });
   }
 
   getSponsor() {
     this.apiService.getSponsor().subscribe(
       res => this.sponsors = res,
-    )
+    );
   }
 
   searchCampaign() {
-    this.campaignService.searchCampaign(this.category, this.keyword, this.offset, this.limit)
+    this.offset = 1;
+    this.campaignService.searchCampaign(this.category, this.keyword, 1, this.limit)
       .subscribe(res => {
-        this.campaigns = res.items;
-      })
+        this.campaignsStore = res.items;
+      });
   }
 
   private getCategories() {
-    this.apiService.getCategories().subscribe(res => this.categories = res)
+    this.apiService.getCategories().subscribe(res => this.categories = res);
   }
 
   changeCategories($event: any) {
@@ -82,6 +85,10 @@ export class CausesComponent implements OnInit {
   }
 
   handlerDateTime(date: string) {
-    return SystemUtil.handlerDateTime(date)
+    return SystemUtil.handlerDateTime(date);
+  }
+  onScrollDown(event: any) {
+    this.offset++;;
+    this.getPageCampaign();
   }
 }

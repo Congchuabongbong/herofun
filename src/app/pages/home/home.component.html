@@ -18,8 +18,7 @@
                   </div>
                   <div class="btn-wrp">
                     <a routerLink="/causes" class="btn-theme btn-gradient btn-slide btn-style">Quyên góp <img
-                      class="icon icon-img"
-                      src="assets/img/icons/arrow-line-right2.png" alt="Icon"></a>
+                        class="icon icon-img" src="assets/img/icons/arrow-line-right2.png" alt="Icon"></a>
                   </div>
                 </div>
               </div>
@@ -87,7 +86,7 @@
               <p>Lorem Ipsum is simply dummy text the printing typesetng industry lorem Ipsum has been industry standard
                 dummy text ever since.</p>
               <a href="causes-details.html" class="btn-theme btn-white btn-border btn-size-md">View Details <img
-                class="icon icon-img" src="assets/img/icons/arrow-line-right.png" alt="Icon"></a>
+                  class="icon icon-img" src="assets/img/icons/arrow-line-right.png" alt="Icon"></a>
             </div>
           </div>
         </div>
@@ -107,7 +106,7 @@
               <p>Lorem Ipsum is simply dummy text the printing typesetng industry lorem Ipsum has been industry standard
                 dummy text ever since.</p>
               <a href="causes-details.html" class="btn-theme btn-white btn-border btn-size-md">View Details <img
-                class="icon icon-img" src="assets/img/icons/arrow-line-right.png" alt="Icon"></a>
+                  class="icon icon-img" src="assets/img/icons/arrow-line-right.png" alt="Icon"></a>
             </div>
           </div>
         </div>
@@ -126,7 +125,7 @@
               <p>Lorem Ipsum is simply dummy text the printing typesetng industry lorem Ipsum has been industry standard
                 dummy text ever since.</p>
               <a href="causes-details.html" class="btn-theme btn-white btn-border btn-size-md">View Details <img
-                class="icon icon-img" src="assets/img/icons/arrow-line-right.png" alt="Icon"></a>
+                  class="icon icon-img" src="assets/img/icons/arrow-line-right.png" alt="Icon"></a>
             </div>
           </div>
         </div>
@@ -179,8 +178,7 @@
               </li>
             </ul>
             <a routerLink="/causes" class="btn-theme btn-gradient btn-slide">Quyên góp <img class="icon icon-img"
-                                                                                            src="assets/img/icons/arrow-line-right2.png"
-                                                                                            alt="Icon"></a>
+                src="assets/img/icons/arrow-line-right2.png" alt="Icon"></a>
           </div>
         </div>
       </div>
@@ -196,13 +194,12 @@
           <div class="section-title text-center" data-aos="fade-up" data-aos-duration="1000">
             <h5 class="subtitle line-theme-color">Chiến dịch quyên góp mới nhất</h5>
             <h2 class="title title-style">Quyên góp để giúp đỡ những hoàn cảnh khó khăn <img class="img-shape"
-                                                                                             src="assets/img/shape/3.png"
-                                                                                             alt="Image-Givest"></h2>
+                src="assets/img/shape/3.png" alt="Image-Givest"></h2>
           </div>
         </div>
       </div>
       <div class="row" data-aos="fade-up" data-aos-duration="1000">
-        <div class="col-md-6 col-lg-4" *ngFor="let item of campaigns">
+        <div class="col-md-6 col-lg-4" *ngFor="let item of campaigns | async">
           <div class="causes-item mb-md-30">
             <div class="thumb">
               <img src="{{item?.image}}" alt="Givest-HasTech">
@@ -247,12 +244,12 @@
             <div class="causes-footer pt-0">
               <div class="admin">
                 <h5><a href="causes/{{item.id}}"><span class="icon-img"><img src="assets/img/icons/admin1.png"
-                                                                             alt="Icon"></span>{{item?.account?.username}}
-                </a></h5>
+                        alt="Icon"></span>{{item?.account?.username}}
+                  </a></h5>
               </div>
-              <a class="btn-theme btn-border-gradient gray-border btn-size-md" routerLink="/causes/{{item.id}}"><span>Chi tiết <img
-                class="icon icon-img" src="assets/img/icons/arrow-line-right-gradient.png"
-                alt="Icon"></span></a>
+              <a class="btn-theme btn-border-gradient gray-border btn-size-md"
+                routerLink="/causes/{{item.id}}"><span>Chi tiết <img class="icon icon-img"
+                    src="assets/img/icons/arrow-line-right-gradient.png" alt="Icon"></span></a>
             </div>
           </div>
         </div>
@@ -270,19 +267,17 @@
             <div class="section-title">
               <h5 class="subtitle line-theme-color mb-7">Trường hợp khẩn cấp</h5>
               <h2 class="title title-style text-white">{{campaignUrgent.title}}. <img class="img-shape"
-                                                                                      src="assets/img/shape/3.png"
-                                                                                      alt="Image-Givest"></h2>
+                  src="assets/img/shape/3.png" alt="Image-Givest"></h2>
             </div>
             <div class="donate-form">
               <form action="index.html#">
                 <div class="btn-wrp">
                   <a routerLink="/payment/{{campaignUrgent && campaignUrgent.id}}"
-                     class="btn-theme btn-gradient btn-slide">Quyên góp <img class="icon icon-img"
-                                                                             src="assets/img/icons/arrow-line-right2.png"
-                                                                             alt="Icon"></a>
+                    class="btn-theme btn-gradient btn-slide">Quyên góp <img class="icon icon-img"
+                      src="assets/img/icons/arrow-line-right2.png" alt="Icon"></a>
                   <a routerLink="/causes/{{campaignUrgent && campaignUrgent.id}}"
-                     class="btn-theme btn-gradient btn-border">Chi tiết <img
-                    class="icon icon-img" src="assets/img/icons/arrow-line-right2-gradient.png" alt="Icon"></a>
+                    class="btn-theme btn-gradient btn-border">Chi tiết <img class="icon icon-img"
+                      src="assets/img/icons/arrow-line-right2-gradient.png" alt="Icon"></a>
                 </div>
               </form>
             </div>
@@ -291,7 +286,7 @@
         <div class="col-lg-5 col-xxl-4 offset-xxl-1">
           <div class="donners-content">
             <div class="thumb-bg-layer" data-aos="fade-left" data-aos-duration="1000"
-                 data-bg-img="assets/img/photos/bg-donate1.jpg"></div>
+              data-bg-img="assets/img/photos/bg-donate1.jpg"></div>
             <div class="donners-info" data-aos="fade-up" data-aos-duration="1000">
               <img src="{{campaignUrgent && campaignUrgent.image}}">
               <p>{{campaignUrgent && campaignUrgent.description}}</p>
@@ -315,15 +310,14 @@
           <div class="section-title" data-aos="fade-up" data-aos-duration="1000">
             <h5 class="subtitle line-theme-color mb-7">Sự kiện gần đây</h5>
             <h2 class="title title-style">Join Recent Fundraising Event Of Givest. <img class="img-shape"
-                                                                                        src="assets/img/shape/3.png"
-                                                                                        alt="Image-Givest"></h2>
+                src="assets/img/shape/3.png" alt="Image-Givest"></h2>
           </div>
           <div class="events-content events-list" data-aos="fade-up" data-aos-duration="1000">
             <div class="event-item">
               <div class="thumb">
                 <img class="thumb-img" src="assets/img/events/1.jpg" alt="Image-Givest">
                 <a href="event-details.html" class="btn-theme btn-gradient btn-size-sm">Join Now <img
-                  class="icon icon-img" src="assets/img/icons/arrow-line-right.png" alt="Icon"></a>
+                    class="icon icon-img" src="assets/img/icons/arrow-line-right.png" alt="Icon"></a>
               </div>
               <div class="content">
                 <div class="event-info">15 January 2021 // <span>Education</span></div>
@@ -334,7 +328,7 @@
               <div class="thumb">
                 <img class="thumb-img" src="assets/img/events/2.jpg" alt="Image-Givest">
                 <a href="event-details.html" class="btn-theme btn-gradient btn-size-sm">Join Now <img
-                  class="icon icon-img" src="assets/img/icons/arrow-line-right.png" alt="Icon"></a>
+                    class="icon icon-img" src="assets/img/icons/arrow-line-right.png" alt="Icon"></a>
               </div>
               <div class="content">
                 <div class="event-info">15 January 2021 // <span>Education</span></div>
@@ -345,7 +339,7 @@
               <div class="thumb">
                 <img class="thumb-img" src="assets/img/events/3.jpg" alt="Image-Givest">
                 <a href="event-details.html" class="btn-theme btn-gradient btn-size-sm">Join Now <img
-                  class="icon icon-img" src="assets/img/icons/arrow-line-right.png" alt="Icon"></a>
+                    class="icon icon-img" src="assets/img/icons/arrow-line-right.png" alt="Icon"></a>
               </div>
               <div class="content">
                 <div class="event-info">15 January 2021 // <span>Education</span></div>
@@ -360,7 +354,7 @@
               <img src="assets/img/photos/event1.png" alt="Image-Givest">
               <div class="play-video-btn">
                 <a class="btn-play play-video-popup wave-btn"
-                   href="https://player.vimeo.com/video/174392490?dnt=1&amp;app_id=122963"><span></span><span></span><span></span>
+                  href="https://player.vimeo.com/video/174392490?dnt=1&amp;app_id=122963"><span></span><span></span><span></span>
                   <div class="icon"><img src="assets/img/icons/play.png" alt="Icon"></div>
                 </a>
               </div>
@@ -396,8 +390,7 @@
           <div class="section-title text-center" data-aos="fade-up" data-aos-duration="1000">
             <h5 class="subtitle line-theme-color">Bài viết</h5>
             <h2 class="title title-style">Tin tức mới nhất từ chúng tôi <img class="img-shape"
-                                                                             src="assets/img/shape/3.png"
-                                                                             alt="Image-Givest"></h2>
+                src="assets/img/shape/3.png" alt="Image-Givest"></h2>
           </div>
         </div>
       </div>
@@ -418,7 +411,7 @@
                   <a class="post-category" href="blog.html">Giáo dục</a>
                   <div class="post-share">
                     <a class="icon-share" href="blog.html"><img src="assets/img/icons/share-line-gradient.png"
-                                                                alt="Icon"></a>
+                        alt="Icon"></a>
                     <ul>
                       <li><a class="color-facebook" href="index.html#/"><i class="social_facebook"></i></a></li>
                       <li><a class="color-twitter" href="index.html#/"><i class="social_twitter"></i></a></li>
@@ -434,7 +427,7 @@
               </div>
               <div class="post-footer">
                 <a href="blog-details.html" class="btn-theme btn-border-gradient btn-size-xs"><span>Details <img
-                  class="icon icon-img" src="assets/img/icons/arrow-line-right-gradient.png" alt="Icon"></span></a>
+                      class="icon icon-img" src="assets/img/icons/arrow-line-right-gradient.png" alt="Icon"></span></a>
                 <a class="post-author" href="blog.html">By: Robbins</a>
               </div>
             </div>
@@ -458,7 +451,7 @@
                   <a class="post-category" href="blog.html">Water</a>
                   <div class="post-share">
                     <a class="icon-share" href="blog.html"><img src="assets/img/icons/share-line-gradient.png"
-                                                                alt="Icon"></a>
+                        alt="Icon"></a>
                     <ul>
                       <li><a class="color-facebook" href="index.html#/"><i class="social_facebook"></i></a></li>
                       <li><a class="color-twitter" href="index.html#/"><i class="social_twitter"></i></a></li>
@@ -474,7 +467,7 @@
               </div>
               <div class="post-footer">
                 <a href="blog-details.html" class="btn-theme btn-border-gradient btn-size-xs"><span>Details <img
-                  class="icon icon-img" src="assets/img/icons/arrow-line-right-gradient.png" alt="Icon"></span></a>
+                      class="icon icon-img" src="assets/img/icons/arrow-line-right-gradient.png" alt="Icon"></span></a>
                 <a class="post-author" href="blog.html">By: Robbins</a>
               </div>
             </div>
@@ -498,7 +491,7 @@
                   <a class="post-category" href="blog.html">Health</a>
                   <div class="post-share">
                     <a class="icon-share" href="blog.html"><img src="assets/img/icons/share-line-gradient.png"
-                                                                alt="Icon"></a>
+                        alt="Icon"></a>
                     <ul>
                       <li><a class="color-facebook" href="index.html#/"><i class="social_facebook"></i></a></li>
                       <li><a class="color-twitter" href="index.html#/"><i class="social_twitter"></i></a></li>
@@ -514,7 +507,7 @@
               </div>
               <div class="post-footer">
                 <a href="blog-details.html" class="btn-theme btn-border-gradient btn-size-xs"><span>Details <img
-                  class="icon icon-img" src="assets/img/icons/arrow-line-right-gradient.png" alt="Icon"></span></a>
+                      class="icon icon-img" src="assets/img/icons/arrow-line-right-gradient.png" alt="Icon"></span></a>
                 <a class="post-author" href="blog.html">By: Robbins</a>
               </div>
             </div>
@@ -533,8 +526,7 @@
         <div class="col-sm-8 offset-sm-2 col-md-8 offset-md-2 col-lg-4 offset-lg-0 col-xl-4">
           <div class="section-title text-center text-lg-start">
             <h2 class="title title-style mt-xl-30">Nhà tài trợ hiện tại của chúng tôi. <img class="img-shape"
-                                                                                            src="assets/img/shape/3.png"
-                                                                                            alt="Image-Givest"></h2>
+                src="assets/img/shape/3.png" alt="Image-Givest"></h2>
           </div>
         </div>
         <div class="col-lg-8 col-xl-7 offset-xl-1">

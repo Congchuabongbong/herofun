@@ -1,12 +1,13 @@
-import {Component, OnInit} from '@angular/core';
-import {FormBuilder} from "@angular/forms";
-import {ActivatedRoute, Router} from "@angular/router";
-import {PaymentService} from "../../shared/services/payment.service";
-import {AuthenticationService} from "../../shared/services/authentication.service";
-import {Campaign, Sponsor} from "../../shared/entity/Modal";
-import {CampaignService} from "../../shared/services/campaign.service";
-import {ApiService} from "../../shared/services/api.service";
-import {SystemUtil} from "../../shared/utils/SystemUtil";
+import { Component, OnInit } from '@angular/core';
+import { FormBuilder } from "@angular/forms";
+import { ActivatedRoute, Router } from "@angular/router";
+import { PaymentService } from "../../shared/services/payment.service";
+import { AuthenticationService } from "../../shared/services/authentication.service";
+import { Campaign, Sponsor } from "../../shared/entity/Modal";
+import { CampaignService } from "../../shared/services/campaign.service";
+import { ApiService } from "../../shared/services/api.service";
+import { SystemUtil } from "../../shared/utils/SystemUtil";
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-payment-form',
@@ -17,38 +18,34 @@ export class SponsorComponent implements OnInit {
 
 
   constructor(private _route: ActivatedRoute,
-              private _router: Router, private _fb: FormBuilder,
-              private _paymentService: PaymentService,
-              private _campaignService: CampaignService,
-              private apiService: ApiService,
-              private authService: AuthenticationService,
+    private _router: Router, private _fb: FormBuilder,
+    private _paymentService: PaymentService,
+    private _campaignService: CampaignService,
+    private apiService: ApiService,
+    private authService: AuthenticationService,
   ) {
   }
 
   offset = 1;
   limit = 12;
   sponsor!: Sponsor[];
-  campaigns!: Campaign[];
+  campaigns: Observable<Campaign[]> = this.apiService.getPageCampaign(1, 3);
 
   ngOnInit(): void {
-    this.getSponsor()
-    this.getCampaign()
+    this.getSponsor();
+
   }
 
-  getSponsor(){
+  getSponsor() {
     this.apiService.getPageSponsor(this.offset, this.limit)
-      .subscribe(res => res && (this.sponsor = res.items))
+      .subscribe(res => res && (this.sponsor = res.items));
   }
 
-  getCampaign(){
-    this.apiService.getPageCampaign(1,3)
-      .subscribe(res => res && (this.campaigns = res.items))
-  }
 
   loadMore() {
-    this.offset++
+    this.offset++;
     this.apiService.getPageSponsor(this.offset, this.limit)
-      .subscribe(res => res && (this.sponsor.push(...res.items)))
+      .subscribe(res => res && (this.sponsor.push(...res.items)));
   }
 
   handlerDateTime(s: string) {
