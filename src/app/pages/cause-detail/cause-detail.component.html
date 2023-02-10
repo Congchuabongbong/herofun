@@ -133,11 +133,11 @@
                 <div class="widget-category">
                   <div class="row">
                     <div class="col-md-4">
-                      <img style="width: 100%" src="{{campaign && campaign.sponsor.image}}">
+                      <img  alt="givest" style="width: 100%" src="{{campaign && campaign.sponsor && campaign.sponsor.image}}">
                     </div>
                     <div class="col-md-8">
-                      <h6 style="font-size: 16px">{{campaign && campaign.sponsor.name}}</h6>
-                      <p style="font-size: 12px; color: #8d8d8d">{{campaign && campaign.sponsor.description}}</p>
+                      <h6 style="font-size: 16px">{{campaign && campaign.sponsor && campaign.sponsor.name}}</h6>
+                      <p style="font-size: 12px; color: #8d8d8d" class="des-sponsor">{{campaign && campaign.sponsor && campaign.sponsor.description}}</p>
                     </div>
 
                   </div>

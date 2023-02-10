@@ -1,6 +1,6 @@
 import { Component, OnInit, ElementRef } from '@angular/core';
-import { Router } from '@angular/router';
 import { AuthenticationService } from '../../services/authentication.service';
+import {Profile} from "../../models";
 
 @Component({
   selector: 'app-profile-menu',
@@ -8,8 +8,8 @@ import { AuthenticationService } from '../../services/authentication.service';
   styleUrls: ['./profile-menu.component.scss']
 })
 export class ProfileMenuComponent implements OnInit {
-
-  constructor(private _el: ElementRef, private authService: AuthenticationService, private router: Router) { }
+  profile = new Profile();
+  constructor(private _el: ElementRef, private authService: AuthenticationService) { }
 
   ngOnInit(): void {
 

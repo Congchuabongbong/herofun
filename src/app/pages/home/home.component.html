@@ -85,7 +85,7 @@
               </div>
               <p>Lorem Ipsum is simply dummy text the printing typesetng industry lorem Ipsum has been industry standard
                 dummy text ever since.</p>
-              <a href="causes-details.html" class="btn-theme btn-white btn-border btn-size-md">View Details <img
+              <a routerLink="/causes" class="btn-theme btn-white btn-border btn-size-md">View Details <img
                   class="icon icon-img" src="assets/img/icons/arrow-line-right.png" alt="Icon"></a>
             </div>
           </div>
@@ -105,7 +105,7 @@
               </div>
               <p>Lorem Ipsum is simply dummy text the printing typesetng industry lorem Ipsum has been industry standard
                 dummy text ever since.</p>
-              <a href="causes-details.html" class="btn-theme btn-white btn-border btn-size-md">View Details <img
+              <a routerLink="/causes" class="btn-theme btn-white btn-border btn-size-md">View Details <img
                   class="icon icon-img" src="assets/img/icons/arrow-line-right.png" alt="Icon"></a>
             </div>
           </div>
@@ -124,7 +124,7 @@
               </div>
               <p>Lorem Ipsum is simply dummy text the printing typesetng industry lorem Ipsum has been industry standard
                 dummy text ever since.</p>
-              <a href="causes-details.html" class="btn-theme btn-white btn-border btn-size-md">View Details <img
+              <a routerLink="/causes" class="btn-theme btn-white btn-border btn-size-md">View Details <img
                   class="icon icon-img" src="assets/img/icons/arrow-line-right.png" alt="Icon"></a>
             </div>
           </div>
@@ -202,53 +202,53 @@
         <div class="col-md-6 col-lg-4" *ngFor="let item of campaigns | async">
           <div class="causes-item mb-md-30">
             <div class="thumb">
-              <img src="{{item?.image}}" alt="Givest-HasTech">
+              <img src="{{item && item.image}}" alt="Givest-HasTech">
             </div>
             <div class="content">
               <ul class="donate-info">
                 <li class="info-item">
                   <span class="info-title">Mục tiêu:</span>
-                  <span class="amount">${{item.targetAmount}}</span>
+                  <span class="amount">${{item && item.targetAmount}}</span>
                 </li>
                 <li class="info-item">
                   <span class="info-title">Hiện tại:</span>
-                  <span class="amount">${{item.currentAmount}}</span>
+                  <span class="amount">${{item && item.currentAmount}}</span>
                 </li>
                 <li class="info-item">
                   <span class="info-title">Số người:</span>
-                  <span class="amount">{{item.donations}}</span>
+                  <span class="amount">{{item && item.donations}}</span>
                 </li>
               </ul>
-              <h4 class="title"><a routerLink="/causes/{{item.id}}">{{item.title}}</a></h4>
-              <p class="mb-3">{{item.description}}</p>
+              <h4 class="title"><a routerLink="/causes/{{item && item.id}}">{{item && item.title}}</a></h4>
+              <p class="mb-3 des-sponsor">{{item && item.description}}</p>
               <hr>
               <div class="d-flex mb-3">
                 <div>
-                  <img width="50px" style="border-radius: 50%" src="{{item && item.sponsor.image}}" alt="givest">
+                  <img width="50px" style="border-radius: 50%" src="{{item && item.sponsor && item.sponsor.image}}" alt="givest">
                 </div>
-                <div class="m-auto" style="margin-left: 10px !important;">{{item && item.sponsor.name}}</div>
+                <div class="m-auto" style="margin-left: 10px !important;">{{item && item.sponsor && item.sponsor.name}}</div>
               </div>
               <hr>
               <div class="row">
                 <p class="col-md-6" style="margin: 0">
                   <span style="font-weight: 600">Bắt đầu: </span>
-                  <span>{{handlerDateTime(item.startDate)}}</span>
+                  <span>{{handlerDateTime(item && item.startDate)}}</span>
                 </p>
                 <p class="col-md-6" style="margin: 0;">
                   <span style="font-weight: 600">Kết thúc: </span>
-                  <span>{{handlerDateTime(item.endDate)}}</span>
+                  <span>{{handlerDateTime(item && item.endDate)}}</span>
                 </p>
               </div>
               <hr>
             </div>
             <div class="causes-footer pt-0">
               <div class="admin">
-                <h5><a href="causes/{{item.id}}"><span class="icon-img"><img src="assets/img/icons/admin1.png"
-                        alt="Icon"></span>{{item?.account?.username}}
+                <h5><a href="causes/{{item && item.id}}"><span class="icon-img"><img src="assets/img/icons/admin1.png"
+                        alt="Icon"></span>{{item && item.account && item.account.username}}
                   </a></h5>
               </div>
               <a class="btn-theme btn-border-gradient gray-border btn-size-md"
-                routerLink="/causes/{{item.id}}"><span>Chi tiết <img class="icon icon-img"
+                routerLink="/causes/{{item && item.id}}"><span>Chi tiết <img class="icon icon-img"
                     src="assets/img/icons/arrow-line-right-gradient.png" alt="Icon"></span></a>
             </div>
           </div>
@@ -266,7 +266,7 @@
           <div class="content" data-aos="fade-up" data-aos-duration="1000">
             <div class="section-title">
               <h5 class="subtitle line-theme-color mb-7">Trường hợp khẩn cấp</h5>
-              <h2 class="title title-style text-white">{{campaignUrgent.title}}. <img class="img-shape"
+              <h2 class="title title-style text-white">{{campaignUrgent && campaignUrgent.title}}. <img class="img-shape"
                   src="assets/img/shape/3.png" alt="Image-Givest"></h2>
             </div>
             <div class="donate-form">
@@ -288,7 +288,7 @@
             <div class="thumb-bg-layer" data-aos="fade-left" data-aos-duration="1000"
               data-bg-img="assets/img/photos/bg-donate1.jpg"></div>
             <div class="donners-info" data-aos="fade-up" data-aos-duration="1000">
-              <img src="{{campaignUrgent && campaignUrgent.image}}">
+              <img alt="givest" src="{{campaignUrgent && campaignUrgent.image}}">
               <p>{{campaignUrgent && campaignUrgent.description}}</p>
             </div>
           </div>
@@ -534,7 +534,7 @@
             <div class="row row-cols-3 row-cols-sm-5">
               <div class="col" *ngFor="let s of sponsors">
                 <div class="brand-logo-item">
-                  <img width="120px" src="{{s.image}}" alt="Image-Givest">
+                  <img width="120px" src="{{s && s.image}}" alt="Image-Givest">
                 </div>
               </div>
             </div>

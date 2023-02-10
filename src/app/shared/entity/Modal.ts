@@ -1,5 +1,3 @@
-import {Profile} from "../models";
-
 export interface Campaign {
   createdAt: string;
   updatedAt: string;
@@ -246,4 +244,26 @@ export class FormDonateRequest {
     this.paymentChannel = 1;
     this.anonymous = false;
   }
+}
+
+export interface ResponseArticle{
+  totalElements: number;
+  totalPages: number;
+  offset: number;
+  limit: number;
+  items: Article[];
+}
+
+export interface Article {
+  createdAt: string;
+  updatedAt: string;
+  status: number;
+  id: number;
+  title: string;
+  description: string;
+  detail: string;
+  image: string
+  campaignId: number;
+  numberOfLike: number;
+  campaignTitle: string;
 }

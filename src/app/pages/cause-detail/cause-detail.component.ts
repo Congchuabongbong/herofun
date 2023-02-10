@@ -4,8 +4,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { ApiService } from 'src/app/shared/services/api.service';
 import { CampaignService } from 'src/app/shared/services/campaign.service';
 import { Campaign, Category } from '../../shared/entity/Modal';
-import { FormBuilder, FormGroup } from '@angular/forms';
-import { PaymentService } from 'src/app/shared/services/payment.service';
+import { FormBuilder } from '@angular/forms';
 import {SystemUtil} from "../../shared/utils/SystemUtil";
 
 @Component({
@@ -32,7 +31,7 @@ export class CauseDetailComponent implements OnInit {
     let id = this._route.snapshot.paramMap.get('id');
     if (!id) {
       //redirect not 404 found
-      this._router.navigate(['/home']);
+      this._router.navigate(['/home']).then(r => console.log(r));
       return;
     }
     this.idCampaign = id;
@@ -50,7 +49,8 @@ export class CauseDetailComponent implements OnInit {
   }
 
   getCampaignUrgent() {
-    this._apiService.getCampaignUrgent().subscribe(campaignUrgent => campaignUrgent && (this.campaignUrgent = campaignUrgent));
+    this._apiService.getCampaignUrgent()
+      .subscribe(campaignUrgent => campaignUrgent && (this.campaignUrgent = campaignUrgent));
   }
 
 
