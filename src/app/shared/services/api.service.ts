@@ -23,7 +23,7 @@ export class ApiService {
   public getPageCampaign(offset: number, limit: number) {
     let query = `/api/v1/campaigns?offset=${offset}&limit=${limit}`;
     return this.http
-      .get<any>(SystemUtil.BASE_URL + query).pipe(delay(100), mergeMap((result) => of(result.items)));
+      .get<any>(SystemUtil.BASE_URL + query);
   }
 
 

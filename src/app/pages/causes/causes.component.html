@@ -45,10 +45,14 @@
       <br>
       <hr> -->
 
-      <div class="row" infinite-scroll (scrolled)="onScrollDown($event)" [infiniteScrollDistance]="20"
+      <div class="row" infinite-scroll (scrolled)="onScrollDown($event)" [infiniteScrollDistance]="0"
         [infiniteScrollThrottle]="0">
-        <div *ngIf="campaignsStore.length == 0; else elseBlock" class="my_no_campaign">
-          No Campaigns
+        <div *ngIf="campaignsStore.length == 0; else elseBlock"
+          class="my_no_campaign container d-flex align-items-center justify-content-center">
+          <!-- No Campaigns! -->
+          <div class="spinner-border text-primary " role="status">
+            <span class="visually-hidden">Loading...</span>
+          </div>
         </div>
         <ng-template #elseBlock>
           <div class="col-md-6 col-lg-4" *ngFor="let item of campaignsStore">
@@ -109,6 +113,11 @@
                     <img class="icon icon-img" src="assets/img/icons/arrow-line-right-gradient.png"
                       alt="Icon"></span></a>
               </div>
+            </div>
+          </div>
+          <div *ngIf="isLoading" class="my_no_campaign container d-flex align-items-center justify-content-center">
+            <div class="spinner-border text-primary " role="status">
+              <span class="visually-hidden">Loading...</span>
             </div>
           </div>
         </ng-template>
