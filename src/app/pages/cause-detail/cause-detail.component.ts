@@ -1,10 +1,10 @@
-import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import {Component, OnInit} from '@angular/core';
+import {ActivatedRoute, Router} from '@angular/router';
 
-import { ApiService } from 'src/app/shared/services/api.service';
-import { CampaignService } from 'src/app/shared/services/campaign.service';
-import { Campaign, Category } from '../../shared/entity/Modal';
-import { FormBuilder } from '@angular/forms';
+import {ApiService} from 'src/app/shared/services/api.service';
+import {CampaignService} from 'src/app/shared/services/campaign.service';
+import {Campaign, Category} from '../../shared/entity/Modal';
+import {FormBuilder} from '@angular/forms';
 import {SystemUtil} from "../../shared/utils/SystemUtil";
 
 @Component({
@@ -14,10 +14,10 @@ import {SystemUtil} from "../../shared/utils/SystemUtil";
 })
 export class CauseDetailComponent implements OnInit {
   constructor(private _route: ActivatedRoute,
-    private _campaignService: CampaignService,
-    private _router: Router, private _fb: FormBuilder,
-    private _apiService: ApiService
-    ) {
+              private _campaignService: CampaignService,
+              private _router: Router, private _fb: FormBuilder,
+              private _apiService: ApiService,
+  ) {
   }
 
   public campaign!: Campaign;
@@ -31,7 +31,7 @@ export class CauseDetailComponent implements OnInit {
     let id = this._route.snapshot.paramMap.get('id');
     if (!id) {
       //redirect not 404 found
-      this._router.navigate(['/home']).then(r => console.log(r));
+      this._router.navigate(['/404']).then();
       return;
     }
     this.idCampaign = id;

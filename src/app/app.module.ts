@@ -21,7 +21,7 @@ import { CauseDetailComponent } from './pages/cause-detail/cause-detail.componen
 import { CausesComponent } from './pages/causes/causes.component';
 import { ContactUsComponent } from './pages/contact-us/contact-us.component';
 import { ErrorComponent } from './pages/error/error.component';
-import { EventDetailComponent } from './pages/event-detail/event-detail.component';
+import { ArticleDetailComponent } from './pages/article-detail/article-detail.component';
 import { HomeComponent } from './pages/home/home.component';
 import { MainComponent } from './pages/main/main.component';
 import { PaymentFormComponent } from './pages/payment-form/payment-form.component';
@@ -61,7 +61,7 @@ import { InfiniteScrollModule } from 'ngx-infinite-scroll';
     PageTitleAreaComponent,
     SlideTestimonialComponent,
     ContactUsComponent,
-    EventDetailComponent,
+    ArticleDetailComponent,
     VolunteerComponent,
     LoginComponent,
     RegisterComponent,

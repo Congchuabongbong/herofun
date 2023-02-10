@@ -24,7 +24,7 @@ export class LoginComponent implements OnInit {
     private alertService: AlertService
   ) {
     if (this.authenticationService.currentUserValue)
-      this.router.navigate(['/home']);
+      this.router.navigate(['/home']).then();
   }
 
   ngOnInit(): void {
@@ -50,7 +50,7 @@ export class LoginComponent implements OnInit {
       .pipe(first())
       .subscribe(
         (data) => {
-          this.router.navigate([this.returnUrl]);
+          this.router.navigate([this.returnUrl]).then();
         },
         (error) => {
           this.alertService.error(error);

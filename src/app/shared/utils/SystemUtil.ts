@@ -55,7 +55,7 @@ export class SystemUtil {
     return `${date}-${month}-${str.getFullYear()}`
   }
 
-  static getTimeArticle(d: string) {
+  static getTimeArticle(d: string, type: number) {
     let str = new Date(d);
     let now = new Date();
     // @ts-ignore
@@ -72,6 +72,9 @@ export class SystemUtil {
     let hour = Math.floor(result / (60 * 60 * 1000))
     if (hour < 24){
       return `${hour} hour ago`
+    }
+    if (type === 2){
+      return "";
     }
     let day = Math.floor(result / (24 * 60 * 60 * 1000))
     if (day < 7){

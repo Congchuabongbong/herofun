@@ -12,9 +12,6 @@ export class ApiService {
 
   private refreshData = new Subject<void>();
 
-
-
-
   constructor(private http: HttpClient) {
 
   }
