@@ -38,6 +38,7 @@ import { SponsorDetailComponent } from "./pages/sponsor-detail/sponsor-detail.co
 import { PostArticleComponent } from './shared/components/post-article/post-article.component';
 import { ProfileMenuComponent } from './shared/components/profile-menu/profile-menu.component';
 import { InfiniteScrollModule } from 'ngx-infinite-scroll';
+import { ListSponsorComponent } from './shared/components/list-sponsor/list-sponsor.component';
 
 
 @NgModule({
@@ -72,6 +73,8 @@ import { InfiniteScrollModule } from 'ngx-infinite-scroll';
     PaymentFormComponent,
     PostArticleComponent,
     ProfileMenuComponent,
+    ListSponsorComponent,
+
   ],
   imports: [
     BrowserModule,

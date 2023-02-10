@@ -1,0 +1,33 @@
+.sponsor-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.sponsor-image {
+  width: 64px;
+}
+.sponsor-image {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 100%;
+  overflow: hidden;
+  width: 50px;
+  height: 50px;
+}
+.item-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.name-sponsor {
+  font-size: 16px;
+  font-weight: 600;
+}
+.phone-sponsor {
+  font-size: 12px;
+  font-weight: normal;
+}
