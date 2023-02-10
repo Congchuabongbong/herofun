@@ -7,7 +7,7 @@ import { Campaign, Sponsor } from "../../shared/entity/Modal";
 import { CampaignService } from "../../shared/services/campaign.service";
 import { ApiService } from "../../shared/services/api.service";
 import { SystemUtil } from "../../shared/utils/SystemUtil";
-import { Observable } from 'rxjs';
+import { Observable, mergeMap, of } from 'rxjs';
 
 @Component({
   selector: 'app-payment-form',
@@ -29,7 +29,7 @@ export class SponsorComponent implements OnInit {
   offset = 1;
   limit = 12;
   sponsor!: Sponsor[];
-  campaigns: Observable<Campaign[]> = this.apiService.getPageCampaign(1, 3);
+  campaigns: Observable<Campaign[]> = this.apiService.getPageCampaign(1, 3).pipe(mergeMap((result) => of(result['items'])));
 
   ngOnInit(): void {
     this.getSponsor();

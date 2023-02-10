@@ -7,7 +7,7 @@ import { ApiService } from "../../shared/services/api.service";
 import { Campaign, Sponsor } from "../../shared/entity/Modal";
 import * as Parallax from 'parallax-js';
 import { SystemUtil } from "../../shared/utils/SystemUtil";
-import { Observable } from 'rxjs';
+import { Observable, mergeMap, of } from 'rxjs';
 // install Swiper modules
 SwiperCore.use([Virtual]);
 
@@ -36,7 +36,7 @@ export class HomeComponent implements OnInit, AfterViewInit {
 
   limit: number = 3;
   offset: number = 1;
-  campaigns: Observable<Campaign[]> = this.apiService.getPageCampaign(this.offset, this.limit);
+  campaigns: Observable<Campaign[]> = this.apiService.getPageCampaign(this.offset, this.limit).pipe(mergeMap((result) => of(result['items'])));
   public campaignUrgent!: Campaign;
   sponsors: Sponsor[] = [];
 

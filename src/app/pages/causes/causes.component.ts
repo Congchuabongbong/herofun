@@ -4,6 +4,7 @@ import { Campaign, Category, Sponsor } from "../../shared/entity/Modal";
 import { CampaignService } from "../../shared/services/campaign.service";
 import { ActivatedRoute, Router } from "@angular/router";
 import { SystemUtil } from "../../shared/utils/SystemUtil";
+import { delay, tap } from 'rxjs';
 
 @Component({
   selector: 'app-causes',
@@ -18,12 +19,12 @@ export class CausesComponent implements OnInit {
   categories: Category[] = [];
   limit: number = 6;
   offset: number = 1;
-
+  totalPage: number = 0;
   category: number = 0;
   keyword?: string = "";
   categoryId?: string;
 
-  isCampaignSearch = false;
+  isLoading = true;
 
   constructor(private apiService: ApiService,
     private campaignService: CampaignService,
@@ -33,22 +34,23 @@ export class CausesComponent implements OnInit {
 
   ngOnInit(): void {
     this.activeRouter.queryParams.subscribe(param => this.categoryId = param['categoryId']);
-    if (this.categoryId) {
-      this.category = parseInt(this.categoryId);
-      this.searchCampaign();
-    } else {
-      this.getPageCampaign();
-    }
+    // if (this.categoryId) {
+    //   this.category = parseInt(this.categoryId);
+    //   this.searchCampaign();
+    // } else {
 
+    // }
+    this.getPageCampaign();
     this.getSponsor();
     this.getCategories();
   }
 
   getPageCampaign() {
-    this.apiService.getPageCampaign(this.offset, this.limit)
-      .subscribe(res => {
-        this.campaignsStore.push(...res);
-      });
+    this.apiService.getPageCampaign(this.offset, this.limit).subscribe(res => {
+      this.totalPage = res.totalPages;
+      this.campaignsStore.push(...res['items']);
+      this.isLoading = false;
+    });
   }
 
   getSponsor() {
@@ -57,13 +59,13 @@ export class CausesComponent implements OnInit {
     );
   }
 
-  searchCampaign() {
-    this.offset = 1;
-    this.campaignService.searchCampaign(this.category, this.keyword, 1, this.limit)
-      .subscribe(res => {
-        this.campaignsStore = res.items;
-      });
-  }
+  // searchCampaign() {
+  //   this.offset = 1;
+  //   this.campaignService.searchCampaign(this.category, this.keyword, 1, this.limit)
+  //     .subscribe(res => {
+  //       this.campaignsStore = res.items;
+  //     });
+  // }
 
   private getCategories() {
     this.apiService.getCategories().subscribe(res => this.categories = res);
@@ -74,21 +76,26 @@ export class CausesComponent implements OnInit {
 
   }
 
-  btnSearch() {
-    this.searchCampaign();
-  }
+  // btnSearch() {
+  //   this.searchCampaign();
+  // }
 
-  reset() {
-    this.category = 0;
-    this.keyword = "";
-    this.getPageCampaign();
-  }
+  // reset() {
+  //   this.category = 0;
+  //   this.keyword = "";
+  //   this.getPageCampaign();
+  // }
 
   handlerDateTime(date: string) {
     return SystemUtil.handlerDateTime(date);
   }
   onScrollDown(event: any) {
-    this.offset++;;
-    this.getPageCampaign();
+    if (this.offset <= this.totalPage) {
+      this.offset++;
+      this.isLoading = true;
+      this.getPageCampaign();
+    }
+    return;
+
   }
 }
