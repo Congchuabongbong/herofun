@@ -5,9 +5,6 @@ import {ArticleService} from "../../shared/services/article.service";
 import {SystemUtil} from "../../shared/utils/SystemUtil";
 import {CommentService} from "../../shared/services/comment.service";
 import {AlertService} from "../../shared/services/alert.service";
-
-declare var $: any;
-
 @Component({
   selector: 'app-article-detail',
   templateUrl: './article-detail.component.html',
@@ -35,11 +32,16 @@ export class ArticleDetailComponent implements OnInit {
   responseComment!: ResponseComment;
   defaultImage = './assets/img/ic_avatar1.png';
   content: any;
+  profile: any;
 
   ngOnInit(): void {
     let id = this._route.snapshot.paramMap.get('id');
+    let profile = localStorage.getItem('profile')
     if (!id) {
       this.router.navigate(['/404']).then();
+    }
+    if (profile){
+      this.profile = JSON.parse(profile);
     }
     this.id = id
     this.getArticleDetail();
