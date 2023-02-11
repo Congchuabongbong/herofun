@@ -27,7 +27,9 @@
               <img class="icon icon-img" src="assets/img/icons/arrow-line-right2.png" alt="Icon">
             </a>
             <ng-template #elseBlock>
-              <app-profile-menu></app-profile-menu>
+              <app-profile-menu
+              [profile]="profile"
+              ></app-profile-menu>
             </ng-template>
           </div>
         </div>

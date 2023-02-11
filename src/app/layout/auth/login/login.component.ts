@@ -51,12 +51,12 @@ export class LoginComponent implements OnInit {
       .login(this.f['username'].value, this.f['password'].value)
       .pipe(first())
       .subscribe(
-        (data) => {
-          this.authenticationService.getProfile()
+        async (data) => {
+          await this.authenticationService.getProfile()
             .subscribe(res => {
-              res && localStorage.setItem("profile",JSON.stringify(res.data));
+              res && localStorage.setItem("profile", JSON.stringify(res.data));
             });
-          this.router.navigate([this.returnUrl]).then();
+          window.location.href = this.returnUrl;
         },
         (error) => {
           this.alertService.error(error);
