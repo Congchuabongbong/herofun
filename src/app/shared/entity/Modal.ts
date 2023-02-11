@@ -292,3 +292,21 @@ export interface ResponseComment{
   limit: number;
   items: Comment[];
 }
+
+export interface TransactionModal{
+  id: number;
+  senderName: string;
+  message: string;
+  email: string
+  phone: string;
+  address:string;
+  amount: number;
+  avatar: string;
+  sendingTime: string;
+  campaignId: number;
+  paymentChannel: number;
+  accountId: number;
+  paymentStatus: string;
+  paypalTransactionId: string;
+  orderId: string;
+}

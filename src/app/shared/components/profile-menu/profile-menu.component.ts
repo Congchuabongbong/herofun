@@ -8,11 +8,13 @@ import {Profile} from "../../models";
   styleUrls: ['./profile-menu.component.scss']
 })
 export class ProfileMenuComponent implements OnInit {
-  profile = new Profile();
+  profile!: any;
   constructor(private _el: ElementRef, private authService: AuthenticationService) { }
-
   ngOnInit(): void {
-
+    let profile = localStorage.getItem('profile')
+    if (profile){
+      this.profile = JSON.parse(profile);
+    }
   }
 
   public logOut() {

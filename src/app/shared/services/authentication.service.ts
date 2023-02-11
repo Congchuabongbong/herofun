@@ -55,6 +55,7 @@ export class AuthenticationService {
 
   public logout() {
     localStorage.removeItem('jwt');
+    localStorage.removeItem('profile');
     this.currentUserSubject.next(null!);
   }
 
