@@ -3,7 +3,7 @@ import {CampaignStatusEnum} from "../enum/Enum";
 
 export class SystemUtil {
 
-  public static BASE_URL = 'https://herofun-client.vercel.app/payment-success';
+  public static BASE_URL = 'https://herofund.up.railway.app';
   static local = 'http://localhost:8080';
   static returnUrlProd = 'https://herofun-client.vercel.app/payment-success';
   static prod = 'https://herofund.up.railway.app';
