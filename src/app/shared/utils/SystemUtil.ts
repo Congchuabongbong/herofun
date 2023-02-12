@@ -3,7 +3,7 @@ import {CampaignStatusEnum} from "../enum/Enum";
 
 export class SystemUtil {
 
-  public static BASE_URL = 'https://herofund.up.railway.app';
+  public static BASE_URL = 'https://herofun-client.vercel.app/payment-success';
   static local = 'http://localhost:8080';
   static returnUrlProd = 'https://herofun-client.vercel.app/payment-success';
   static prod = 'https://herofund.up.railway.app';
@@ -13,8 +13,8 @@ export class SystemUtil {
     return new HttpHeaders({
       Authorization: 'Bearer ' + jwt?.accessToken,
       'content-type': 'application/json',
-      'returnUrl': 'http://localhost:4200/payment-success',
-      'cancelUrl': 'https://dev110521.service-now.com/sp'
+      'returnUrl':  this.returnUrlProd,
+      'cancelUrl': this.returnUrlProd
     });
   }
 
