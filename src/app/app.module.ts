@@ -39,6 +39,7 @@ import { PostArticleComponent } from './shared/components/post-article/post-arti
 import { ProfileMenuComponent } from './shared/components/profile-menu/profile-menu.component';
 import { InfiniteScrollModule } from 'ngx-infinite-scroll';
 import { ListSponsorComponent } from './shared/components/list-sponsor/list-sponsor.component';
+import { DonationInformationComponent } from './shared/components/donation-information/donation-information.component';
 
 
 @NgModule({
@@ -74,6 +75,7 @@ import { ListSponsorComponent } from './shared/components/list-sponsor/list-spon
     PostArticleComponent,
     ProfileMenuComponent,
     ListSponsorComponent,
+    DonationInformationComponent,
 
   ],
   imports: [
