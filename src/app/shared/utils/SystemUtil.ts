@@ -13,7 +13,7 @@ export class SystemUtil {
     return new HttpHeaders({
       Authorization: 'Bearer ' + jwt?.accessToken,
       'content-type': 'application/json',
-      'returnUrl':  this.returnUrlProd,
+      'returnUrl': this.returnUrlProd,
       'cancelUrl': this.returnUrlProd
     });
   }
@@ -55,29 +55,25 @@ export class SystemUtil {
     return `${date}-${month}-${str.getFullYear()}`
   }
 
-  static getTimeArticle(d: string, type: number) {
+  static getTimeArticle(d: string) {
     let str = new Date(d);
     let now = new Date();
-    // @ts-ignore
-    let result = Math.abs(now - str)
-
+    // @ts-ignore // Đéo hiểu BE trả về sai
+    let result = Math.abs(now - str) - (7 * 60 * 60 * 1000)
     let second = Math.floor(result / (1000))
-    if(second < 60){
+    if (second < 60) {
       return `${second} second ago`
     }
     let minute = result / (60 * 1000)
-    if(minute < 60){
+    if (minute < 60) {
       return `${Math.floor(minute)} minute ago`
     }
     let hour = Math.floor(result / (60 * 60 * 1000))
-    if (hour < 24){
+    if (hour < 24) {
       return `${hour} hour ago`
     }
-    if (type === 2){
-      return "";
-    }
     let day = Math.floor(result / (24 * 60 * 60 * 1000))
-    if (day < 7){
+    if (day < 7) {
       return `${day} day ago`
     }
     return this.handlerDateTime(d);

@@ -5,6 +5,7 @@ import {ArticleService} from "../../shared/services/article.service";
 import {SystemUtil} from "../../shared/utils/SystemUtil";
 import {CommentService} from "../../shared/services/comment.service";
 import {AlertService} from "../../shared/services/alert.service";
+import {Profile, ProfileDto} from "../../shared/models";
 @Component({
   selector: 'app-article-detail',
   templateUrl: './article-detail.component.html',
@@ -32,16 +33,16 @@ export class ArticleDetailComponent implements OnInit {
   responseComment!: ResponseComment;
   defaultImage = './assets/img/ic_avatar1.png';
   content: any;
-  profile: any;
+  profile!: ProfileDto;
 
   ngOnInit(): void {
     let id = this._route.snapshot.paramMap.get('id');
-    let jwt = localStorage.getItem('jwt')
+    let jwt = JSON.parse(localStorage.getItem('jwt')!)
     if (!id) {
       this.router.navigate(['/404']).then();
     }
     if (jwt){
-
+      this.profile = jwt.profile;
     }
     this.id = id
     this.getArticleDetail();
@@ -76,8 +77,8 @@ export class ArticleDetailComponent implements OnInit {
     return SystemUtil.handlerDateTime(d);
   }
 
-  handlerTimeAPostArticle(d: string, type: number) {
-    return SystemUtil.getTimeArticle(d, type)
+  handlerTimeAPostArticle(d: string) {
+    return SystemUtil.getTimeArticle(d)
   }
 
   loadMore() {
