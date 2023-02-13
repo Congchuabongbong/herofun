@@ -91,7 +91,6 @@ export class ProfileComponent implements OnInit {
         this.profile = res.data;
         this.avatar = this.profile.avatar;
         this.dateOfBirth = res.data.dateOfBirth
-        localStorage.setItem('profile', JSON.stringify(res.data))
       },
     )
   }

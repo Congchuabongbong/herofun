@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnChanges, OnInit, SimpleChanges} from '@angular/core';
 import { AuthenticationService } from "../../shared/services/authentication.service";
 import { Router } from "@angular/router";
+import {Profile, ProfileDto, User} from "../../shared/models";
 
 @Component({
   selector: 'app-header',
@@ -11,14 +12,14 @@ import { Router } from "@angular/router";
 })
 export class HeaderComponent implements OnInit {
 
-  jwt!: string;
-  profile!: any;
+  jwt!: User;
+  profile!: ProfileDto;
 
   constructor(private authService: AuthenticationService, private router: Router) { }
 
   ngOnInit(): void {
     this.jwt = JSON.parse(localStorage.getItem("jwt")!);
-    this.profile = JSON.parse(localStorage.getItem("profile")!);
+    this.jwt && (this.profile = this.jwt.profile)
   }
 
 }

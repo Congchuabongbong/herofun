@@ -10,7 +10,7 @@ import {Profile} from "../../models";
 export class ProfileMenuComponent implements OnInit {
 
   @Input()
-  profile!: any;
+  profile!: Profile;
   constructor(private _el: ElementRef, private authService: AuthenticationService) { }
   ngOnInit(): void {
   }

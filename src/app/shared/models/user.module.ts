@@ -4,6 +4,21 @@ export class User {
   confirmPassword?: string;
   accessToken?: string;
   refreshToken?: string;
+  profile!: ProfileDto;
+}
+
+export interface ProfileDto{
+   id: number;
+   firstName: string;
+   account: AccountBasic;
+   lastName: string;
+   dateOfBirth: string;
+   email: string;
+   avatar: string;
+   phone: string;
+   address: string;
+   createdAt: string;
+   updatedAt: string;
 }
 
 export class Profile{
