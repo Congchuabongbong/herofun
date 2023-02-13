@@ -30,22 +30,31 @@ export class SponsorComponent implements OnInit {
   limit = 12;
   sponsor!: Sponsor[];
   campaigns: Observable<Campaign[]> = this.apiService.getPageCampaign(1, 3).pipe(mergeMap((result) => of(result['items'])));
+  isLoading = false;
 
   ngOnInit(): void {
+    this.isLoading = true;
     this.getSponsor();
 
   }
 
   getSponsor() {
     this.apiService.getPageSponsor(this.offset, this.limit)
-      .subscribe(res => res && (this.sponsor = res.items));
+      .subscribe(res => {
+        res && (this.sponsor = res.items)
+        this.isLoading = false;
+      });
   }
 
 
   loadMore() {
     this.offset++;
+    this.isLoading = true;
     this.apiService.getPageSponsor(this.offset, this.limit)
-      .subscribe(res => res && (this.sponsor.push(...res.items)));
+      .subscribe(res => {
+        res && (this.sponsor.push(...res.items));
+        this.isLoading = false;
+      });
   }
 
   handlerDateTime(s: string) {
