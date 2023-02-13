@@ -96,6 +96,8 @@ export class ArticleDetailComponent implements OnInit {
     let jwt = JSON.parse(localStorage.getItem("jwt")!);
     if (!jwt) {
       this.alertService.success("Vui lòng đăng nhập để bình luận!")
+      let url = this.router.url;
+      this.router.navigate(['/login'], {queryParams: {returnUrl: url}}).then();
       return;
     }
     this.postComment(this.id, this.content);

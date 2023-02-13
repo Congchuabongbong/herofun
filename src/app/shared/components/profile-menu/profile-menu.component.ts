@@ -18,6 +18,6 @@ export class ProfileMenuComponent implements OnInit {
   public logOut() {
     this.authService.logout();
     localStorage.clear();
-    window.location.href = '/home';
+    window.location.reload();
   }
 }
