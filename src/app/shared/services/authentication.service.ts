@@ -33,7 +33,15 @@ export class AuthenticationService {
       .post<any>(SystemUtil.BASE_URL + '/api/v1/auth/authenticate', {
         username,
         password,
-      });
+      })
+      .pipe(
+        map((user)=>{
+          localStorage.setItem('jwt', JSON.stringify(user));
+          localStorage.setItem('profile', JSON.stringify(user.profile))
+          this.currentUserSubject.next(user)
+          return user;
+        })
+      );
   }
 
   public register(user: User) {

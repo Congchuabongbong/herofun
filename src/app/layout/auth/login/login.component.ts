@@ -51,14 +51,8 @@ export class LoginComponent implements OnInit {
       .login(this.f['username'].value, this.f['password'].value)
       .pipe(first())
       .subscribe(
-        (data) => {
-          data &&  localStorage.setItem('jwt', JSON.stringify(data));
-          this.authenticationService.getProfile().subscribe(
-            res => {
-              res && localStorage.setItem('profile', JSON.stringify(res.data));
-              this.router.navigate([this.returnUrl]).then()
-            }
-          )
+        () => {
+          this.router.navigate([this.returnUrl]).then();
         },
         (error) => {
           this.alertService.error(error);

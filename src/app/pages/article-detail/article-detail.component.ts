@@ -36,12 +36,12 @@ export class ArticleDetailComponent implements OnInit {
 
   ngOnInit(): void {
     let id = this._route.snapshot.paramMap.get('id');
-    let profile = localStorage.getItem('profile')
+    let jwt = localStorage.getItem('jwt')
     if (!id) {
       this.router.navigate(['/404']).then();
     }
-    if (profile){
-      this.profile = JSON.parse(profile);
+    if (jwt){
+
     }
     this.id = id
     this.getArticleDetail();

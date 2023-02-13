@@ -18,8 +18,9 @@ export class HeaderComponent implements OnInit {
   constructor(private authService: AuthenticationService, private router: Router) { }
 
   ngOnInit(): void {
-    this.jwt = JSON.parse(localStorage.getItem("jwt")!);
-    this.profile = JSON.parse(localStorage.getItem('profile')!);
+    let jsonJwt = localStorage.getItem("jwt");
+    this.jwt = JSON.parse(jsonJwt!);
+    this.jwt && (this.profile = this.jwt.profile);
   }
 
 }
