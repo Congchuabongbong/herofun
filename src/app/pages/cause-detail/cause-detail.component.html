@@ -61,31 +61,6 @@
 
                 <donation-information [target]='campaign.targetAmount' [current]='campaign.currentAmount'
                   [donations]="campaign.donations" [leftTime]="10" [payment]="campaign.id"></donation-information>
-
-                <h3 class="widget-title">Thông tin quyên góp</h3>
-                <div class="separator-line">
-                  <img class="me-1" src="assets/img/shape/line-t2.png" alt="Image-Givest">
-                </div>
-                <div>
-                  <div class="row">
-                    <div class="col-md-6">
-                      <ul class="donate-info">
-                        <li class="info-item">
-                          <span class="info-title">Mục tiêu:</span>
-                          <span class="amount"> ${{campaign && campaign.targetAmount}}</span>
-                        </li>
-                        <li class="info-item">
-                          <span class="info-title">Hiện tại:</span>
-                          <span class="amount"> ${{campaign && campaign.currentAmount}}</span>
-                        </li>
-                      </ul>
-                      <a class="btn-theme btn-gradient btn-slide"
-                        routerLink="/payment/{{campaign && campaign.id}}"><span>Quyên góp <img class="icon icon-img"
-                            src="assets/img/icons/arrow-line-right2.png" alt="Icon"></span></a>
-                    </div>
-                    <div class="col-md-6"></div>
-                  </div>
-                </div>
               </div>
               <div class="widget bdr-10 p-30">
                 <h3 class="widget-title">Đồng hành cùng dự án</h3>
