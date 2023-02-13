@@ -19,7 +19,7 @@ export class HeaderComponent implements OnInit {
 
   ngOnInit(): void {
     this.jwt = JSON.parse(localStorage.getItem("jwt")!);
-    this.jwt && (this.profile = this.jwt.profile)
+    this.profile = JSON.parse(localStorage.getItem('profile')!);
   }
 
 }

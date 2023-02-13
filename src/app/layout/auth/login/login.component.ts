@@ -53,7 +53,12 @@ export class LoginComponent implements OnInit {
       .subscribe(
         (data) => {
           data &&  localStorage.setItem('jwt', JSON.stringify(data));
-          this.router.navigate([this.returnUrl]).then()
+          this.authenticationService.getProfile().subscribe(
+            res => {
+              res && localStorage.setItem('profile', JSON.stringify(res.data));
+              this.router.navigate([this.returnUrl]).then()
+            }
+          )
         },
         (error) => {
           this.alertService.error(error);
