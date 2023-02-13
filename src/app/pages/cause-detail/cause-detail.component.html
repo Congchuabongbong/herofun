@@ -57,37 +57,17 @@
 
             </div>
             <div class="sidebar-area">
-              <div class="widget bdr-10 p-30">
-
-                <donation-information [target]='campaign.targetAmount' [current]='campaign.currentAmount'
-                  [donations]="campaign.donations" [leftTime]="10" [payment]="campaign.id"></donation-information>
-
-                <h3 class="widget-title">Thông tin quyên góp</h3>
-                <div class="separator-line">
-                  <img class="me-1" src="assets/img/shape/line-t2.png" alt="Image-Givest">
-                </div>
-                <div>
-                  <div class="row">
-                    <div class="col-md-6">
-                      <ul class="donate-info">
-                        <li class="info-item">
-                          <span class="info-title">Mục tiêu:</span>
-                          <span class="amount"> ${{campaign && campaign.targetAmount}}</span>
-                        </li>
-                        <li class="info-item">
-                          <span class="info-title">Hiện tại:</span>
-                          <span class="amount"> ${{campaign && campaign.currentAmount}}</span>
-                        </li>
-                      </ul>
-                      <a class="btn-theme btn-gradient btn-slide"
-                        routerLink="/payment/{{campaign && campaign.id}}"><span>Quyên góp <img class="icon icon-img"
-                            src="assets/img/icons/arrow-line-right2.png" alt="Icon"></span></a>
-                    </div>
-                    <div class="col-md-6"></div>
-                  </div>
-                </div>
+              <div class="widget bdr-10 " style="padding: 0!important;">
+                <donation-information
+                  [target]='campaign && campaign.targetAmount'
+                  [current]='campaign && campaign.currentAmount'
+                  [donations]="campaign && campaign.donations"
+                  [leftTime]="10"
+                  [payment]="campaign && campaign.id"
+                  [endDate]="campaign && campaign.endDate">
+                </donation-information>
               </div>
-              <div class="widget bdr-10 p-30">
+              <div class="widget bdr-10 p-30 box-shadow">
                 <h3 class="widget-title">Đồng hành cùng dự án</h3>
                 <div class="separator-line">
                   <img class="me-1" src="assets/img/shape/line-t2.png" alt="Image-Givest">
@@ -96,18 +76,18 @@
                   <div class="row">
                     <div class="col-md-4">
                       <img alt="givest" style="width: 100%"
-                        src="{{campaign && campaign.sponsor && campaign.sponsor.image}}">
+                           src="{{campaign && campaign.sponsor && campaign.sponsor.image}}">
                     </div>
                     <div class="col-md-8">
                       <h6 style="font-size: 16px">{{campaign && campaign.sponsor && campaign.sponsor.name}}</h6>
                       <p style="font-size: 12px; color: #8d8d8d" class="des-sponsor">{{campaign && campaign.sponsor &&
-                        campaign.sponsor.description}}</p>
+                      campaign.sponsor.description}}</p>
                     </div>
 
                   </div>
                 </div>
               </div>
-              <div class="widget bdr-10 p-30">
+              <div class="widget bdr-10 p-30 box-shadow">
                 <h3 class="widget-title">Danh mục quyên góp</h3>
                 <div class="separator-line">
                   <img class="me-1" src="assets/img/shape/line-t2.png" alt="Image-Givest">
@@ -116,7 +96,7 @@
                   <a *ngFor="let c of categories" href="/causes?categoryId={{c.id}}">{{c.name}}</a>
                 </div>
               </div>
-              <div class="widget bdr-10 p-30">
+              <div class="widget bdr-10 p-30 box-shadow">
                 <h3 class="widget-title">Khẩn cấp</h3>
                 <div class="separator-line">
                   <img class="me-1" src="assets/img/shape/line-t2.png" alt="Image-Givest">
@@ -127,7 +107,7 @@
                   </div>
                   <div class="content">
                     <h5 class="title-custom"><a href="/causes/{{campaignUrgent && campaignUrgent.id}}">{{campaignUrgent
-                        && campaignUrgent.title}}</a>
+                    && campaignUrgent.title}}</a>
                     </h5>
                     <ul class="donate-info">
                       <li class="info-item bdr-8">
@@ -153,9 +133,14 @@
                     <hr>
                     <div class="text-center pb-3">
                       <a class="btn btn-success mr-10" style="background: #fc6539; border: none"
-                        href="/causes/{{campaignUrgent && campaignUrgent.id}}">Chi tiết</a>
-                      <a class="btn btn-success " style="background: #fc6539; border: none"
-                        href="/payment/{{campaignUrgent && campaignUrgent.id}}">Quyên góp</a>
+                         href="/causes/{{campaignUrgent && campaignUrgent.id}}">Chi tiết</a>
+
+                      <a *ngIf="isDonateUrgent; else elseBlock" class="btn btn-success "
+                         style="background: #fc6539; border: none"
+                         href="/payment/{{campaignUrgent && campaignUrgent.id}}">Quyên góp</a>
+                      <ng-template #elseBlock>
+                        <p disabled class="btn btn-success " style="background: #fc6539; border: none">Đã hoàn thành</p>
+                      </ng-template>
                     </div>
                   </div>
                 </div>

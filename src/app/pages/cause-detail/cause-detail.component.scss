@@ -1,49 +1,62 @@
-.cause-description{
+.cause-description {
   color: #7e7e7e;
   font-size: 17px;
 }
 
-.cause-start-date{
+.cause-start-date {
   margin-top: 5px;
   color: #7e7e7e;
   font-size: 14px;
 }
 
-.information-donate{
+.information-donate {
   color: #000;
 }
 
-.title-custom{
+.title-custom {
   font-size: 18px;
 }
 
-.title-custom > a{
+.title-custom > a {
   color: #000000;
 }
 
-.title-custom > a:hover{
+.title-custom > a:hover {
   color: #FEA444;
 }
 
-.bdr-15{
+.bdr-15 {
   border-radius: 15px;
 }
 
-.bdr-10{
-  border-radius: 10px;
+.bdr-10 {
+  border-radius: 10px !important;
 }
 
-.bdr-8{
+.bdr-8 {
   border-radius: 8px;
 }
 
-.p-30{
+.p-30 {
   padding: 30px;
 }
 
-.des-sponsor{
+.des-sponsor {
   display: -webkit-box;
   -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
   overflow: hidden;
+}
+
+.box-shadow {
+  --tw-ring-offset-shadow: 0 0 #0000;
+  --tw-ring-shadow: 0 0 #0000;
+  --tw-shadow: 0 10px 15px -3px rgba(0, 0, 0, .1), 0 4px 6px -4px rgba(0, 0, 0, .1);
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 rgba(0, 0, 0, 0)),
+  var(--tw-ring-shadow, 0 0 rgba(0, 0, 0, 0)), var(--tw-shadow);
+
+  border-width: 1px;
+  --tw-border-opacity: 1;
+  border-color: rgb(255 255 255/var(--tw-border-opacity));
+
 }

@@ -26,6 +26,7 @@ export class CauseDetailComponent implements OnInit {
   public categories: Category[] = [];
   public campaignUrgent!: Campaign;
   public idCampaign!: string;
+  public isDonateUrgent = false;
 
   ngOnInit(): void {
     let id = this._route.snapshot.paramMap.get('id');
@@ -50,11 +51,20 @@ export class CauseDetailComponent implements OnInit {
 
   getCampaignUrgent() {
     this._apiService.getCampaignUrgent()
-      .subscribe(campaignUrgent => campaignUrgent && (this.campaignUrgent = campaignUrgent));
+      .subscribe(campaignUrgent =>{
+        campaignUrgent && (this.campaignUrgent = campaignUrgent);
+        this.isDonateUrgent = this.checkDonateCampaignUrgent(campaignUrgent && campaignUrgent.endDate) >= 0
+      });
   }
 
 
   handlerDateTime(s: string) {
     return SystemUtil.handlerDateTime(s);
+  }
+
+  checkDonateCampaignUrgent(d: string){
+    let endDateCampaign = new Date(Date.parse(d)).setUTCHours(23, 59, 59, 999)
+    let endCurrentDate = new Date().setUTCHours(23, 59, 59, 999)
+    return endDateCampaign - endCurrentDate
   }
 }
