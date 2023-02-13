@@ -12,7 +12,7 @@
             <div class="causes-details-content">
               <div class="causes-details">
                 <div class="thumb">
-                  <img class="w-100" src="{{campaign && campaign.image}}" alt="Image-Givest">
+                  <img class="w-100" src="{{campaign && campaign.image}}" alt="Image-HEROFUND">
                 </div>
                 <h3 class="cause-title">{{campaign && campaign.title}}</h3>
                 <div class="cause-description">{{campaign && campaign.description}}</div>
@@ -70,12 +70,12 @@
               <div class="widget bdr-10 p-30 box-shadow">
                 <h3 class="widget-title">Đồng hành cùng dự án</h3>
                 <div class="separator-line">
-                  <img class="me-1" src="assets/img/shape/line-t2.png" alt="Image-Givest">
+                  <img class="me-1" src="assets/img/shape/line-t2.png" alt="Image-HEROFUND">
                 </div>
                 <div class="widget-category">
                   <div class="row">
                     <div class="col-md-4">
-                      <img alt="givest" style="width: 100%"
+                      <img alt="HEROFUND" style="width: 100%"
                            src="{{campaign && campaign.sponsor && campaign.sponsor.image}}">
                     </div>
                     <div class="col-md-8">
@@ -90,7 +90,7 @@
               <div class="widget bdr-10 p-30 box-shadow">
                 <h3 class="widget-title">Danh mục quyên góp</h3>
                 <div class="separator-line">
-                  <img class="me-1" src="assets/img/shape/line-t2.png" alt="Image-Givest">
+                  <img class="me-1" src="assets/img/shape/line-t2.png" alt="Image-HEROFUND">
                 </div>
                 <div class="widget-category">
                   <a *ngFor="let c of categories" href="/causes?categoryId={{c.id}}">{{c.name}}</a>
@@ -99,11 +99,11 @@
               <div class="widget bdr-10 p-30 box-shadow">
                 <h3 class="widget-title">Khẩn cấp</h3>
                 <div class="separator-line">
-                  <img class="me-1" src="assets/img/shape/line-t2.png" alt="Image-Givest">
+                  <img class="me-1" src="assets/img/shape/line-t2.png" alt="Image-HEROFUND">
                 </div>
                 <div class="widget-causes-item">
                   <div class="thumb">
-                    <img src="{{campaignUrgent && campaignUrgent.image}}" alt="Givest-HasTech">
+                    <img src="{{campaignUrgent && campaignUrgent.image}}" alt="HEROFUND-HasTech">
                   </div>
                   <div class="content">
                     <h5 class="title-custom"><a href="/causes/{{campaignUrgent && campaignUrgent.id}}">{{campaignUrgent

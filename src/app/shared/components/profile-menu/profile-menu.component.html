@@ -1,15 +1,15 @@
 <div class="action">
   <div class="profile">
-    <img alt="givest" style="border: #0e0e0e solid 1px" src="{{profile && profile.avatar ? profile.avatar : '/assets/img/team/1.jpg'}}" />
+    <img alt="HEROFUND" style="border: #0e0e0e solid 1px" src="{{profile && profile.avatar ? profile.avatar : '/assets/img/team/1.jpg'}}" />
   </div>
   <div class="menu active">
     <h3>{{profile && (profile.firstName + ' ' + profile.lastName) }}<br /><span>Chào mừng bạn trở lại</span></h3>
     <ul>
       <li style="cursor: pointer;">
-        <img alt="givest" src="{{'/assets/img/icons/user.png'}}" /><a routerLink="profile">Thông tin cá nhân</a>
+        <img alt="HEROFUND" src="{{'/assets/img/icons/user.png'}}" /><a routerLink="profile">Thông tin cá nhân</a>
       </li>
       <li (click)="logOut()" style="cursor: pointer;">
-        <img alt="givest" src="/assets/img/icons/log-out.png" /><a>Đăng xuất</a>
+        <img alt="HEROFUND" src="/assets/img/icons/log-out.png" /><a>Đăng xuất</a>
       </li>
     </ul>
   </div>
