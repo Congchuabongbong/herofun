@@ -7,7 +7,7 @@ import { ProfileComponent } from './pages/profile/profile.component';
 import { CausesComponent } from './pages/causes/causes.component';
 import { CauseDetailComponent } from './pages/cause-detail/cause-detail.component';
 import { ContactUsComponent } from './pages/contact-us/contact-us.component';
-import { EventDetailComponent } from './pages/event-detail/event-detail.component';
+import { ArticleDetailComponent } from './pages/article-detail/article-detail.component';
 import { VolunteerComponent } from './pages/volunteer/volunteer.component';
 import { LoginComponent } from './layout/auth/login/login.component';
 import { RegisterComponent } from './layout/auth/register/register.component';
@@ -45,9 +45,9 @@ const routes: Routes = [
         component: ContactUsComponent,
       },
       {
-        path: 'event-detail',
-        title: 'Event Detail',
-        component: EventDetailComponent,
+        path: 'article-detail/:id',
+        title: 'Article Detail',
+        component: ArticleDetailComponent,
       },
       {
         path: 'volunteer',

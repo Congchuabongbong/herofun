@@ -43,27 +43,44 @@ body {
   border: solid 1px #ba68c8;
 }
 
-.pointer{
+.pointer {
   cursor: pointer;
 }
 
-.nav-link{
-  color: #FEA444 ;
+.nav-link {
+  color: #FEA444;
 }
 
-.page-item .active{
+.page-item .active {
   background-color: #FEA444;
   border: #FEA444;
 }
 
-.status__custom{
+.status__custom {
   padding: 0 10px;
   border-radius: 3px;
   font-weight: 500;
   color: white;
 }
 
-.spinner_custom{
+.spinner_custom {
   left: 60px;
   top: 6px;
+}
+
+.select-image {
+  top: 110px;
+  left: 76px;
+  display: none;
+  font-size: 30px;
+  cursor: pointer;
+}
+
+.my-avatar:hover .select-image{
+  display: block;
+  color: #0e0e0e;
+}
+
+.my-avatar:hover .my-image{
+  opacity: 0.1;
 }

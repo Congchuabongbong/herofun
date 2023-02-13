@@ -4,6 +4,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { first } from 'rxjs';
 import { AuthenticationService } from 'src/app/shared/services/authentication.service';
 import { AlertService } from 'src/app/shared/services/alert.service';
+import {Profile} from "../../../shared/models";
 
 @Component({
   selector: 'app-login',
@@ -15,6 +16,7 @@ export class LoginComponent implements OnInit {
   public loading = false;
   public submitted = false;
   public returnUrl!: string;
+  public profile!: Profile;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -24,7 +26,7 @@ export class LoginComponent implements OnInit {
     private alertService: AlertService
   ) {
     if (this.authenticationService.currentUserValue)
-      this.router.navigate(['/home']);
+      this.router.navigate(['/home']).then();
   }
 
   ngOnInit(): void {
@@ -49,8 +51,12 @@ export class LoginComponent implements OnInit {
       .login(this.f['username'].value, this.f['password'].value)
       .pipe(first())
       .subscribe(
-        (data) => {
-          this.router.navigate([this.returnUrl]);
+        async (data) => {
+          await this.authenticationService.getProfile()
+            .subscribe(res => {
+              res && localStorage.setItem("profile", JSON.stringify(res.data));
+            });
+          window.location.href = this.returnUrl;
         },
         (error) => {
           this.alertService.error(error);

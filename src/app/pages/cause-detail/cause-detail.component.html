@@ -43,11 +43,11 @@
 
                   <app-tab [tabTitle]="'Danh sách quyên góp'">
                     <div class="donners-info">
-                      <app-list-sponsor></app-list-sponsor>
+                      <app-list-sponsor [idCampaign]="idCampaign"></app-list-sponsor>
                     </div>
                   </app-tab>
                   <app-tab [tabTitle]="'Bài viết'">
-                    <app-post-article></app-post-article>
+                    <app-post-article [idCampaign]="idCampaign"></app-post-article>
                     <!--Main layout-->
                   </app-tab>
                 </app-tabs>
@@ -58,6 +58,10 @@
             </div>
             <div class="sidebar-area">
               <div class="widget bdr-10 p-30">
+
+                <donation-information [target]='campaign.targetAmount' [current]='campaign.currentAmount'
+                  [donations]="campaign.donations" [leftTime]="10" [payment]="campaign.id"></donation-information>
+
                 <h3 class="widget-title">Thông tin quyên góp</h3>
                 <div class="separator-line">
                   <img class="me-1" src="assets/img/shape/line-t2.png" alt="Image-Givest">

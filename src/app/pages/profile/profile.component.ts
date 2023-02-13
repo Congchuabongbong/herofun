@@ -38,6 +38,8 @@ export class ProfileComponent implements OnInit {
   sponsors: Sponsor[] = [];
   validateForm!: UntypedFormGroup;
   image!: string;
+  avatar!: string;
+  defaultImage = '../../../assets/img/error.png';
   messageError = {
     errorTitle: "",
     errorDescription: "",
@@ -87,7 +89,9 @@ export class ProfileComponent implements OnInit {
   getProfile() {
     this.authService.getProfile().subscribe(res => {
         this.profile = res.data;
+        this.avatar = this.profile.avatar;
         this.dateOfBirth = res.data.dateOfBirth
+        localStorage.setItem('profile', JSON.stringify(res.data))
       },
     )
   }
@@ -108,7 +112,7 @@ export class ProfileComponent implements OnInit {
       lastName: this.profile.lastName,
       dateOfBirth: this.convertInputDateToStringDYM(this.dateOfBirth),
       email: this.profile.email,
-      avatar: this.profile.avatar,
+      avatar: this.avatar,
       phone: this.profile.phone,
       address: this.profile.address
     }
@@ -117,6 +121,8 @@ export class ProfileComponent implements OnInit {
         res => {
           if (res && res.status == true) {
             this.alertService.success(res.message)
+            this.getProfile();
+            window.location.href = '/profile'
           } else {
             this.alertService.error(res.message)
           }
@@ -241,6 +247,15 @@ export class ProfileComponent implements OnInit {
       })
   }
 
+  uploadAvatar($event: any) {
+    this.isLoadImage = false;
+    this.apiService.uploadImage($event.target.files[0])
+      .subscribe(res => {
+        res && (this.avatar = res.data);
+        this.isLoadImage = true;
+      })
+  }
+
   btnCreateCampaign() {
     if (this.validateForm.valid) {
       this.createCampaign(this.validateForm.value);
@@ -337,5 +352,10 @@ export class ProfileComponent implements OnInit {
     } else {
       this.messageError.errorDetail = "";
     }
+  }
+
+  chosenFile() {
+    let file = document.getElementById('fileChosen') as HTMLInputElement;
+    file.click();
   }
 }

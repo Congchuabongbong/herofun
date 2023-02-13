@@ -1,4 +1,4 @@
-import { Component, OnInit, ElementRef } from '@angular/core';
+import {Component, OnInit, ElementRef, Input} from '@angular/core';
 import { AuthenticationService } from '../../services/authentication.service';
 import {Profile} from "../../models";
 
@@ -8,15 +8,16 @@ import {Profile} from "../../models";
   styleUrls: ['./profile-menu.component.scss']
 })
 export class ProfileMenuComponent implements OnInit {
-  profile = new Profile();
+
+  @Input()
+  profile!: any;
   constructor(private _el: ElementRef, private authService: AuthenticationService) { }
-
   ngOnInit(): void {
-
   }
 
   public logOut() {
     this.authService.logout();
+    localStorage.clear();
     window.location.href = '/home';
   }
 }

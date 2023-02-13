@@ -12,9 +12,6 @@ export class ApiService {
 
   private refreshData = new Subject<void>();
 
-
-
-
   constructor(private http: HttpClient) {
 
   }
@@ -93,4 +90,15 @@ export class ApiService {
     let headers = SystemUtil.setTokenHeader();
     return this.http.post<any>(url, JSON.stringify(request), { headers });
   }
+
+  public getPageTopTransactionByCampaignId(campaignId: any,offset: any, limit: any) {
+    let url = `${SystemUtil.BASE_URL}/api/v1/transactions/top?campaignId=${campaignId}&limit=${limit}&offset=${offset}`;
+    return this.http.get<any>(url);
+  }
+
+  public getPageNewTransactionByCampaignId(campaignId: any, offset: any, limit: any) {
+    let url = `${SystemUtil.BASE_URL}/api/v1/transactions/new?campaignId=${campaignId}&limit=${limit}&offset=${offset}`;
+    return this.http.get<any>(url);
+  }
+
 }

@@ -12,15 +12,13 @@ import { Router } from "@angular/router";
 export class HeaderComponent implements OnInit {
 
   jwt!: string;
+  profile!: any;
 
   constructor(private authService: AuthenticationService, private router: Router) { }
 
   ngOnInit(): void {
     this.jwt = JSON.parse(localStorage.getItem("jwt")!);
-  }
-  logOut() {
-    this.authService.logout();
-    window.location.href = '/home';
+    this.profile = JSON.parse(localStorage.getItem("profile")!);
   }
 
 }

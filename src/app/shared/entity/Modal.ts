@@ -246,7 +246,7 @@ export class FormDonateRequest {
   }
 }
 
-export interface ResponseArticle{
+export interface ResponseArticle {
   totalElements: number;
   totalPages: number;
   offset: number;
@@ -262,8 +262,51 @@ export interface Article {
   title: string;
   description: string;
   detail: string;
-  image: string
+  image: string;
+  avatarAccount: string;
+  createdBy: string;
   campaignId: number;
   numberOfLike: number;
   campaignTitle: string;
+  comments: Comment[];
+}
+
+export interface Comment {
+  createdAt: string,
+  updatedAt: string;
+  status: number;
+  id: number;
+  content: string;
+  accountId: number;
+  articleId: number;
+  numberOfLike: number;
+  username: string;
+  articleTitle: string;
+  avatarAccount: string;
+}
+
+export interface ResponseComment{
+  totalElements: number;
+  totalPages: number;
+  offset: number;
+  limit: number;
+  items: Comment[];
+}
+
+export interface TransactionModal{
+  id: number;
+  senderName: string;
+  message: string;
+  email: string
+  phone: string;
+  address:string;
+  amount: number;
+  avatar: string;
+  sendingTime: string;
+  campaignId: number;
+  paymentChannel: number;
+  accountId: number;
+  paymentStatus: string;
+  paypalTransactionId: string;
+  orderId: string;
 }

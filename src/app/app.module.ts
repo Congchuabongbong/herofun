@@ -21,7 +21,7 @@ import { CauseDetailComponent } from './pages/cause-detail/cause-detail.componen
 import { CausesComponent } from './pages/causes/causes.component';
 import { ContactUsComponent } from './pages/contact-us/contact-us.component';
 import { ErrorComponent } from './pages/error/error.component';
-import { EventDetailComponent } from './pages/event-detail/event-detail.component';
+import { ArticleDetailComponent } from './pages/article-detail/article-detail.component';
 import { HomeComponent } from './pages/home/home.component';
 import { MainComponent } from './pages/main/main.component';
 import { PaymentFormComponent } from './pages/payment-form/payment-form.component';
@@ -39,6 +39,7 @@ import { PostArticleComponent } from './shared/components/post-article/post-arti
 import { ProfileMenuComponent } from './shared/components/profile-menu/profile-menu.component';
 import { InfiniteScrollModule } from 'ngx-infinite-scroll';
 import { ListSponsorComponent } from './shared/components/list-sponsor/list-sponsor.component';
+import { DonationInformationComponent } from './shared/components/donation-information/donation-information.component';
 
 
 @NgModule({
@@ -62,7 +63,7 @@ import { ListSponsorComponent } from './shared/components/list-sponsor/list-spon
     PageTitleAreaComponent,
     SlideTestimonialComponent,
     ContactUsComponent,
-    EventDetailComponent,
+    ArticleDetailComponent,
     VolunteerComponent,
     LoginComponent,
     RegisterComponent,
@@ -74,6 +75,7 @@ import { ListSponsorComponent } from './shared/components/list-sponsor/list-spon
     PostArticleComponent,
     ProfileMenuComponent,
     ListSponsorComponent,
+    DonationInformationComponent,
 
   ],
   imports: [
