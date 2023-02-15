@@ -21,23 +21,7 @@
                 <!-- **Tab here** -->
                 <app-tabs>
                   <app-tab [tabTitle]="'Câu chuyện'">
-                    <div class="donate-info-wrp">
-                      <div class="row">
-                        <div class="col-md-6">
-                          <ul class="donate-info">
-                            <li class="info-item">
-                              <span class="info-title">Mục tiêu:</span>
-                              <span class="amount">$ {{campaign && campaign.targetAmount}}</span>
-                            </li>
-                            <li class="info-item">
-                              <span class="info-title">Hiện tại:</span>
-                              <span class="amount">$ {{campaign && campaign.currentAmount}}</span>
-                            </li>
-                          </ul>
-                        </div>
-                        <div class="col-md-6"></div>
-                      </div>
-                    </div>
+                    <hr>
                     <div [innerHTML]="campaign && campaign.detail"></div>
                   </app-tab>
 
