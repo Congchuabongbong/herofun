@@ -29,7 +29,7 @@ export class SponsorComponent implements OnInit {
   offset = 1;
   limit = 12;
   sponsor!: Sponsor[];
-  campaigns: Observable<Campaign[]> = this.apiService.getPageCampaign(1, 3).pipe(mergeMap((result) => of(result['items'])));
+  campaigns: Observable<Campaign[]> = this.apiService.getPageCampaign(1, 2).pipe(mergeMap((result) => of(result['items'])));
   isLoading = false;
 
   ngOnInit(): void {
