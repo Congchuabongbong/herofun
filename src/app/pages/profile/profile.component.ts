@@ -257,6 +257,7 @@ export class ProfileComponent implements OnInit {
   btnCreateCampaign() {
     if (this.validateForm.valid) {
       this.createCampaign(this.validateForm.value);
+      this.btnResetFormCampaign();
     } else {
       this.handlerErrorMessageFormCreateCampaign();
     }
@@ -272,9 +273,10 @@ export class ProfileComponent implements OnInit {
           if (res.status) {
             this.alertService.success(res.message)
             this.findCampaign(this.filterCampaign);
-          } else {
-            this.alertService.error(res.message)
+
+            return;
           }
+          this.alertService.error(res.message)
         },
         error => this.alertService.error(error)
       )
