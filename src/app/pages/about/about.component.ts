@@ -64,7 +64,7 @@ export class AboutComponent implements OnInit, AfterViewInit {
   sponsor!: Sponsor[];
 
   ngOnInit(): void {
-    this.apiService.getSponsor().subscribe(res => res && (this.sponsor = res))
+    this.apiService.getPageSponsor(1,10).subscribe(res => res && (this.sponsor = res.items))
   }
 
   slideNext() {

@@ -54,8 +54,8 @@ export class CausesComponent implements OnInit {
   }
 
   getSponsor() {
-    this.apiService.getSponsor().subscribe(
-      res => this.sponsors = res,
+    this.apiService.getPageSponsor(1,10).subscribe(
+      res => res && (this.sponsors = res),
     );
   }
 

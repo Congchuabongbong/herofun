@@ -54,8 +54,8 @@ export class HomeComponent implements OnInit, AfterViewInit {
     this.apiService.getCampaignUrgent().subscribe(campaignUrgent => campaignUrgent && (this.campaignUrgent = campaignUrgent));
   }
   getSponsor() {
-    this.apiService.getSponsor().subscribe(
-      res => this.sponsors = res,
+    this.apiService.getPageSponsor(1,10).subscribe(
+      res => res && (this.sponsors = res.items),
       e => console.log(e)
     );
   }
