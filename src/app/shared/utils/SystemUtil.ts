@@ -5,7 +5,7 @@ export class SystemUtil {
 
   public static BASE_URL = 'https://herofund.up.railway.app';
   static local = 'http://localhost:8080';
-  static returnUrlProd = 'https://herofun-client.vercel.app/payment-success';
+  static returnUrlProd = 'https://herofund.vercel.app/payment-success';
   static prod = 'https://herofund.up.railway.app';
 
   public static setTokenHeader() {
