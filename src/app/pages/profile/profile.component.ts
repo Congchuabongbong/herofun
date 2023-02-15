@@ -121,7 +121,6 @@ export class ProfileComponent implements OnInit {
           if (res && res.status == true) {
             this.alertService.success(res.message)
             this.getProfile();
-            window.location.href = '/profile'
           } else {
             this.alertService.error(res.message)
           }

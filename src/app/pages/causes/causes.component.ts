@@ -34,15 +34,15 @@ export class CausesComponent implements OnInit {
 
   ngOnInit(): void {
     this.activeRouter.queryParams.subscribe(param => this.categoryId = param['categoryId']);
-    // if (this.categoryId) {
-    //   this.category = parseInt(this.categoryId);
-    //   this.searchCampaign();
-    // } else {
+    if (this.categoryId) {
+      this.category = parseInt(this.categoryId);
+      this.searchCampaign();
+    } else {
+      this.getPageCampaign();
 
-    // }
-    this.getPageCampaign();
-    this.getSponsor();
-    this.getCategories();
+    }
+    // this.getSponsor();
+    // this.getCategories();
   }
 
   getPageCampaign() {
@@ -59,13 +59,14 @@ export class CausesComponent implements OnInit {
     );
   }
 
-  // searchCampaign() {
-  //   this.offset = 1;
-  //   this.campaignService.searchCampaign(this.category, this.keyword, 1, this.limit)
-  //     .subscribe(res => {
-  //       this.campaignsStore = res.items;
-  //     });
-  // }
+  searchCampaign() {
+    this.offset = 1;
+    this.campaignService.searchCampaign(this.category, this.keyword, 1, this.limit)
+      .subscribe(res => {
+        this.campaignsStore.push(...res.items);
+        this.isLoading = false;
+      });
+  }
 
   private getCategories() {
     this.apiService.getCategories().subscribe(res => this.categories = res);
@@ -76,24 +77,18 @@ export class CausesComponent implements OnInit {
 
   }
 
-  // btnSearch() {
-  //   this.searchCampaign();
-  // }
-
-  // reset() {
-  //   this.category = 0;
-  //   this.keyword = "";
-  //   this.getPageCampaign();
-  // }
-
   handlerDateTime(date: string) {
     return SystemUtil.handlerDateTime(date);
   }
   onScrollDown(event: any) {
+    this.offset++;
     if (this.offset <= this.totalPage) {
-      this.offset++;
       this.isLoading = true;
-      this.getPageCampaign();
+      if (this.categoryId){
+        this.searchCampaign();
+      }else {
+        this.getPageCampaign();
+      }
     }
     return;
 
